@@ -1,0 +1,17 @@
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\bin\Debug\grupp7.exe.config
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\bin\Debug\grupp7.exe
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\bin\Debug\grupp7.pdb
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.csproj.AssemblyReference.cache
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\MainWindow.g.cs
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\Views\MainView.g.cs
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\App.g.cs
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7_MarkupCompile.cache
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7_MarkupCompile.lref
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\MainWindow.baml
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\Views\MainView.baml
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.g.resources
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.Properties.Resources.resources
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.csproj.GenerateResource.cache
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.csproj.CoreCompileInputs.cache
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.exe
+C:\Users\Wictor\Desktop\skola\år 3\Systemutvecklingsprojekt\repos\grupp7\grupp7\obj\Debug\grupp7.pdb
