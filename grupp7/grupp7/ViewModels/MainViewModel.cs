@@ -21,7 +21,7 @@ namespace grupp7.ViewModels
 
         public MainViewModel()
         {
-            //Set SelectedViewModel to startup UserControl here (Login view probably)
+            //Set SelectedViewModel to startup UserControl here (Login view probablyy)
         }
     }
 }
