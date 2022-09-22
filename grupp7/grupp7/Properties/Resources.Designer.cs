@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace grupp7.Properties
+namespace PresentationLayer.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.

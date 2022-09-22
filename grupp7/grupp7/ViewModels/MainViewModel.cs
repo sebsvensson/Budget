@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace grupp7.ViewModels
+namespace PresentationLayer.ViewModels
 {
     class MainViewModel : BaseViewModel
     {

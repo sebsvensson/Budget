@@ -11,8 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PresentationLayer.ViewModels;
 
-namespace grupp7.Views
+namespace PresentationLayer.Views
 {
     /// <summary>
     /// Interaction logic for MainView.xaml
@@ -22,6 +23,7 @@ namespace grupp7.Views
         public MainView()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
     }
 }

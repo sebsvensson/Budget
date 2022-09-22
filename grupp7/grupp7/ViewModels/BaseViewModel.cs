@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace grupp7.ViewModels
+namespace PresentationLayer.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

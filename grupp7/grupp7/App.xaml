@@ -1,9 +1,9 @@
-﻿<Application x:Class="grupp7.App"
+﻿<Application x:Class="PresentationLayer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:grupp7"
-             xmlns:views="clr-namespace:WPFApp.Views"
-             xmlns:viewmodels="clr-namespace:WPFApp.ViewModels"
+             xmlns:local="clr-namespace:PresentationLayer"
+             xmlns:views="clr-namespace:PresentationLayer.Views"
+             xmlns:viewmodels="clr-namespace:PresentationLayer.ViewModels"
              StartupUri="Views/MainView.xaml">
     <Application.Resources>
          
