@@ -13,7 +13,10 @@
 
     <Border Background="#21232D" CornerRadius="30">
         <Grid>
-
+            <!--
+            Elements here are displayed all the time throughout the application
+            Main menu etc goes here
+            -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
@@ -38,6 +41,9 @@
                              FontSize="14"/>
             </StackPanel>
             
+            <!--
+            Binding to a ViewModel that is displayed next to main menu, changes based on selection in the main menu
+            -->
             <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding SelectedViewModel}"/>
         </Grid>
     </Border>
