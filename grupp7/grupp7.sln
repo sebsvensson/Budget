@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "grupp7\PresentationLayer.csproj", "{33275E6F-A2C3-4BFE-A9AE-6EDDB7B83383}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{33275E6F-A2C3-4BFE-A9AE-6EDDB7B83383}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

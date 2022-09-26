@@ -6,6 +6,8 @@
              xmlns:viewmodels="clr-namespace:PresentationLayer.ViewModels"
              StartupUri="Views/MainView.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewmodels:TestViewModel}">
+            <views:TestView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -1,0 +1,44 @@
+﻿<Window x:Class="PresentationLayer.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer.Views"
+        mc:Ignorable="d"
+        Title="MainView" Height="750" Width="1125"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border Background="#21232D" CornerRadius="30">
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="IT Service"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="white"
+                       FontSize="22"
+                       Margin="20,0,0,0"/>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"/>
+            </StackPanel>
+            
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding SelectedViewModel}"/>
+        </Grid>
+    </Border>
+</Window>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.ViewModels
 {
@@ -21,7 +22,8 @@ namespace PresentationLayer.ViewModels
 
         public MainViewModel()
         {
-            //Set SelectedViewModel to startup UserControl here (Login view probablyy)
+            //Set SelectedViewModel to startup UserControl here (Login view probably)
+            SelectedViewModel = new TestViewModel();
         }
     }
 }
