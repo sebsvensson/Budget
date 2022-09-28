@@ -11,6 +11,7 @@ namespace PresentationLayer.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        //Displays selected view next to menu
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
         {
@@ -22,6 +23,10 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //Command to change views
+        public ICommand UpdateViewCommand { get; set; }
+
+        //Sets columnspan of menu to minimize menu
         private int _columnSpan = 2;
         public int ColumnSpan
         {
@@ -33,6 +38,7 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //minimize menu
         private int _gridRow = 0;
         public int GridRow
         {
@@ -44,6 +50,7 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //minimize menu
         private int _gridColumn = 0;
         public int GridColumn
         {
@@ -55,6 +62,7 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //menu width
         private int _menuWidth = 150;
         public int MenuWidth
         {
@@ -66,6 +74,7 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //if menu is minimized or not
         private bool menuWide = true;
 
         private ICommand _menuDropCommand;
@@ -77,6 +86,7 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //drops the menu
         private void MenuDrop()
         {
             if (menuWide)
@@ -96,6 +106,8 @@ namespace PresentationLayer.ViewModels
             //Set SelectedViewModel to startup UserControl here (Login view probably)
             //SelectedViewModel = new TestViewModel();
             SelectedViewModel = new LoginViewModel(this);
+
+            UpdateViewCommand = new UpdateViewCommand(this);
         }
     }
 }
