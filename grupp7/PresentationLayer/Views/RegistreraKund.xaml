@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="PresentationLayer.Views.RegistreraKund"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="920">
+    <Grid Background="#2C303D">
+        <Border Background="#2C303D">
+        </Border>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="KundID:" FontSize="20" Margin="300,150,0,0" Foreground="White" />
+        <TextBox Grid.Column="2" Grid.Row="1" Margin="436,150,0,0" Width="200"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Kund:" FontSize="20" Margin="300,10,0,0" Foreground="White" />
+        <TextBox Grid.Column="2" Grid.Row="2" Margin="436,10,0,0" Width="200"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text="Kundkategori:" FontSize="20" Margin="300,10,0,0" Foreground="White" />
+        <ComboBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" Margin="436,10,0,0">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock/>
+                    <!--Binding till kundkategorier -->
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button Grid.Column="3" Grid.Row="4" Content="Spara" FontSize="20" Margin="100,250,0,0" Width="100"/>
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>
