@@ -10,7 +10,8 @@
         <Border Background="#2C303D">
             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Foreground="White">
+                       Foreground="White"
+                       FontSize="17">
                 Olika views här
                 <LineBreak/>
                 Meny på sidan

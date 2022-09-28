@@ -11,7 +11,7 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-    <Border Background="#21232D" CornerRadius="30">
+    <Border Background="#21232D" CornerRadius="0">
         <Grid>
             <!--
             Elements here are displayed all the time throughout the application

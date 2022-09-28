@@ -24,6 +24,7 @@ namespace PresentationLayer.ViewModels
         {
             //Set SelectedViewModel to startup UserControl here (Login view probably)
             SelectedViewModel = new TestViewModel();
+            //SelectedViewModel = new LoginViewModel();
         }
     }
 }
