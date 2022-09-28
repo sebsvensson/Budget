@@ -6,7 +6,7 @@
              xmlns:viewmodels="clr-namespace:PresentationLayer.ViewModels"
              StartupUri="Views/MainView.xaml">
     <Application.Resources>
-        
+
         <!--
         Datatemplates for ViewModel-View bindings
         -->
@@ -17,5 +17,35 @@
             <views:LoginView/>
         </DataTemplate>
         
+        <!-- Menu button theme -->
+        <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+           TargetType="{x:Type RadioButton}"
+           x:Key="MenuButtonTheme">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid VerticalAlignment="Stretch"
+                              HorizontalAlignment="Stretch"
+                              Background="{TemplateBinding Background}">
+
+                                <TextBlock Text="{TemplateBinding Property=Content}"
+                                       VerticalAlignment="Center"/>
+
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#17181E"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
 </Application>

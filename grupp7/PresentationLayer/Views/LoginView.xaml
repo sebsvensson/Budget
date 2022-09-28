@@ -10,5 +10,11 @@
         <TextBlock VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Text="LOGIN VIEW"/>
+        <Button Content="Login" 
+                HorizontalAlignment="Center" 
+                Margin="0,100,0,0" 
+                VerticalAlignment="Center" 
+                Width="75" 
+                Command="{Binding LogInCommand}"/>
     </Grid>
 </UserControl>
