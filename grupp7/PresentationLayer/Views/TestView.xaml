@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PresentationLayer.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="920">
+             d:DesignHeight="600" d:DesignWidth="920"
+             Height="750">
     <Grid Background="Transparent">
         <Border Background="#2C303D">
             <TextBlock HorizontalAlignment="Center"
