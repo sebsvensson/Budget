@@ -10,22 +10,23 @@
                         <Grid VerticalAlignment="Stretch"
                               HorizontalAlignment="Stretch"
                               Background="{TemplateBinding Background}">
-                            <TextBlock Text="Hello"
+
+                            <TextBlock Text=""
                                        VerticalAlignment="Center"/>
+
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
 
         </Style.Setters>
-
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Background" Value="DarkGray"/>
             </Trigger>
         </Style.Triggers>
     </Style>
+    
 </ResourceDictionary>
