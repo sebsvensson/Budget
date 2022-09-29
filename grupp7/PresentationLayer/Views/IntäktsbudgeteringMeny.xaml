@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="PresentationLayer.Views.IntäktsbudgeteringMeny"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="925">
+
+    <Grid Background="#2C303D">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Button Content="Intäktsbudgetering via kund"  Grid.Column="1" HorizontalAlignment="Center" Margin="229,94,21,0" Grid.Row="9" VerticalAlignment="Top" Width="202" Height="65"/>
+        <Button Content="Intäktsbudgetering via produkt" Grid.Column="2" HorizontalAlignment="Center" Margin="0,94,0,0" Grid.Row="9" VerticalAlignment="Top" Width="202" Height="65"/>
+        <Button Content="Lås budget" Grid.Column="1" HorizontalAlignment="Left" Margin="229,174,0,0" Grid.Row="9" VerticalAlignment="Top" Width="425" Grid.ColumnSpan="2" Height="30"/>
+        <ComboBox x:Name="asd" Grid.Column="1" Margin="229,222,0,0" Grid.Row="9" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="30"/>
+       
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>
