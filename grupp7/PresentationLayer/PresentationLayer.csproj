@@ -60,6 +60,15 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
+    <Compile Include="Views\IntäktsbudgeteringViaProdukt.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringViaProdukt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntäktsbudgeteringMeny.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringMeny.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntäktsbudgeteringViaKund.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringViaKund.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -74,6 +83,18 @@
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
     <Page Include="Theme\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringViaProdukt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringMeny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringViaKund.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
