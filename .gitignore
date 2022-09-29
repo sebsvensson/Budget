@@ -1,4 +1,4 @@
-.vs/
+.gitignore
 packages/
 bin/
 obj/
