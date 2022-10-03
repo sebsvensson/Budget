@@ -34,9 +34,17 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new ForeCastingViewModel();
             }
-            else if (parameter.ToString() == "MyBookings")
+            else if (parameter.ToString() == "RegisterProductView")
             {
-
+                mainViewModel.SelectedViewModel = new RegisterProductViewModel();
+            }
+            else if(parameter.ToString() == "RegisterCustomerView")
+            {
+                mainViewModel.SelectedViewModel = new RegisterCustomerViewModel();
+            }
+            else if (parameter.ToString() == "AdministerStaffView")
+            {
+                mainViewModel.SelectedViewModel = new AdministerStaffViewModel();
             }
         }
     }

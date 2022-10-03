@@ -8,7 +8,7 @@
              d:DesignHeight="600" d:DesignWidth="920"
              Height="750">
     <Grid Background="Transparent">
-        <Border Background="#2C303D">
+        <Border Background="{Binding PageColor}">
             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Foreground="White"

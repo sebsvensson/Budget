@@ -16,5 +16,27 @@ namespace PresentationLayer.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        private string _pageColor = Colors.Page;
+        public string PageColor
+        {
+            get { return _pageColor; }
+            set
+            {
+                _pageColor = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private string _textColor = Colors.Text;
+        public string TextColor
+        {
+            get { return _textColor; }
+            set
+            {
+                _textColor = value;
+                OnPropertyChanged(null);
+            }
+        }
     }
 }

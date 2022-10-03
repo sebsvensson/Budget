@@ -8,7 +8,7 @@
              d:DesignHeight="600" d:DesignWidth="920"
              Height="750">
     <Grid Background="Transparent">
-        <Border Background="white">
+        <Border Background="{Binding PageColor}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -16,27 +16,61 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="500"/>
+
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width= "auto"/>
-                    <ColumnDefinition Width= "auto"/>
-                    <ColumnDefinition Width= "auto"/>
-                    <ColumnDefinition Width= "auto"/>
-                    <ColumnDefinition Width= "auto"/>
-                    <ColumnDefinition Width= "auto"/>
-                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width= "70"/>
+                    <ColumnDefinition Width= "70"/>
+                    <ColumnDefinition Width= "90"/>
+                    <ColumnDefinition Width= "90"/>
+                    <ColumnDefinition Width= "90"/>
+                    <ColumnDefinition Width= "70"/>
+                    <ColumnDefinition Width= "110"/>
+                    <ColumnDefinition Width= "90"/>
+                    <ColumnDefinition Width= "120"/>
+                    <ColumnDefinition Width="60"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="1" Grid.Column="1" FontSize="30">Månad</TextBlock>
-                <ComboBox Grid.Row="1" Grid.Column="2"  Width="120" Height="30" SelectedValue=""></ComboBox>
-                <ListView></ListView>
-                <Button Grid.Row="2" Grid.Column="3" Width="80" Height="20">Lås prognos</Button>
-                <Button Grid.Row="2" Grid.Column="4" Width="80" Height="20">Skriv ut</Button>
-                <Button Grid.Row="2" Grid.Column="5" Width="80" Height="20">Exportera</Button>
-                <Button Grid.Row="2" Grid.Column="6" Width="80" Height="20">Spara</Button>
-                <TextBlock  Grid.Row="3" Grid.Column="6" Text="">Senast ändrad</TextBlock>
+
+                <TextBlock Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="1" FontSize="15" Foreground="{Binding TextColor}" Margin="0 0 0 10" >Månad:</TextBlock>
+
+                <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0 0 20 10" Width="100" ></ComboBox>
+
+                <TextBox Grid.Row="2" Grid.Column="1" Width="70" >Totalt:</TextBox>
+                <TextBox Grid.Row="2" Grid.Column="2" Width="70"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="3" Width="90"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="4" Width="90"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="5" Width="90"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="6" Width="70"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="7" Width="110"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="8" Width="90"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="9" Width="120"></TextBox>
+
+                <ListView Name="ForcastingGrid"  Grid.Row="3" Grid.RowSpan="3"  Grid.Column="1" Grid.ColumnSpan="9" Width="805" Margin="0 10 0 10" ItemsSource="{Binding}">
+                    <ListView.View>
+                        <GridView x:Name="ForecastinGrid">
+                            <GridViewColumn Header="Produkt" Width="70" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Budget" Width="70" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Utfall mån" Width="90" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Utfall acc" Width="90" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Upparbetat" Width="90" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Trend" Width="70" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Föreg.prognos" Width="110" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Prognos" Width="90" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Prognos-budget" Width="120" DisplayMemberBinding="{Binding}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" Width="80" Height="20"  Margin="0 0 20 0">Lås prognos</Button>
+                <Button Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2"  Width="80" Height="20"  >Skriv ut</Button>
+                <Button Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2"  Width="80" Height="20" Margin="0 0 50 0"  >Exportera</Button>
+                <Button Grid.Row="6" Grid.Column="9"  Width="80" Height="20" Margin="40 0 0 0">Spara</Button>
+                <TextBlock  Grid.Row="8" Grid.Column="9" Foreground="White" HorizontalAlignment="Right" >Senast redigerad</TextBlock>
             </Grid>
+
         </Border>
     </Grid>
 

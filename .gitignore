@@ -2,3 +2,5 @@ packages/
 bin/
 obj/
 *.LDF
+/grupp7/.vs/grupp7/DesignTimeBuild/.dtbcache.v2
+/grupp7/.vs/grupp7/v16/.suo

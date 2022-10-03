@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="PresentationLayer.Views.AdministerStaffView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="Transparent">
+        <Border Background="{Binding PageColor}">
+            <Canvas>
+                <Button x:Name="btnLås" Canvas.Left="612" Canvas.Top="560" Width="80" Content="Lås"/>
+                <Button x:Name="btnSpara" Canvas.Left="712" Canvas.Top="560" Width="80" Content="Spara"/>
+                <Label x:Name="lblPersonnummer" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="24" Content="Personnummer:"/>
+                <TextBox x:Name="txtPersonnummer" Canvas.Left="165" Canvas.Top="22" Width="235" Height="25"/>
+                <Label x:Name="lblFirstName" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="55" Content="Förnamn:"/>
+                <TextBox x:Name="txtFirstName" Canvas.Left="165" Canvas.Top="53" Width="235" Height="25"/>
+
+                <Label x:Name="lblLastName" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="86" Content="Förnamn:"/>
+                <TextBox x:Name="txtLastName" Canvas.Left="165" Canvas.Top="84" Width="235" Height="25"/>
+
+                <Label x:Name="lblSalary" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="149" Content="Månadslön (kr):"/>
+                <TextBox x:Name="txtSalary" Canvas.Left="165" Canvas.Top="147" Width="235" Height="25"/>
+
+                <Label x:Name="lblEmploymentRate" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="180" Content="Sysselsättningsgrad (%):"/>
+                <TextBox x:Name="txtEmploymentRate" Canvas.Left="165" Canvas.Top="178" Width="235" Height="25"/>
+
+                <Label x:Name="lblVacancyDed" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="211" Content="Vakansavdrag (%):"/>
+                <TextBox x:Name="txtVacancyDed" Canvas.Left="165" Canvas.Top="209" Width="235" Height="25"/>
+
+                <Label x:Name="lblAnnualWorker" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="242" Content="Årsarbetare:"/>
+                <TextBox x:Name="txtAnnualWorker" Canvas.Left="165" Canvas.Top="240" Width="235" Height="25"/>
+                <Label x:Name="lblPropAnnualWorker" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="268" Content="Placering Andel/årsarbetare:"/>
+
+                <Label x:Name="lblOperationsDep" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="304" Content="Driftavdelning:"/>
+                <TextBox x:Name="txtOperationDep" Canvas.Left="165" Canvas.Top="302" Width="235" Height="25"/>
+
+                <Label x:Name="lblAdminDep" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="333" Content="Administrativ avdelning:"/>
+                <TextBox x:Name="txtAdminDep" Canvas.Left="165" Canvas.Top="331" Width="235" Height="25"/>
+
+                <Label x:Name="lblManDep" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="362" Content="Utv och förv avdelning:"/>
+                <TextBox x:Name="txtManDep" Canvas.Left="165" Canvas.Top="360" Width="235" Height="25"/>
+
+                <Label x:Name="lblSaleMarketDep" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="391" Content="Försälj och markn avd:"/>
+                <TextBox x:Name="txtSaleMarketDep" Canvas.Left="165" Canvas.Top="389" Width="235" Height="25"/>
+
+                <Label x:Name="lblDifference" Foreground="{Binding TextColor}" FontWeight="Bold" Canvas.Left="17" Canvas.Top="420" Content="Differens:"/>
+                <TextBox x:Name="txtDifference" Canvas.Left="165" Canvas.Top="418" Width="235" Height="25"/>
+            </Canvas>
+        </Border>
+    </Grid>
+
+</UserControl>

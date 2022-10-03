@@ -23,6 +23,40 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //Colors
+        private string _menuColor = Colors.Menu;
+        public string MenuColor
+        {
+            get { return _menuColor; }
+            set
+            {
+                _menuColor = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private string _menuSelectedColor = Colors.MenuSelected;
+        public string MenuSelectedColor
+        {
+            get { return _menuSelectedColor; }
+            set
+            {
+                _menuSelectedColor = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private string _textSelectedColor = Colors.TextSelected;
+        public string TextSelectedColor
+        {
+            get { return _textSelectedColor; }
+            set
+            {
+                _textSelectedColor = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         //Command to change views
         public ICommand UpdateViewCommand { get; set; }
 
@@ -74,6 +108,104 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //SUB MENU HEIGHTS
+
+        //budget
+        private bool _isCheckedBudget;
+        public bool IsCheckedBudget
+        {
+            get { return _isCheckedBudget; }
+            set
+            {
+                _isCheckedBudget = value;
+                OnPropertyChanged(null);
+
+                if (value == false)
+                {
+                    BudgetMenuHeight = 0;
+                }
+                else
+                {
+                    BudgetMenuHeight = 40;
+                }
+            }
+        }
+
+        private int _budgetMenuHeight = 0;
+        public int BudgetMenuHeight
+        {
+            get { return _budgetMenuHeight; }
+            set
+            {
+                _budgetMenuHeight = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        //product
+        private bool _isCheckedProduct;
+        public bool IsCheckedProduct
+        {
+            get { return _isCheckedProduct; }
+            set
+            {
+                _isCheckedProduct = value;
+                OnPropertyChanged(null);
+
+                if (value == false)
+                {
+                    ProductMenuHeight = 0;
+                }
+                else
+                {
+                    ProductMenuHeight = 40;
+                }
+            }
+        }
+
+        private int _ProductMenuHeight = 0;
+        public int ProductMenuHeight
+        {
+            get { return _ProductMenuHeight; }
+            set
+            {
+                _ProductMenuHeight = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        //customer
+        private bool _isCheckedCustomer;
+        public bool IsCheckedCustomer
+        {
+            get { return _isCheckedCustomer; }
+            set
+            {
+                _isCheckedCustomer = value;
+                OnPropertyChanged(null);
+
+                if (value == false)
+                {
+                    CustomerMenuHeight = 0;
+                }
+                else
+                {
+                    CustomerMenuHeight = 40;
+                }
+            }
+        }
+
+        private int _CustomerMenuHeight = 0;
+        public int CustomerMenuHeight
+        {
+            get { return _CustomerMenuHeight; }
+            set
+            {
+                _CustomerMenuHeight = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         //if menu is minimized or not
         private bool menuWide = true;
 
@@ -99,6 +231,24 @@ namespace PresentationLayer.ViewModels
                 MenuWidth = 150;
                 menuWide = true;
             }
+        }
+
+        //Logs out the user, changes grids to fullscreen
+        private ICommand _logOutCommand;
+        public ICommand LogOutCommand
+        {
+            get
+            {
+                return _logOutCommand ?? (_logOutCommand = new CommandHandler(() => LogOut()));
+            }
+        }
+        private void LogOut()
+        {
+            SelectedViewModel = new LoginViewModel(this);
+            ColumnSpan = 2;
+            GridColumn = 0;
+            GridRow = 0;
+
         }
 
         public MainViewModel()
