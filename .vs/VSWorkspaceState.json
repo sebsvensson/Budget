@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\grupp7",
+    "\\grupp7\\PresentationLayer",
+    "\\grupp7\\PresentationLayer\\Views"
   ],
-  "SelectedNode": "\\grupp7.sln",
   "PreviewInSolutionExplorer": false
 }

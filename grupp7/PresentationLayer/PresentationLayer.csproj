@@ -62,14 +62,29 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
+    <Compile Include="Views\AdministerStaff.xaml.cs">
+      <DependentUpon>AdministerStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ForeCastingView.xaml.cs">
       <DependentUpon>ForeCastingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\IntäktsbudgeteringMeny.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringMeny.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntäktsbudgeteringViaKund.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringViaKund.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntäktsbudgeteringViaProdukt.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringViaProdukt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LäggTillintäktsBudgeteringViaKund.xaml.cs">
+      <DependentUpon>LäggTillintäktsBudgeteringViaKund.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -88,6 +103,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AdministerStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\EditProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,7 +115,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\IntäktsbudgeteringMeny.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringViaKund.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringViaProdukt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LäggTillintäktsBudgeteringViaKund.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
