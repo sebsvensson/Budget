@@ -111,6 +111,18 @@ namespace PresentationLayer.ViewModels
         //SUB MENU HEIGHTS
 
         //budget
+        //sub used to keep submenu open
+        private bool _isCheckedBudgetSub;
+        public bool IsCheckedBudgetSub
+        {
+            get { return _isCheckedBudgetSub; }
+            set
+            {
+                _isCheckedBudgetSub = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         private bool _isCheckedBudget;
         public bool IsCheckedBudget
         {
@@ -120,7 +132,7 @@ namespace PresentationLayer.ViewModels
                 _isCheckedBudget = value;
                 OnPropertyChanged(null);
 
-                if (value == false)
+                if (value == false && IsCheckedBudgetSub != true)
                 {
                     BudgetMenuHeight = 0;
                 }

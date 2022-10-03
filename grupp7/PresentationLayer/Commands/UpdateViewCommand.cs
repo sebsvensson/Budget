@@ -48,7 +48,11 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "RevenueBudgetMenuView")
             {
-                mainViewModel.SelectedViewModel = new RevenueBudgetMenuViewModel();
+                mainViewModel.SelectedViewModel = new RevenueBudgetMenuViewModel(mainViewModel);
+            }
+            else if (parameter.ToString() == "RevenueBudgetByCustomerView")
+            {
+                mainViewModel.SelectedViewModel = new RevenueBudgetByCustomerViewModel();
             }
         }
     }

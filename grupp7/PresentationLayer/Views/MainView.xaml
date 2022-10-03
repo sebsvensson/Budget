@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PresentationLayer.Views"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="MainView" Height="750" Width="1125"
         WindowStyle="SingleBorderWindow"
@@ -27,9 +28,15 @@
 
                                 <TextBlock Text="{TemplateBinding Property=Content}"
                                            VerticalAlignment="Center"
-                                           Margin="10,0,0,0"
+                                           Margin="35,0,0,0"
                                            Foreground="{TemplateBinding Property=Foreground}"
                                            FontWeight="Medium"/>
+
+                                <fa:ImageAwesome Icon="User"
+                                                 HorizontalAlignment="Left"
+                                                 Width="20"
+                                                 Margin="5,0,0,0"
+                                                 Foreground="{Binding TextColor}"/>
 
                             </Grid>
                         </ControlTemplate>
@@ -45,6 +52,11 @@
                     <Setter Property="Background" Value="{Binding MenuSelectedColor}"/>
                     <Setter Property="Foreground" Value="{Binding TextSelectedColor}"/>
                 </Trigger>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{Binding MenuSelectedColor}"/>
+                </Trigger>
+                
             </Style.Triggers>
         </Style>
 
@@ -62,14 +74,23 @@
 
                                 <TextBlock Text="{TemplateBinding Property=Content}"
                                            VerticalAlignment="Center"
-                                           Margin="20,0,0,0"/>
+                                           Margin="20,0,0,0"
+                                           Foreground="{TemplateBinding Property=Foreground}"
+                                           FontWeight="Medium"/>
                             </Grid>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="Background" Value="{Binding MenuSelectedColor}"/>
                 <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="{Binding TextColor}"/>
             </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="{Binding MenuSelectedColor}"/>
+                    <Setter Property="Foreground" Value="{Binding TextSelectedColor}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         
     </Window.Resources>
@@ -98,7 +119,7 @@
 
             <StackPanel>
 
-                <RadioButton Content="Hem"
+                <RadioButton Content="Apple"
                              Height="40"
                              FontSize="14"
                              Margin="0,70,0,0"
@@ -113,16 +134,15 @@
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="{Binding IsCheckedBudget}"/>
                 <RadioButton Content="Intäkt Budgetering"
-                             Height="{Binding BudgetMenuHeight}"
-                             Foreground="{Binding TextColor}"
+                             Height="{Binding BudgetMenuHeight}"                           
                              FontSize="11"
                              Margin="0,0,0,0"
                              Style="{StaticResource SubMenuButtonTheme}"
                              Command="{Binding UpdateViewCommand}"
-                             CommandParameter="RevenueBudgetMenuView"/>
+                             CommandParameter="RevenueBudgetMenuView"
+                             IsChecked="{Binding IsCheckedBudgetSub}"/>
                 <RadioButton Content="Kostnads Budgetering"
                              Height="{Binding BudgetMenuHeight}"
-                             Foreground="{Binding TextColor}"
                              FontSize="11"
                              Margin="0,0,0,0"
                              Style="{StaticResource SubMenuButtonTheme}"/>
@@ -130,7 +150,6 @@
                              Height="{Binding BudgetMenuHeight}"
                              FontSize="11"
                              Margin="0,0,0,0"
-                             Foreground="{Binding TextColor}"
                              Style="{StaticResource SubMenuButtonTheme}"/>
                 <RadioButton Content="Prognostisering"
                              Height="40"
@@ -216,6 +235,7 @@
                     VerticalAlignment="Bottom"
                     Margin="10,0,0,10"
                     Command="{Binding LogOutCommand}"/>
+            
 
             <!--
             Binding to a ViewModel that is displayed next to main menu, changes based on selection in the main menu

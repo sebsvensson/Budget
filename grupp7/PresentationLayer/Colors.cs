@@ -23,7 +23,7 @@ namespace PresentationLayer
         public static readonly string MenuSelectedDark = "#181921";
         public static readonly string PageDark = "#2C303D";
         public static readonly string TextDark = "White";
-        public static readonly string TextSelectedDark = "White";
+        public static readonly string TextSelectedDark = "LightGreen";
 
         public static string Menu
         {
