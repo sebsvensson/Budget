@@ -106,7 +106,7 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding UpdateViewCommand}"
                              CommandParameter="HomeView"/>
-                <RadioButton Content="Budgetering"
+                <RadioButton Content="Budgetering    V"
                              Height="40"
                              FontSize="14"
                              Margin="0,0,0,0"
@@ -117,7 +117,9 @@
                              Foreground="{Binding TextColor}"
                              FontSize="11"
                              Margin="0,0,0,0"
-                             Style="{StaticResource SubMenuButtonTheme}"/>
+                             Style="{StaticResource SubMenuButtonTheme}"
+                             Command="{Binding UpdateViewCommand}"
+                             CommandParameter="RevenueBudgetMenuView"/>
                 <RadioButton Content="Kostnads Budgetering"
                              Height="{Binding BudgetMenuHeight}"
                              Foreground="{Binding TextColor}"

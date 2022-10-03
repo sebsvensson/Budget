@@ -28,6 +28,12 @@
         <DataTemplate DataType="{x:Type viewmodels:AdministerStaffViewModel}">
             <views:AdministerStaffView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:RevenueBudgetMenuViewModel}">
+            <views:RevenueBudgetMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:RevenueBudgetByCustomerViewModel}">
+            <views:RevenueBudgetByCustomerView/>
+        </DataTemplate>
 
         <!-- Menu button theme -->
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}"

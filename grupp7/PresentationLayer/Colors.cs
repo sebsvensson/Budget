@@ -9,7 +9,7 @@ namespace PresentationLayer
     public static class Colors
     {
 
-        public static bool Theme = false;
+        public static bool Theme = true;
 
         //Light theme
         public static readonly string MenuLight = "#E2E2E2";

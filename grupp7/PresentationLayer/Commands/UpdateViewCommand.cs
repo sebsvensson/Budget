@@ -46,6 +46,10 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new AdministerStaffViewModel();
             }
+            else if (parameter.ToString() == "RevenueBudgetMenuView")
+            {
+                mainViewModel.SelectedViewModel = new RevenueBudgetMenuViewModel();
+            }
         }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PresentationLayer.Views
 {
     /// <summary>
-    /// Interaction logic for IntäktsbudgeteraViaProdukt.xaml
+    /// Interaction logic for IntäktsbudgeteringViaKund.xaml
     /// </summary>
-    public partial class IntäktsbudgeteraViaProdukt : UserControl
+    public partial class RevenueBudgetByCustomerView : UserControl
     {
-        public IntäktsbudgeteraViaProdukt()
+        public RevenueBudgetByCustomerView()
         {
             InitializeComponent();
         }

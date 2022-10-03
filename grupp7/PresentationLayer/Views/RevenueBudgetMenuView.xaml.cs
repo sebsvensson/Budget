@@ -18,9 +18,9 @@ namespace PresentationLayer.Views
     /// <summary>
     /// Interaction logic for IntäktsbudgeteringMeny.xaml
     /// </summary>
-    public partial class IntäktsbudgeteringMeny : UserControl
+    public partial class RevenueBudgetMenuView : UserControl
     {
-        public IntäktsbudgeteringMeny()
+        public RevenueBudgetMenuView()
         {
             InitializeComponent();
         }
