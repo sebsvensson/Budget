@@ -78,6 +78,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\RedigeraKund.xaml.cs">
+      <DependentUpon>RedigeraKund.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegisterProductView.xaml.cs">
       <DependentUpon>RegisterProductView.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RedigeraKund.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
