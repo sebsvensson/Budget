@@ -68,6 +68,9 @@
     <Compile Include="Views\BudgetResultView.xaml.cs">
       <DependentUpon>BudgetResultView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditActivityView.xaml.cs">
+      <DependentUpon>EditActivityView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BudgetResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
