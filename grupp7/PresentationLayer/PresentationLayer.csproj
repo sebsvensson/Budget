@@ -72,6 +72,15 @@
     <Compile Include="Views\ForeCastingView.xaml.cs">
       <DependentUpon>ForeCastingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\IntäktsbudgeteringMeny.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringMeny.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntäktsbudgeteringViaKund.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringViaKund.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntäktsbudgeteringViaProdukt.xaml.cs">
+      <DependentUpon>IntäktsbudgeteringViaProdukt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -103,11 +112,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\IntäktsbudgeteringMeny.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringViaKund.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IntäktsbudgeteringViaProdukt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegisterActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

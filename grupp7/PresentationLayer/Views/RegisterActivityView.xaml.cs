@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PresentationLayer.Views
 {
     /// <summary>
-    /// Interaction logic for RegisterProduct.xaml
+    /// Interaction logic for RegisterActivityView.xaml
     /// </summary>
-    public partial class RegisterProduct : UserControl
+    public partial class RegisterActivityView : UserControl
     {
-        public RegisterProduct()
+        public RegisterActivityView()
         {
             InitializeComponent();
         }
