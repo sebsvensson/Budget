@@ -81,6 +81,9 @@
     <Compile Include="Views\RegisterProductView.xaml.cs">
       <DependentUpon>RegisterProductView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Schablonkostnad.xaml.cs">
+      <DependentUpon>Schablonkostnad.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
     <Page Include="Views\RegisterProductView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Schablonkostnad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TestView.xaml">
       <SubType>Designer</SubType>
