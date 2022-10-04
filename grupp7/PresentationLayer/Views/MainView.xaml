@@ -145,7 +145,9 @@
                              Height="{Binding BudgetMenuHeight}"
                              FontSize="11"
                              Margin="0,0,0,0"
-                             Style="{StaticResource SubMenuButtonTheme}"/>
+                             Style="{StaticResource SubMenuButtonTheme}"
+                             Command="{Binding UpdateViewCommand}"
+                             CommandParameter="ExpenseBudgetMenuView"/>
                 <RadioButton Content="Budgeterat resultat"
                              Height="{Binding BudgetMenuHeight}"
                              FontSize="11"
@@ -187,7 +189,9 @@
                              Height="{Binding ProductMenuHeight}"
                              FontSize="11"
                              Margin="0,0,0,0"
-                             Style="{StaticResource SubMenuButtonTheme}"/>
+                             Style="{StaticResource SubMenuButtonTheme}"
+                             Command="{Binding UpdateViewCommand}"
+                             CommandParameter="EditProductView"/>
                 <RadioButton Content="Kunder           V"
                              Height="40"
                              FontSize="14"
@@ -205,7 +209,9 @@
                              Height="{Binding CustomerMenuHeight}"
                              FontSize="11"
                              Margin="0,0,0,0"
-                             Style="{StaticResource SubMenuButtonTheme}"/>
+                             Style="{StaticResource SubMenuButtonTheme}"
+                             Command="{Binding UpdateViewCommand}"
+                             CommandParameter="EditCustomerView"/>
                 <RadioButton Content="Adm. beh."
                              Height="40"
                              FontSize="14"

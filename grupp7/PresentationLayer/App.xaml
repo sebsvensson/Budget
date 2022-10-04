@@ -34,6 +34,15 @@
         <DataTemplate DataType="{x:Type viewmodels:RevenueBudgetByCustomerViewModel}">
             <views:RevenueBudgetByCustomerView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ExpenseBudgetMenuViewModel}">
+            <views:ExpenseBudgetMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EditCustomerViewModel}">
+            <views:EditCustomerView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EditProductViewModel}">
+            <views:EditProductView/>
+        </DataTemplate>
 
         <!-- Menu button theme -->
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
