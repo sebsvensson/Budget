@@ -63,6 +63,7 @@
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EditActivityViewModel.cs" />
     <Compile Include="ViewModels\EditCustomerViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\ExpenseBudgetMenuViewModel.cs" />
