@@ -10,10 +10,10 @@
 
         <Grid.ColumnDefinitions >
 
-            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
