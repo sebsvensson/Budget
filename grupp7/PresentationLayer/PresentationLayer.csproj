@@ -70,6 +70,7 @@
     <Compile Include="ViewModels\ForeCastingViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RegisterActivityViewModel.cs" />
     <Compile Include="ViewModels\RegisterCustomerViewModel.cs" />
     <Compile Include="ViewModels\RegisterProductViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetByCustomerViewModel.cs" />
