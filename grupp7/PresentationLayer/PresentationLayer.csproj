@@ -77,6 +77,9 @@
     <Compile Include="Views\AdministerStaffView.xaml.cs">
       <DependentUpon>AdministerStaffView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditActivityView.xaml.cs">
+      <DependentUpon>EditActivityView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AdministerStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
