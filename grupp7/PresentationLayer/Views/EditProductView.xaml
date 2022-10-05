@@ -42,9 +42,7 @@
         <TextBox Text="" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
         <ComboBox Text="" Grid.Column="2" Grid.Row="4" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
         <ComboBox Text="" Grid.Column="2" Grid.Row="5" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-
-        <!-- Nedan ska skapas, ej fyllas i. Lägg in binding i text-->
-        <TextBlock Text="Binda till avdelning" Grid.Column="2" Grid.Row="6" Foreground="LightBlue" FontSize="17" Margin="10,0,0,0"/>
+        <ComboBox Text="" Grid.Column="2" Grid.Row="6" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
 
         <Button Content="Spara" Grid.Column="2" Grid.Row="7" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <TextBlock Text="Binda till senast redigerad date" Grid.Column="2" Grid.Row="8" Foreground="White" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
