@@ -63,12 +63,14 @@
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EditActivityViewModel.cs" />
     <Compile Include="ViewModels\EditCustomerViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\ExpenseBudgetMenuViewModel.cs" />
     <Compile Include="ViewModels\ForeCastingViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RegisterActivityViewModel.cs" />
     <Compile Include="ViewModels\RegisterCustomerViewModel.cs" />
     <Compile Include="ViewModels\RegisterProductViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetByCustomerViewModel.cs" />
@@ -76,6 +78,9 @@
     <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="Views\AdministerStaffView.xaml.cs">
       <DependentUpon>AdministerStaffView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditActivityView.xaml.cs">
+      <DependentUpon>EditActivityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
@@ -119,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AdministerStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -25,6 +25,9 @@
         <DataTemplate DataType="{x:Type viewmodels:RegisterCustomerViewModel}">
             <views:RegisterCustomerView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:RegisterActivityViewModel}">
+            <views:RegisterActivityView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:AdministerStaffViewModel}">
             <views:AdministerStaffView/>
         </DataTemplate>
@@ -42,6 +45,10 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:EditProductViewModel}">
             <views:EditProductView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EditActivityViewModel}">
+            <views:EditActivityView/>
+        </DataTemplate>
         </DataTemplate>
 
         <!-- Menu button theme -->
