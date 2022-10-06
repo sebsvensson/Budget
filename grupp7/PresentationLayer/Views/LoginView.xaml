@@ -33,11 +33,11 @@
             <Button Content="Login"
                     FontSize="14"
                     HorizontalAlignment="Center" 
-                    Margin="0,10,0,0" 
+                    Margin="{Binding TrollMargin}" 
                     VerticalAlignment="Center" 
                     Width="75" 
                     Height="25"
-                    Command="{Binding LogInCommand}"/>
+                    Command="{Binding Troll}"/>
         </StackPanel>
     </Grid>
 </UserControl>

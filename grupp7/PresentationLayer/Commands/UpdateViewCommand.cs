@@ -56,7 +56,7 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "ExpenseBudgetMenuView")
             {
-                mainViewModel.SelectedViewModel = new ExpenseBudgetMenuViewModel();
+                mainViewModel.SelectedViewModel = new ExpenseBudgetMenuViewModel(mainViewModel);
             }
             else if (parameter.ToString() == "EditCustomerView")
             {

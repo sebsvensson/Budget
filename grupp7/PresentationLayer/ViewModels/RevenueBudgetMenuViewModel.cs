@@ -15,7 +15,7 @@ namespace PresentationLayer.ViewModels
         public RevenueBudgetMenuViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
-            this.UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
+            UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
         }
     }
 }

@@ -32,7 +32,7 @@
                                            Foreground="{TemplateBinding Property=Foreground}"
                                            FontWeight="Medium"/>
 
-                                <fa:ImageAwesome Icon="User"
+                                <fa:ImageAwesome Icon="{TemplateBinding Property=Name}"
                                                  HorizontalAlignment="Left"
                                                  Width="20"
                                                  Margin="5,0,0,0"
@@ -126,7 +126,8 @@
                              IsChecked="true"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding UpdateViewCommand}"
-                             CommandParameter="HomeView"/>
+                             CommandParameter="HomeView"
+                             x:Name="User"/>
                 <RadioButton Content="Budgetering    V"
                              Height="40"
                              FontSize="14"

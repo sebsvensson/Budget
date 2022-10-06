@@ -22,6 +22,15 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private ICommand _troll;
+        public ICommand Troll
+        {
+            get
+            {
+                return _troll ?? (_troll = new CommandHandler(() => TrollButton()));
+            }
+        }
+
         public LoginViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
@@ -32,8 +41,36 @@ namespace PresentationLayer.ViewModels
             mainViewModel.ColumnSpan = 2;
             mainViewModel.GridColumn = 2;
             mainViewModel.GridRow = 2;
+        }
 
+        private string _trollMargin = "0,10,0,0";
+        public string TrollMargin
+        {
+            get { return _trollMargin; }
+            set
+            {
+                OnPropertyChanged(null);
+                _trollMargin = value;
+            }
+        }
 
+        private int counter = 0;
+        private void TrollButton()
+        {
+            counter++;
+            switch (counter)
+            {
+                case 1:
+                    TrollMargin = "200,10,0,0";
+                    break;
+                case 2:
+                    TrollMargin = "0,10,200,0";
+                    break;
+                case 3:
+                    TrollMargin = "0,10,0,0";
+                    counter = 0;
+                    break;
+            }
         }
     }
 }
