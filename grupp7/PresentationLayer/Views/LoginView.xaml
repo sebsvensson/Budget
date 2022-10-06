@@ -33,7 +33,7 @@
             <Button Content="Login"
                     FontSize="14"
                     HorizontalAlignment="Center" 
-                    Margin="{Binding TrollMargin}" 
+                    Margin="{Binding TrollMargin, UpdateSourceTrigger=PropertyChanged}" 
                     VerticalAlignment="Center" 
                     Width="75" 
                     Height="25"
