@@ -37,8 +37,7 @@
                     VerticalAlignment="Center" 
                     Width="75" 
                     Height="25"
-                    Command="{Binding Troll}"/>
+                    Command="{Binding LogInCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>
-    <!--hej-->
