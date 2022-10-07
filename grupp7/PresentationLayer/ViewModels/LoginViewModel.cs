@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using PresentationLayer.Commands;
 using PresentationLayer.ViewModels;
+using DbAccessEf.Models;
 
 
 namespace PresentationLayer.ViewModels
@@ -41,6 +42,10 @@ namespace PresentationLayer.ViewModels
             mainViewModel.ColumnSpan = 2;
             mainViewModel.GridColumn = 2;
             mainViewModel.GridRow = 2;
+            /*
+            DBAccessEF.Models.Product test = new DBAccessEF.Models.Product() { ProductCategory = "hej", ProductGroup = "hej", ProductName = "hej" };
+            App.unitOfWork.ProductRepository.Add(test);
+            App.unitOfWork.SaveChanges();*/
         }
 
         private string _trollMargin = "0,10,0,0";
