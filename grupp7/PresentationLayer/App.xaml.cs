@@ -16,5 +16,10 @@ namespace PresentationLayer
     {
         public static MyContext context = new MyContext();
         public static UnitOfWork unitOfWork = new UnitOfWork(context);
+
+        public App()
+        {
+            context.Configure();
+        }
     }
 }

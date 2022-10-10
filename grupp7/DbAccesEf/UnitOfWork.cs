@@ -17,11 +17,14 @@ namespace DbAccessEf
         public UnitOfWork(MyContext context)
         {
             this.context = context;
+            context.Database.EnsureCreated();
             ProductRepository = new GenericRepository<Product>(context);
+            //context.Database.EnsureCreated();
         }
 
         public void SaveChanges()
         {
+
             try
             {
                 context.SaveChanges();

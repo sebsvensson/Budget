@@ -33,10 +33,16 @@ namespace PresentationLayer.ViewModels
             mainViewModel.ColumnSpan = 2;
             mainViewModel.GridColumn = 2;
             mainViewModel.GridRow = 2;
-            
-            DbAccessEf.Models.Product test = new DbAccessEf.Models.Product() { ProductCategory = "hej", ProductGroup = "hej", ProductName = "hej" };
+
+            DbAccessEf.Models.Product test = new DbAccessEf.Models.Product()
+            {
+                ProductCategory = "hej",
+                ProductGroup = "hej",
+                ProductName = "hej"
+            };
+
             App.unitOfWork.ProductRepository.Add(test);
             App.unitOfWork.SaveChanges();
-        }        
+        }
     }
 }

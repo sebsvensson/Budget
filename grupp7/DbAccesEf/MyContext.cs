@@ -15,5 +15,10 @@ namespace DbAccessEf
             optionsBuilder.UseSqlServer(connectionString);
             base.OnConfiguring(optionsBuilder);
         }
+
+        public void Configure()
+        {
+            Database.EnsureCreated();
+        }
     }
 }
