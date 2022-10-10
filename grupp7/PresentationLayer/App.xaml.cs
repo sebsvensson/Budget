@@ -14,7 +14,7 @@ namespace PresentationLayer
     /// </summary>
     public partial class App : Application
     {
-        private static MyContext context = new MyContext();
+        public static MyContext context = new MyContext();
         public static UnitOfWork unitOfWork = new UnitOfWork(context);
     }
 }

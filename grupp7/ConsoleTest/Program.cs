@@ -1,15 +1,15 @@
 ﻿using System;
-/*using DBAccessEF;
-using DBAccessEF.Repositories;
-using DBAccessEF.Models;*/
+using DbAccessEf;
+using DbAccessEf.Repositories;
+using DbAccessEf.Models;
 
 namespace ConsoleTest
 {
     class Program
-    {/*
+    {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            /*Console.WriteLine("Hello World!");
             MyContext contextTest = new MyContext();
             contextTest.Database.EnsureCreated();
 
@@ -17,7 +17,7 @@ namespace ConsoleTest
 
             Product testProduct = new Product() { ProductName = "eeee", ProductCategory = "jasdjnqwjd", ProductGroup = "uiqwiuq" };
             unitOfWork.ProductRepository.Add(testProduct);
-            unitOfWork.SaveChanges();
-        }*/
+            unitOfWork.SaveChanges();*/
+        }
     }
 }
