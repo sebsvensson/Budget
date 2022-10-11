@@ -31,6 +31,14 @@ namespace PresentationLayer.ViewModels
             get { return _xxxx; }
             set
             {
+                if (ProductGroup != null)
+                {
+                    ProductID = value + ProductGroup.Substring(0, 2);
+                }
+                else
+                {
+                    ProductID = value;
+                }
                 OnPropertyChanged(null);
                 _xxxx = value;
             }
@@ -42,19 +50,9 @@ namespace PresentationLayer.ViewModels
             get { return _productGroup; }
             set
             {
-                OnPropertyChanged(null);
+                ProductID = Xxxx + value.Substring(0, 2);
                 _productGroup = value;
-                ProductID = Xxxx + value.Substring(0, 1);
-
-
-                /*if (Xxxx != null && Xxxx.Length == 4)
-                {
-                    ProductID = Xxxx + value.Substring(0, 1);
-                }
-                else
-                {
-                    ProductID = "Ange giltigt xxxx";
-                }*/
+                OnPropertyChanged(null);
             }
         }
 
@@ -164,7 +162,6 @@ namespace PresentationLayer.ViewModels
         private void RegisterProduct()
         {
 
-            //productController.RegisterProduct();
         }
 
         private void AddProductGroup()
