@@ -36,6 +36,41 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private string _productGroup;
+        public string ProductGroup
+        {
+            get { return _productGroup; }
+            set
+            {
+                OnPropertyChanged(null);
+                _productGroup = value;
+                ProductID = Xxxx + value.Substring(0, 1);
+
+
+                /*if (Xxxx != null && Xxxx.Length == 4)
+                {
+                    ProductID = Xxxx + value.Substring(0, 1);
+                }
+                else
+                {
+                    ProductID = "Ange giltigt xxxx";
+                }*/
+            }
+        }
+
+        private string _productID;
+        public string ProductID
+        {
+            get { return _productID; }
+            set
+            {
+                OnPropertyChanged(null);
+                _productID = value;
+            }
+        }
+
+
+
         private ObservableCollection<string> _productGroups;
         public ObservableCollection<string> ProductGroups
         {
