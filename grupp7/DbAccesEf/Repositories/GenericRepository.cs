@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace DbAccessEf.Repositories
+namespace DbAccesEf.Repositories
 {
     public class GenericRepository<T> where T : class
     {

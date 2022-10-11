@@ -37,9 +37,25 @@
 
         <TextBox Text="" Grid.Column="2" Grid.Row="1" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
         <TextBox Text="" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-        <ComboBox Text="" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-        <ComboBox Text="" Grid.Column="2" Grid.Row="4" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-       
+        <ComboBox Text="" 
+                  Grid.Column="2" 
+                  Grid.Row="3" 
+                  BorderBrush="Black" 
+                  Margin="10,0,0,0" 
+                  Width="200" 
+                  ItemsSource="{Binding Path=ProductGroups, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBox Text="{Binding NewProductGroup}" Grid.Column="3" Grid.Row="3" Width="150" HorizontalAlignment="Center" BorderBrush="Black" Margin="25,0,25,0"/>
+        <Button Content="Lägg till produktgrupp" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" Command="{Binding AddProductGroupCommand}" Margin="0,2,0,2"/>
+        <ComboBox Text="" 
+                  Grid.Column="2" 
+                  Grid.Row="4" 
+                  BorderBrush="Black" 
+                  Margin="10,0,0,0" 
+                  Width="200" 
+                  ItemsSource="{Binding Path=ProductCategories, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBox Text="{Binding NewProductCategory}" Grid.Column="3" Grid.Row="4" Width="150" HorizontalAlignment="Center" BorderBrush="Black" Margin="25,0,25,0"/>
+        <Button Content="Lägg till produktkategori" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Margin="0,2,0,2" Command="{Binding AddProductCategoryCommand}"/>
+
         <!-- Nedan ska skapas, ej fyllas i. Lägg in binding i text-->
         <TextBlock Text="Binda till ID" Grid.Column="2" Grid.Row="5" Foreground="LightBlue" FontSize="17" Margin="10,0,0,0"/>
         <TextBlock Text="Binda till avdelning" Grid.Column="2" Grid.Row="6" Foreground="LightBlue" FontSize="17" Margin="10,0,0,0"/>

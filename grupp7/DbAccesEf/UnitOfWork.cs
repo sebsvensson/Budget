@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DbAccessEf.Repositories;
-using DbAccessEf.Models;
+using DbAccesEf.Repositories;
+using DbAccesEf.Models;
 
-namespace DbAccessEf
+namespace DbAccesEf
 {
     public class UnitOfWork
     {
@@ -12,6 +12,8 @@ namespace DbAccessEf
 
         //REPOSITORIES
         public GenericRepository<Product> ProductRepository { get; set; }
+        public GenericRepository<ProductGroup> ProductGroupRepository { get; set; }
+        public GenericRepository<ProductCategory> ProductCategoryRepository { get; set; }
 
 
         public UnitOfWork(MyContext context)
@@ -19,7 +21,8 @@ namespace DbAccessEf
             this.context = context;
             context.Database.EnsureCreated();
             ProductRepository = new GenericRepository<Product>(context);
-            //context.Database.EnsureCreated();
+            ProductGroupRepository = new GenericRepository<ProductGroup>(context);
+            ProductCategoryRepository = new GenericRepository<ProductCategory>(context);
         }
 
         public void SaveChanges()

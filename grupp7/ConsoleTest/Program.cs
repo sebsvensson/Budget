@@ -1,7 +1,8 @@
 ﻿using System;
-using DbAccessEf;
-using DbAccessEf.Repositories;
-using DbAccessEf.Models;
+using DbAccesEf;
+using DbAccesEf.Repositories;
+using DbAccesEf.Models;
+using BusinessLogic.Controllers;
 
 namespace ConsoleTest
 {
@@ -9,15 +10,13 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            /*Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World!");
             MyContext contextTest = new MyContext();
             contextTest.Database.EnsureCreated();
 
-            UnitOfWork unitOfWork = new UnitOfWork(contextTest);
+            ProductController controller = new ProductController(contextTest);
+            controller.AddProductGroup("test");
 
-            Product testProduct = new Product() { ProductName = "eeee", ProductCategory = "jasdjnqwjd", ProductGroup = "uiqwiuq" };
-            unitOfWork.ProductRepository.Add(testProduct);
-            unitOfWork.SaveChanges();*/
         }
     }
 }

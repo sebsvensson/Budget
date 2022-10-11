@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using DbAccessEf;
 
 namespace PresentationLayer
 {
@@ -14,12 +13,6 @@ namespace PresentationLayer
     /// </summary>
     public partial class App : Application
     {
-        public static MyContext context = new MyContext();
-        public static UnitOfWork unitOfWork = new UnitOfWork(context);
 
-        public App()
-        {
-            context.Configure();
-        }
     }
 }

@@ -304,6 +304,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{437ea2bd-fea6-48ff-95b0-232c51a12c23}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DbAccesEf\DbAccesEf.csproj">
       <Project>{a3f0c9eb-3cf2-4989-8adb-3b77a0560e76}</Project>
       <Name>DbAccesEf</Name>
