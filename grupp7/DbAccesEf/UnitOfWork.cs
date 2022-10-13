@@ -14,6 +14,8 @@ namespace DbAccesEf
         public GenericRepository<Product> ProductRepository { get; set; }
         public GenericRepository<ProductGroup> ProductGroupRepository { get; set; }
         public GenericRepository<ProductCategory> ProductCategoryRepository { get; set; }
+        public GenericRepository<Customer> CustomerRepository { get; set; }
+        public GenericRepository<CustomerCategory> CustomerCategoryRepository { get; set; }
 
 
         public UnitOfWork(MyContext context)
@@ -23,6 +25,8 @@ namespace DbAccesEf
             ProductRepository = new GenericRepository<Product>(context);
             ProductGroupRepository = new GenericRepository<ProductGroup>(context);
             ProductCategoryRepository = new GenericRepository<ProductCategory>(context);
+            CustomerRepository = new GenericRepository<Customer>(context);
+            CustomerCategoryRepository = new GenericRepository<CustomerCategory>(context);
         }
 
         public void SaveChanges()

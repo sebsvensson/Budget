@@ -32,18 +32,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="KundID:" FontSize="20" Margin="300,150,0,0" Foreground="{Binding TextColor}"/>
-        <TextBox Grid.Column="2" Grid.Row="1" Margin="436,150,0,0" Width="200"/>
+        <TextBox  Text="{Binding CustomID, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="1" Margin="436,150,0,0" Width="200"/>
         <TextBlock Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Kund:" FontSize="20" Margin="300,10,0,0" Foreground="{Binding TextColor}" />
-        <TextBox Grid.Column="2" Grid.Row="2" Margin="436,10,0,0" Width="200"/>
+        <TextBox  Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" Margin="436,10,0,0" Width="200"/>
         <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text="Kundkategori:" FontSize="20" Margin="300,10,0,0" Foreground="{Binding TextColor}" />
-        <ComboBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" Margin="436,10,0,0">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock/>
-                    <!--Binding till kundkategorier -->
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <Button Grid.Column="3" Grid.Row="4" Content="Spara" FontSize="20" Margin="100,250,0,0" Width="100"/>
+        <ComboBox ItemsSource="{Binding Path=CustomerCategories, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValue="{Binding SelectedCategory}" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" Margin="436,10,0,0"/>
+        <Button Command="{Binding RegisterCustomerCommand}" Grid.Column="3" Grid.Row="4" Content="Spara" FontSize="20" Margin="100,250,0,0" Width="100"/>
     </Grid>
 </UserControl>
