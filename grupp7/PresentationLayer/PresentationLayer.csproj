@@ -198,6 +198,9 @@
     <Compile Include="Views\ForeCastingView.xaml.cs">
       <DependentUpon>ForeCastingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegisterActivityView.xaml.cs">
+      <DependentUpon>RegisterActivityView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RevenueBudgetMenuView.xaml.cs">
       <DependentUpon>RevenueBudgetMenuView.xaml</DependentUpon>
     </Compile>
@@ -259,6 +262,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RegisterActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RevenueBudgetMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -272,10 +279,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RegisterActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
