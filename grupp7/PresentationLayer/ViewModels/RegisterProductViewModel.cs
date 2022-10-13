@@ -13,6 +13,8 @@ namespace PresentationLayer.ViewModels
 {
     public class RegisterProductViewModel : BaseViewModel
     {
+        private ProductController productController;
+        private DbAccesEf.MyContext context;
         //Textbox bindings
         private string _productName;
         public string ProductName
@@ -20,8 +22,8 @@ namespace PresentationLayer.ViewModels
             get { return _productName; }
             set
             {
-                OnPropertyChanged(null);
                 _productName = value;
+                OnPropertyChanged(null);
             }
         }
 
@@ -113,8 +115,6 @@ namespace PresentationLayer.ViewModels
             }
         }
 
-
-        private ProductController productController;
         private ICommand _registerProductCommand;
         public ICommand RegisterProductCommand
         {
@@ -144,16 +144,18 @@ namespace PresentationLayer.ViewModels
 
         public RegisterProductViewModel()
         {
-            productController = new ProductController(new DbAccesEf.MyContext());
+            context = new DbAccesEf.MyContext();
+            productController = new ProductController(context);
 
             ProductGroups = new ObservableCollection<string>();
             ProductCategories = new ObservableCollection<string>();
-            foreach (var productGroup in productController.GetAllProductGroups())
+
+            foreach (ProductGroup productGroup in productController.GetAllProductGroups())
             {
                 ProductGroups.Add(productGroup.Name);
             }
 
-            foreach (var productCategory in productController.GetAllProductCategories())
+            foreach (ProductCategory productCategory in productController.GetAllProductCategories())
             {
                 ProductCategories.Add(productCategory.Name);
             }
