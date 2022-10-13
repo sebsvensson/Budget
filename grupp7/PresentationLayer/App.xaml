@@ -49,6 +49,9 @@
         <DataTemplate DataType="{x:Type viewmodels:EditActivityViewModel}">
             <views:EditActivityView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdministerAccountsViewModel}">
+            <views:AdministerAccountsView/>
+        </DataTemplate>
 
         <!-- Menu button theme -->
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
