@@ -16,6 +16,19 @@ namespace BusinessLogic.Controllers
             unitOfWork = new UnitOfWork(context);
         }
 
-        //metoder
+        //Register Activity
+        public void RegisterActivity(string activityName, string activityXxxx, string aFFODepartment, string customID)
+        {
+
+            unitOfWork.ActivityRepository.Add(new DbAccesEf.Models.Activity()
+            {
+                CustomID = customID,
+                ActivityXxxx = activityXxxx,
+                ActivityName = activityName,
+                AFFODepartment = aFFODepartment
+            });
+
+            unitOfWork.SaveChanges();
+        }
     }
 }
