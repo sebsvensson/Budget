@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PresentationLayer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#2C303D">
+    <Grid Background="{Binding PageColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
