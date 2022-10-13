@@ -30,10 +30,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" IsChecked="{Binding}">Produkt</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" IsChecked="{Binding}">Produktgrupp</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" IsChecked="{Binding}">Avdelning</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" IsChecked="{Binding}">Kontoret</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Produkt</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Produktgrupp</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Avdelning</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Kontoret</RadioButton>
         </StackPanel>
 
         <!-- Lägg in bindings för itemsource osv i listboxen-->
