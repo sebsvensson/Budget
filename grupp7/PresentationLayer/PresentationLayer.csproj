@@ -160,6 +160,7 @@
     <Compile Include="ViewModels\AdministerAccountsViewModel.cs" />
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BudgetResultViewModel.cs" />
     <Compile Include="ViewModels\EditActivityViewModel.cs" />
     <Compile Include="ViewModels\EditCustomerViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
@@ -178,6 +179,9 @@
     </Compile>
     <Compile Include="Views\AdministerStaffView.xaml.cs">
       <DependentUpon>AdministerStaffView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BudgetResultView.xaml.cs">
+      <DependentUpon>BudgetResultView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditActivityView.xaml.cs">
       <DependentUpon>EditActivityView.xaml</DependentUpon>
@@ -228,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AdministerStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BudgetResultView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
