@@ -134,6 +134,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerCategory.cs" />
+    <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductGroup.cs" />

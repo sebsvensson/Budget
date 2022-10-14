@@ -160,6 +160,7 @@
     <Compile Include="ViewModels\AdministerAccountsViewModel.cs" />
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BudgetResultViewModel.cs" />
     <Compile Include="ViewModels\EditActivityViewModel.cs" />
     <Compile Include="ViewModels\EditCustomerViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
@@ -179,6 +180,9 @@
     <Compile Include="Views\AdministerStaffView.xaml.cs">
       <DependentUpon>AdministerStaffView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BudgetResultView.xaml.cs">
+      <DependentUpon>BudgetResultView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditActivityView.xaml.cs">
       <DependentUpon>EditActivityView.xaml</DependentUpon>
     </Compile>
@@ -193,6 +197,9 @@
     </Compile>
     <Compile Include="Views\ForeCastingView.xaml.cs">
       <DependentUpon>ForeCastingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterActivityView.xaml.cs">
+      <DependentUpon>RegisterActivityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RevenueBudgetMenuView.xaml.cs">
       <DependentUpon>RevenueBudgetMenuView.xaml</DependentUpon>
@@ -231,6 +238,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BudgetResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +262,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RegisterActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RevenueBudgetMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -264,10 +279,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RegisterActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
