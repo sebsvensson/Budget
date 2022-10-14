@@ -21,7 +21,8 @@ namespace BusinessLogic.Controllers
         public void RegisterProduct(string productName, string xxxx, ProductCategory productCategory, ProductGroup productGroup)
         {
             //Create custom id
-            string customId = xxxx + productGroup.Name.Substring(0, 1);
+            
+           string customId = xxxx + productGroup.Name.Substring(0, 1);
                     
             unitOfWork.ProductRepository.Add(new DbAccesEf.Models.Product()
             {
@@ -59,6 +60,11 @@ namespace BusinessLogic.Controllers
             
             unitOfWork.ProductCategoryRepository.Add(new ProductCategory() { Name = name });
             unitOfWork.SaveChanges();
+        }
+        
+        public IEnumerable<Product> GetAllProducts()
+        {
+            return unitOfWork.ProductRepository.ReturnAll();
         }
     }
 }

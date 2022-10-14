@@ -68,7 +68,28 @@ namespace PresentationLayer.ViewModels
                 _productID = value;
             }
         }
+   
 
+        private string _selectedCategory;
+        public string SelectedCategory
+        {
+            get { return _selectedCategory; }
+            set
+            {
+                _selectedCategory = value;
+                OnPropertyChanged(null);
+            }
+        }
+        private string _selectedGroup;
+        public string SelectedGroup
+        {
+            get { return _selectedGroup; }
+            set
+            {
+                _selectedGroup = value;
+                OnPropertyChanged(null);
+            }
+        }
 
 
         private ObservableCollection<string> _productGroups;
@@ -163,7 +184,16 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterProduct()
         {
-
+           
+            ProductCategory productCategory = new ProductCategory
+            {
+                Name = SelectedCategory
+            };
+            ProductGroup productGroup = new ProductGroup
+            {
+                Name = SelectedGroup
+            };
+            productController.RegisterProduct(ProductName, Xxxx, productCategory, productGroup);
         }
 
         private void AddProductGroup()
