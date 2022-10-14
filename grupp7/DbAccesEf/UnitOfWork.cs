@@ -18,6 +18,8 @@ namespace DbAccesEf
         public GenericRepository<CustomerCategory> CustomerCategoryRepository { get; set; }
         public GenericRepository<Activity> ActivityRepository { get; set; }
 
+        public GenericRepository<User> UserRepository;
+
         public UnitOfWork(MyContext context)
         {
             this.context = context;
@@ -28,6 +30,7 @@ namespace DbAccesEf
             CustomerRepository = new GenericRepository<Customer>(context);
             CustomerCategoryRepository = new GenericRepository<CustomerCategory>(context);
             ActivityRepository = new GenericRepository<Activity>(context);
+            UserRepository = new GenericRepository<User>(context);
         }
 
         public void SaveChanges()

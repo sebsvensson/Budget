@@ -262,6 +262,7 @@ namespace PresentationLayer.ViewModels
             ColumnSpan = 2;
             GridColumn = 0;
             GridRow = 0;
+            loggedInUser = null;
 
         }
 

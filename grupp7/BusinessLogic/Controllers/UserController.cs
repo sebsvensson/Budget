@@ -17,6 +17,11 @@ namespace BusinessLogic.Controllers
             unitOfWork = new UnitOfWork(context);
         }
 
+        public IEnumerable<User> GetAll()
+        {
+            return unitOfWork.UserRepository.ReturnAll();
+        }
+
         public void AddUser(string userName, string password, string permissionLevel)
         {
             User newUser = new User()
@@ -42,6 +47,13 @@ namespace BusinessLogic.Controllers
             {
                 return null;
             }
+        }
+
+        public void EditPassword(int ID, string newPassword)
+        {
+            User user = unitOfWork.UserRepository.FirstOrDefault(u => u.UserID == ID);
+            user.PassWord = newPassword;
+            unitOfWork.SaveChanges();
         }
     }
 }

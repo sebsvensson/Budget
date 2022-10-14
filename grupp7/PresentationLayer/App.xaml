@@ -55,6 +55,9 @@
         <DataTemplate DataType="{x:Type viewmodels:RegisterActivityViewModel}">
             <views:RegisterActivityView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdministerPermissionsViewModel}">
+            <views:AdministerPermissionsView/>
+        </DataTemplate>
 
         <!-- Menu button theme -->
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
