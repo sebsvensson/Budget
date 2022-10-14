@@ -7,12 +7,39 @@ using System.Windows.Input;
 using PresentationLayer.Commands;
 using PresentationLayer.ViewModels;
 using DbAccesEf.Models;
+using DbAccesEf;
+using BusinessLogic.Controllers;
 
 
 namespace PresentationLayer.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        private MyContext context;
+        private UserController userController;
+
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         private MainViewModel mainViewModel;
         private ICommand _loginCommand;
         public ICommand LogInCommand
@@ -25,14 +52,21 @@ namespace PresentationLayer.ViewModels
 
         public LoginViewModel(MainViewModel mainViewModel)
         {
+            context = new MyContext();
+            userController = new UserController(context);
             this.mainViewModel = mainViewModel;
         }
         private void LogIn()
         {
-            mainViewModel.SelectedViewModel = new TestViewModel();
-            mainViewModel.ColumnSpan = 2;
-            mainViewModel.GridColumn = 2;
-            mainViewModel.GridRow = 2;
+            if (userController.LogIn(UserName, Password) != null)
+            {
+                mainViewModel.loggedInUser = userController.LogIn(UserName, Password);
+
+                mainViewModel.SelectedViewModel = new TestViewModel();
+                mainViewModel.ColumnSpan = 2;
+                mainViewModel.GridColumn = 2;
+                mainViewModel.GridRow = 2;
+            }
         }
     }
 }

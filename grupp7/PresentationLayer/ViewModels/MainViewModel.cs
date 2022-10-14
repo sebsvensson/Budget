@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using PresentationLayer.Commands;
 using PresentationLayer.ViewModels;
+using DbAccesEf.Models;
 
 namespace PresentationLayer.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        public User loggedInUser;
         //Displays selected view next to menu
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel

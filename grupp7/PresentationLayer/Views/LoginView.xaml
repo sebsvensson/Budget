@@ -24,12 +24,14 @@
                        TextAlignment="Center"
                        FontSize="14"/>
             <TextBox Width="200"
-                     FontSize="14"/>
+                     FontSize="14"
+                     Text="{Binding UserName}"/>
             <TextBlock Text="Lösenord"
                        TextAlignment="Center"
                        FontSize="14"/>
-            <PasswordBox Width="200"
-                     FontSize="14"/>
+            <TextBox Width="200"
+                     FontSize="14"
+                     Text="{Binding Password}"/>
             <Button Content="Login"
                     FontSize="14"
                     HorizontalAlignment="Center" 

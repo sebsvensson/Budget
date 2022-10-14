@@ -14,15 +14,16 @@ namespace DbAccesEf
         public GenericRepository<Product> ProductRepository { get; set; }
         public GenericRepository<ProductGroup> ProductGroupRepository { get; set; }
         public GenericRepository<ProductCategory> ProductCategoryRepository { get; set; }
-
+        public GenericRepository<User> UserRepository { get; set; }
 
         public UnitOfWork(MyContext context)
         {
             this.context = context;
-            context.Database.EnsureCreated();
             ProductRepository = new GenericRepository<Product>(context);
             ProductGroupRepository = new GenericRepository<ProductGroup>(context);
             ProductCategoryRepository = new GenericRepository<ProductCategory>(context);
+            UserRepository = new GenericRepository<User>(context);
+            context.Database.EnsureCreated();
         }
 
         public void SaveChanges()
