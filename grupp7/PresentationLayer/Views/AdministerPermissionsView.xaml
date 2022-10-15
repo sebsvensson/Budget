@@ -12,33 +12,28 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Lösenord"
-                   HorizontalAlignment="Right"
-                   Margin="0,40,20,0"
-                   Grid.Column="0"/>
-        <TextBlock Text="Lösenord"
-                   HorizontalAlignment="Left"
-                   Margin="20,40,0,0"
-                   Grid.Column="2"/>
-
         <DataGrid ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False"
-                  Margin="200,60,200,20"
+                  Margin="200,60,200,60"
                   Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Användarnamn" Binding="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Width="*"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    FontSize="16"/>
                 <DataGridTextColumn Header="Lösenord" Binding="{Binding PassWord, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                    Width="*"/>
+                                    Width="*"
+                                    FontSize="16"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="hej"
+        <Button Content="Spara"
                 Width="60"
                 Height="20"
-                Grid.Column="2"
-                HorizontalAlignment="Right"
-                Command="{Binding SaveCommand}"/>
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Command="{Binding SaveCommand}"
+                Margin="0,0,0,20"/>
 
     </Grid>
 </UserControl>

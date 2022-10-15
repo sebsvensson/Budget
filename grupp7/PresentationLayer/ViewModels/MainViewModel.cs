@@ -25,6 +25,18 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        //Logged in user text
+        private string _loggedInText;
+        public string LoggedInText
+        {
+            get { return _loggedInText; }
+            set
+            {
+                _loggedInText = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         //Colors
         private string _menuColor = Colors.Menu;
         public string MenuColor
@@ -271,7 +283,6 @@ namespace PresentationLayer.ViewModels
             //Set SelectedViewModel to startup UserControl here (Login view probably)
             //SelectedViewModel = new TestViewModel();
             SelectedViewModel = new LoginViewModel(this);
-
             UpdateViewCommand = new UpdateViewCommand(this);
         }
     }

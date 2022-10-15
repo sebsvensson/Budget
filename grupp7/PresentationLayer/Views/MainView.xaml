@@ -231,10 +231,11 @@
                     Grid.Row="2"
                     Command="{Binding MenuDropCommand}"/>
 
-            <TextBlock Text="Inloggad som: Systemansvaring"
-                       Foreground="White"
+            <TextBlock Text="{Binding LoggedInText}"
+                       Foreground="{Binding TextColor}"
                        Margin="10,0,0,35"
-                       VerticalAlignment="Bottom"/>
+                       VerticalAlignment="Bottom"
+                       FontSize="10"/>
 
             <Button Content="Logga ut"
                     FontSize="10"
