@@ -14,9 +14,14 @@ namespace DbAccesEf
     {
 
         
-        private DataTable ExcekToDataTable(string fileName)
+        public DataTable ExcelToDataTable(string fileName)
         {
-            using(var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
+            //temporary testing
+            fileName = Path.GetDirectoryName(Environment.CurrentDirectory);
+            fileName = fileName.Remove(fileName.Length - 21);
+            fileName += @"\DbAccesEf\Resources\Produkter.xlsx";
+
+            using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
             {
                 using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
@@ -28,8 +33,7 @@ namespace DbAccesEf
                         }
                     });
 
-                    DataTableCollection table = result.Tables;
-                    DataTable resultTable = table["sheet1"];
+                    DataTable resultTable = result.Tables[0];
                     return resultTable;
                 }
             }

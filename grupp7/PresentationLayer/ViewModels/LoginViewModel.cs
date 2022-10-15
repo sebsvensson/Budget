@@ -17,6 +17,7 @@ namespace PresentationLayer.ViewModels
     {
         private MyContext context;
         private UserController userController;
+        private ResourceController resourceController;
 
         private string _userName;
         public string UserName
@@ -50,10 +51,20 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private ICommand _readExcelCommand;
+        public ICommand ReadExcelCommand
+        {
+            get
+            {
+                return _readExcelCommand ?? (_readExcelCommand = new CommandHandler(() => ReadExcel()));
+            }
+        }
+
         public LoginViewModel(MainViewModel mainViewModel)
         {
             context = new MyContext();
             userController = new UserController(context);
+            resourceController = new ResourceController(context);
             this.mainViewModel = mainViewModel;
         }
         private void LogIn()
@@ -69,6 +80,11 @@ namespace PresentationLayer.ViewModels
 
                 mainViewModel.LoggedInText = "Inloggad som: " + userController.LogIn(UserName, Password).UserName;
             }
+        }
+
+        private void ReadExcel()
+        {
+            resourceController.ReadExcelProductCategoryGroup("");
         }
     }
 }

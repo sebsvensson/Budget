@@ -41,5 +41,7 @@
                     Height="25"
                     Command="{Binding LogInCommand}"/>
         </StackPanel>
+        <Button Content="Read excel" HorizontalAlignment="Left" Margin="105,376,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding ReadExcelCommand}"/>
     </Grid>
 </UserControl>
