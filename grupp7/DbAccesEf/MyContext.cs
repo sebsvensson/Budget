@@ -15,12 +15,12 @@ namespace DbAccesEf
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerCategory> CustomerCategories {get; set;}
         public DbSet<Activity> Activities { get; set; }
-        public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);
             base.OnConfiguring(optionsBuilder);
         }
+
 
         public void Configure()
         {
