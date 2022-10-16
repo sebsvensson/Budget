@@ -84,7 +84,7 @@ namespace PresentationLayer.ViewModels
 
         private void ReadExcel()
         {
-            resourceController.ReadExcelProductCategoryGroup("");
+            resourceController.ReadExcelProductCategoryGroup("Produkter.xlsx");
         }
     }
 }

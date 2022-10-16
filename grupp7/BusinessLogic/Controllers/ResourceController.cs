@@ -20,9 +20,9 @@ namespace BusinessLogic.Controllers
             generateData = new GenerateData();
         }
 
-        public void ReadExcelProductCategoryGroup(string filePath)
+        public void ReadExcelProductCategoryGroup(string fileName)
         {
-            DataTable excelData = generateData.ExcelToDataTable(filePath);
+            DataTable excelData = generateData.ExcelToDataTable(fileName);
             
             
             //Put into database
@@ -38,7 +38,7 @@ namespace BusinessLogic.Controllers
                     uniqueCategories.Add(excelData.Rows[i].Field<string>(3));
                 }
 
-                if (!uniqueGroups.Any(c => c == excelData.Rows[i].Field<string>(2)))
+                if (!uniqueGroups.Any(g => g == excelData.Rows[i].Field<string>(2)))
                 {
                     uniqueGroups.Add(excelData.Rows[i].Field<string>(2));
                 }
