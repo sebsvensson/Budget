@@ -35,6 +35,7 @@ namespace PresentationLayer.ViewModels
             {
                 CustomIDs.Add(product.CustomId);
             }
+           
         }
 
         private string _customID;
@@ -43,8 +44,24 @@ namespace PresentationLayer.ViewModels
             get { return _customID; }
             set
             {
+                if (CustomID != null)
+                {
+                    ProductName = value;
+                }
+                
                 OnPropertyChanged(null);
                 _customID = value;
+            }
+        }
+        private string _selectedCustomID;
+        public string SelectedCustomID
+        {
+            get { return _selectedCustomID; }
+            set
+            {
+                ProductID = value;
+                _selectedCustomID = value;
+                OnPropertyChanged(null);
             }
         }
         private string _productName;
@@ -78,6 +95,7 @@ namespace PresentationLayer.ViewModels
                 _productID = value;
             }
         }
+
         private string _xxxx;
         public string Xxxx
         {

@@ -65,5 +65,7 @@ namespace BusinessLogic.Controllers
             unitOfWork.ProductCategoryRepository.Add(new ProductCategory(name));
             unitOfWork.SaveChanges();
         }
+
+        
     }
 }

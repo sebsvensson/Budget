@@ -43,9 +43,9 @@
                   BorderBrush="Black"
                   Margin="10,0,0,0" 
                   Width="200"
-                  ItemsSource="{Binding Path=CustomIDs, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Text="" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-        <TextBox Text="" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
+                  ItemsSource="{Binding Path=CustomIDs, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding SelectedCustomID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBox Text="" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,0" Width="200" />
+        <TextBox Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200" />
         <ComboBox Text="" 
                   Grid.Column="2"
                   Grid.Row="4" 
