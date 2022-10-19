@@ -22,6 +22,7 @@ namespace DbAccesEf
         public UnitOfWork(MyContext context)
         {
             this.context = context;
+            context.Database.EnsureCreated();
             ProductRepository = new GenericRepository<Product>(context);
             ProductGroupRepository = new GenericRepository<ProductGroup>(context);
             ProductCategoryRepository = new GenericRepository<ProductCategory>(context);

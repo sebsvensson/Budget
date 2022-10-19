@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PresentationLayer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#2C303D">
+    <Grid Background="{Binding PageColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
@@ -30,10 +30,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Produkt</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Produktgrupp</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Avdelning</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="White" FontSize="17" >Kontoret</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Produkt</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Produktgrupp</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Avdelning</RadioButton>
+            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Kontoret</RadioButton>
         </StackPanel>
 
         <!-- Lägg in bindings för itemsource osv i listboxen-->
@@ -42,16 +42,16 @@
         </ListBox>
 
         <!-- Lägg in bindings för textblock 1 baserat på val i listan ovan-->
-        <TextBlock Text="(Visa val i listan)" Foreground="White" FontSize="17" Grid.Column="1" Grid.Row="3" />
-        <TextBlock Text="Intäkter" Foreground="White" FontSize="17" Grid.Column="1" Grid.Row="4" />
-        <TextBlock Text="Kostnader" Foreground="White" FontSize="17" Grid.Column="1" Grid.Row="5" />
-        <Line Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" X1="0" X2="250" Stroke="White" StrokeThickness="2"/>
-        <TextBlock Text="Resultat" Foreground="White" FontSize="17" Grid.Column="1" Grid.Row="7"/>
+        <TextBlock Text="(Visa val i listan)" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="3" />
+        <TextBlock Text="Intäkter" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="4" />
+        <TextBlock Text="Kostnader" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="5" />
+        <Line Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" X1="0" X2="250" Stroke="{Binding TextColor}" StrokeThickness="2"/>
+        <TextBlock Text="Resultat" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="7"/>
 
         <!-- Lägg in bindings för intäkter, kostnader och resultat-->
-        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="White" FontSize="17" Grid.Column="2" Grid.Row="4"/>
-        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="White" FontSize="17" Grid.Column="2" Grid.Row="5"/>
-        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="White" FontSize="17" Grid.Column="2" Grid.Row="7"/>
+        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="4"/>
+        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="5"/>
+        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="7"/>
 
         <Button Content="Skriv ut" Grid.Column="1" Grid.Row="8" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Button Content="Exportera" Grid.Column="2" Grid.Row="8" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>

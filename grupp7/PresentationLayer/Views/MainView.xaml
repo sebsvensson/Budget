@@ -153,7 +153,9 @@
                              Height="{Binding BudgetMenuHeight}"
                              FontSize="11"
                              Margin="0,0,0,0"
-                             Style="{StaticResource SubMenuButtonTheme}"/>
+                             Style="{StaticResource SubMenuButtonTheme}"
+                             Command="{Binding UpdateViewCommand}"
+                             CommandParameter="BudgetResultView"/>
                 <RadioButton Content="Prognostisering"
                              Height="40"
                              FontSize="14"

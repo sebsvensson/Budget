@@ -74,6 +74,10 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new AdministerPermissionsViewModel();
             }
+            else if (parameter.ToString() == "BudgetResultView")
+            {
+                mainViewModel.SelectedViewModel = new BudgetResultViewModel();
+            }
         }
     }
 }

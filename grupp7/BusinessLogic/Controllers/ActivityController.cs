@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DbAccesEf;
+using DbAccesEf.Models;
 
 namespace BusinessLogic.Controllers
 {
@@ -19,8 +20,7 @@ namespace BusinessLogic.Controllers
         //Register Activity
         public void RegisterActivity(string activityName, string activityXxxx, string aFFODepartment, string customID)
         {
-
-            unitOfWork.ActivityRepository.Add(new DbAccesEf.Models.Activity()
+            unitOfWork.ActivityRepository.Add(new Activity()
             {
                 CustomID = customID,
                 ActivityXxxx = activityXxxx,

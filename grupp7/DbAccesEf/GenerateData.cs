@@ -11,9 +11,7 @@ using ExcelDataReader;
 namespace DbAccesEf
 {
     public class GenerateData
-    {
-
-        
+    {      
         public DataTable ExcelToDataTable(string fileName)
         {
             //temporary testing
