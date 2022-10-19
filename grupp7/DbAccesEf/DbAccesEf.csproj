@@ -146,9 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenerateData.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCategory.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\Personell.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductGroup.cs" />
@@ -163,6 +165,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Resources\Kontoplan.xlsx" />
+    <None Include="Resources\Personallista.xlsx" />
     <None Include="Resources\Produkter.xlsx" />
   </ItemGroup>
   <ItemGroup />

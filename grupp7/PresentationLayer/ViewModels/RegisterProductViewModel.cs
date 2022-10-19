@@ -169,7 +169,11 @@ namespace PresentationLayer.ViewModels
 
             foreach (ProductCategory productCategory in productController.GetAllProductCategories())
             {
-                ProductCategories.Add(productCategory.Name);
+                //no duplicates
+                if (!ProductCategories.Any(c => c == productCategory.Name))
+                {
+                    ProductCategories.Add(productCategory.Name);
+                }
             }
         }
 
