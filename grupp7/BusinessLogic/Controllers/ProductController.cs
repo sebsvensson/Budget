@@ -66,6 +66,11 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
+        public Product GetByID(string ID)
+        {
+            return unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == ID);
+        }
+
         
     }
 }

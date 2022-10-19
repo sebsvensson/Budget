@@ -38,19 +38,14 @@ namespace PresentationLayer.ViewModels
            
         }
 
-        private string _customID;
-        public string CustomID
+        private string _customId;
+        public string CustomId
         {
-            get { return _customID; }
+            get { return _customId; }
             set
             {
-                if (CustomID != null)
-                {
-                    ProductName = value;
-                }
-                
                 OnPropertyChanged(null);
-                _customID = value;
+                _customId = value;
             }
         }
         private string _selectedCustomID;
@@ -59,9 +54,9 @@ namespace PresentationLayer.ViewModels
             get { return _selectedCustomID; }
             set
             {
-                ProductID = value;
-                _selectedCustomID = value;
+                GetProductInfo(SelectedCustomID); // metod för att hämta efter valt id 
                 OnPropertyChanged(null);
+                _selectedCustomID = value;
             }
         }
         private string _productName;
@@ -80,7 +75,6 @@ namespace PresentationLayer.ViewModels
             get { return _productGroup; }
             set
             {
-                ProductID = Xxxx + value.Substring(0, 2);
                 _productGroup = value;
                 OnPropertyChanged(null);
             }
@@ -102,14 +96,6 @@ namespace PresentationLayer.ViewModels
             get { return _xxxx; }
             set
             {
-                if (ProductGroup != null)
-                {
-                    ProductID = value + ProductGroup.Substring(0, 2);
-                }
-                else
-                {
-                    ProductID = value;
-                }
                 OnPropertyChanged(null);
                 _xxxx = value;
             }
@@ -155,6 +141,15 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged(null);
                 _productDepartments = value;
             }
+        }
+
+        private void GetProductInfo(string selectedCustomID)
+        {
+            System.Diagnostics.Debug.WriteLine(selectedCustomID);             //Hittar ej
+            DbAccesEf.Models.Product product = productController.GetByID(selectedCustomID);
+            ProductName = product.ProductName;
+
+
         }
     }
 }
