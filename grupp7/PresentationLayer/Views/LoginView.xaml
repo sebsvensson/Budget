@@ -7,11 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.Background>
+        <!--<Grid.Background>
             <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
                 <GradientStop Offset="0.1" Color="#C4E0E5"/>
                 <GradientStop Offset="1" Color="#4CA1AF"/>
             </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/login_image.png"/>
         </Grid.Background>
         <TextBlock VerticalAlignment="Center"
                        HorizontalAlignment="Center"

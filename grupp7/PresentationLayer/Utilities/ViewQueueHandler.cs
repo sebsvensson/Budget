@@ -13,7 +13,6 @@ namespace PresentationLayer.Utilities
         public List<BaseViewModel> recentViews;
         public ViewQueueHandler()
         {
-            //Stores recent views. Max 10
             recentViews = new List<BaseViewModel>();
         }
 

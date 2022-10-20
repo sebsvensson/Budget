@@ -357,6 +357,18 @@
       <Name>DbAccesEf</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_image2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_image3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

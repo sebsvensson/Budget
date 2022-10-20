@@ -77,6 +77,7 @@ namespace PresentationLayer.ViewModels
 
         private void UpdateTotal()
         {
+            Total = 0;
             foreach(Account a in Accounts)
             {
                 Total += a.SchablonExpense;
