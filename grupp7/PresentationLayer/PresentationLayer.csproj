@@ -157,6 +157,7 @@
     <Compile Include="Colors.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\UpdateViewCommand.cs" />
+    <Compile Include="Utilities\ViewQueueHandler.cs" />
     <Compile Include="ViewModels\AdministerAccountsViewModel.cs" />
     <Compile Include="ViewModels\AdministerPermissionsViewModel.cs" />
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
@@ -172,8 +173,10 @@
     <Compile Include="ViewModels\RegisterActivityViewModel.cs" />
     <Compile Include="ViewModels\RegisterCustomerViewModel.cs" />
     <Compile Include="ViewModels\RegisterProductViewModel.cs" />
+    <Compile Include="ViewModels\ResourceAllocationViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetByCustomerViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetMenuViewModel.cs" />
+    <Compile Include="ViewModels\SchablonExpenseViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="Views\AdministerAccountsView.xaml.cs">
       <DependentUpon>AdministerAccountsView.xaml</DependentUpon>
@@ -205,6 +208,9 @@
     <Compile Include="Views\RegisterActivityView.xaml.cs">
       <DependentUpon>RegisterActivityView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResourceAllocationView.xaml.cs">
+      <DependentUpon>ResourceAllocationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RevenueBudgetMenuView.xaml.cs">
       <DependentUpon>RevenueBudgetMenuView.xaml</DependentUpon>
     </Compile>
@@ -226,6 +232,9 @@
     </Compile>
     <Compile Include="Views\RegisterProductView.xaml.cs">
       <DependentUpon>RegisterProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchablonExpenseView.xaml.cs">
+      <DependentUpon>SchablonExpenseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
@@ -274,6 +283,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ResourceAllocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RevenueBudgetMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -295,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SchablonExpenseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -77,7 +77,8 @@ namespace BusinessLogic.Controllers
                     Xxxx = excelData.Rows[i].Field<string>(0).Substring(0, 5),
                     ProductName = excelData.Rows[i].Field<string>(1),
                     ProductCategory = new ProductCategory(excelData.Rows[i].Field<string>(3)),
-                    ProductGroup = new ProductGroup(excelData.Rows[i].Field<string>(2))
+                    ProductGroup = new ProductGroup(excelData.Rows[i].Field<string>(2)),
+                    Department = excelData.Rows[i].Field<string>(4)
                 });
             }
 
@@ -112,7 +113,8 @@ namespace BusinessLogic.Controllers
                     Adm = CheckDBNull(excelData.Rows[i][6]),
                     ForsMark = CheckDBNull(excelData.Rows[i][7]),
                     UtvForv = CheckDBNull(excelData.Rows[i][8]),
-                    Drift = CheckDBNull(excelData.Rows[i][9])
+                    Drift = CheckDBNull(excelData.Rows[i][9]),
+                    ProductAllocations = GenerateProductAllocationZeroes()
                 });
             }
 
@@ -125,6 +127,23 @@ namespace BusinessLogic.Controllers
             }
 
             unitOfWork.SaveChanges();
+        }
+
+        //Generate ProductAllocation zeroes on personell
+        private List<ProductAllocation> GenerateProductAllocationZeroes()
+        {
+            List<ProductAllocation> result = new List<ProductAllocation>();
+
+            foreach(Product p in unitOfWork.ProductRepository.ReturnAll())
+            {
+                result.Add(new ProductAllocation()
+                {
+                    Allocation = 0,
+                    Product = p
+                });
+            }
+
+            return result;
         }
 
         //Checks if DataTable cell is null, if yes: returns 0
@@ -155,7 +174,7 @@ namespace BusinessLogic.Controllers
                 newAccounts.Add(new Account()
                 {
                     AccountNumber = Convert.ToInt32(excelData.Rows[i].Field<string>(0)),
-                    Name = excelData.Rows[1].Field<string>(1),
+                    Name = excelData.Rows[i].Field<string>(1),
                     SchablonExpense = 0
                 });
             }

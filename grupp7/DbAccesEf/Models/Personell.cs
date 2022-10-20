@@ -18,7 +18,8 @@ namespace DbAccesEf.Models
         public double Adm { get; set; }
         public double ForsMark { get; set; }
         public double UtvForv { get; set; }
-        public double Drift { get; set; }
+        public double Drift { get; set; }      
+        public List<ProductAllocation> ProductAllocations { get; set; }
 
     }
 }

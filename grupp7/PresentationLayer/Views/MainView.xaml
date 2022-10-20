@@ -247,7 +247,16 @@
                     VerticalAlignment="Bottom"
                     Margin="10,0,0,10"
                     Command="{Binding LogOutCommand}"/>
-            
+
+            <Button Content="Back"
+                    FontSize="10"
+                    Width="45"
+                    Height="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="10,0,0,40"
+                    Command="{Binding LastViewCommand}"/>
+
 
             <!--
             Binding to a ViewModel that is displayed next to main menu, changes based on selection in the main menu

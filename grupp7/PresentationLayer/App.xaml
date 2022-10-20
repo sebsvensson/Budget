@@ -58,6 +58,12 @@
         <DataTemplate DataType="{x:Type viewmodels:AdministerPermissionsViewModel}">
             <views:AdministerPermissionsView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:SchablonExpenseViewModel}">
+            <views:SchablonExpenseView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ResourceAllocationViewModel}">
+            <views:ResourceAllocationView/>
+        </DataTemplate>
 
         <!-- Menu button theme -->
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}"

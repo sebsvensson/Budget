@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="PresentationLayer.Views.ResourceAllocationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="975">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.95*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid AutoGenerateColumns="False"
+                  ItemsSource="{Binding Personells}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Namn"
+                                    Width="*"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Sysselsättningsgrad"
+                                    Width="*"
+                                    Binding="{Binding EmploymentRate}"/>
+                <DataGridTextColumn Header="Vakansavdrag"
+                                    Width="*"
+                                    Binding="{Binding VacancyDeduction}"/>
+                <DataGridTextColumn Header="Årsarbetare"
+                                    Width="*"
+                                    Binding="{Binding AnnualWorkRate}"/>
+                <DataGridTextColumn Header="Diff"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Fördelat på&#x0a;produkter"
+                                    Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Grid.Column="1" 
+                  AutoGenerateColumns="True"
+                  EnableColumnVirtualization="True"
+                  ItemsSource="{Binding Test1}">
+            <DataGrid.Columns>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</UserControl>
