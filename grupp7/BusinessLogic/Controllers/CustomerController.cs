@@ -42,7 +42,6 @@ namespace BusinessLogic.Controllers
             return unitOfWork.CustomerRepository.ReturnAll();
         }
 
-
         public void AddCustomerCategory(string name)
         {
             unitOfWork.CustomerCategoryRepository.Add(new CustomerCategory() { Name = name });

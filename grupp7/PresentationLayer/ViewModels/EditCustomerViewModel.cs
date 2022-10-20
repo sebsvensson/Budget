@@ -125,7 +125,6 @@ namespace PresentationLayer.ViewModels
         public void GetCustomerInfo(string selectedCustomID)
         {
             DbAccesEf.Models.Customer customer = customerController.GetByID(selectedCustomID);
-            CustomID = customer.CustomID;
             CustomerName = customer.CustomerName;
             CustomerCategory = customer.Category.Name;
         }
