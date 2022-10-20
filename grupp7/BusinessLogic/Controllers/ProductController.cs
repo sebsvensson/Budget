@@ -71,6 +71,17 @@ namespace BusinessLogic.Controllers
             return unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == ID);
         }
 
-        
+        public void EditProduct(string customID, string name, string xxxx, string productGroup, string productCategory)
+        {
+            Product product = unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == customID);
+            customID = xxxx + productGroup.Substring(0, 2);
+            product.CustomId = customID;
+            product.ProductName = name;
+            product.Xxxx = xxxx;
+            product.ProductCategory.Name = productCategory;
+            product.ProductGroup.Name = productGroup;
+
+            unitOfWork.SaveChanges();
+        }
     }
 }

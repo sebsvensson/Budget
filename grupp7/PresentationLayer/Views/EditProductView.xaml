@@ -46,7 +46,7 @@
                   ItemsSource="{Binding Path=CustomIDs, UpdateSourceTrigger=PropertyChanged}" 
                   SelectedValue="{Binding SelectedCustomID, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Text="{Binding Xxxx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,0" Width="200" />
-        <TextBox Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200" />
+        <TextBox Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200" />
         <ComboBox Text="" 
                   Grid.Column="2"
                   Grid.Row="4" 
@@ -54,7 +54,7 @@
                   Margin="10,0,0,0" 
                   Width="200"
                   ItemsSource="{Binding Path=ProductGroups, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                  SelectedValue="{Binding SelectedProductGroup, UpdateSourceTrigger=PropertyChanged}"/>
+                  SelectedValue="{Binding ProductGroup, UpdateSourceTrigger=PropertyChanged}"/>
         <ComboBox Text="" 
                   Grid.Column="2" 
                   Grid.Row="5" 
@@ -62,7 +62,7 @@
                   Margin="10,0,0,0" 
                   Width="200" 
                   ItemsSource="{Binding Path=ProductCategories, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedValue="{Binding SelectedProductCategory, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                  SelectedValue="{Binding ProductCategory, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <ComboBox Text="" 
                   Grid.Column="2" 
                   Grid.Row="6" 
@@ -71,7 +71,7 @@
                   Width="200"
                   />
 
-        <Button Content="Spara" Grid.Column="2" Grid.Row="7" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Button Content="Spara" Command="{Binding EditProductCommand}" Grid.Column="2" Grid.Row="7" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <TextBlock Text="Binda till senast redigerad date" Grid.Column="2" Grid.Row="8" Foreground="White" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Grid>
 

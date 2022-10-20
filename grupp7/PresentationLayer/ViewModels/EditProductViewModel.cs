@@ -1,11 +1,13 @@
 ﻿using BusinessLogic.Controllers;
 using DbAccesEf.Models;
+using PresentationLayer.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PresentationLayer.ViewModels
 {
@@ -54,7 +56,7 @@ namespace PresentationLayer.ViewModels
             get { return _selectedCustomID; }
             set
             {
-                GetProductInfo(SelectedCustomID); // metod för att hämta efter valt id 
+                GetProductInfo(value);
                 OnPropertyChanged(null);
                 _selectedCustomID = value;
             }
@@ -75,12 +77,23 @@ namespace PresentationLayer.ViewModels
             get { return _productGroup; }
             set
             {
+                
                 _productGroup = value;
                 OnPropertyChanged(null);
             }
         }
-        private string _productID;
-        public string ProductID
+        private string _productCategory;
+        public string ProductCategory
+        {
+            get { return _productCategory; }
+            set
+            {
+                _productCategory = value;
+                OnPropertyChanged(null);
+            }
+        }
+        private int _productID;
+        public int ProductID
         {
             get { return _productID; }
             set
@@ -142,13 +155,27 @@ namespace PresentationLayer.ViewModels
                 _productDepartments = value;
             }
         }
+        private ICommand _editProductCommand;
+        public ICommand EditProductCommand
+        {
+            get
+            {
+                return _editProductCommand ?? (_editProductCommand = new CommandHandler(() => EditProduct()));
+            }
+        }
+        private void EditProduct()
+        {
+            productController.EditProduct(SelectedCustomID, ProductName, Xxxx, ProductGroup, ProductCategory);
+        }
 
         private void GetProductInfo(string selectedCustomID)
         {
-            System.Diagnostics.Debug.WriteLine(selectedCustomID);             //Hittar ej
+            
             DbAccesEf.Models.Product product = productController.GetByID(selectedCustomID);
             ProductName = product.ProductName;
-
+            Xxxx = product.Xxxx;
+            ProductGroup = product.ProductGroup.Name;
+            ProductCategory = product.ProductCategory.Name;
 
         }
     }
