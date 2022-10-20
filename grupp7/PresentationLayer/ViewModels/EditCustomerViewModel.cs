@@ -15,46 +15,32 @@ namespace PresentationLayer.ViewModels
     {
         private CustomerController customerController;
         private DbAccesEf.MyContext context;
-       
-        private string _customId;
-        public string CustomId
+
+        public EditCustomerViewModel()
         {
-            get { return _customId; }
-            set
+            context = new DbAccesEf.MyContext();
+            customerController = new CustomerController(context);
+            CustomIDs = new ObservableCollection<string>();
+            CustomerCategories = new ObservableCollection<string>();
+
+            foreach (Customer customer in customerController.GetAllCustomers())
             {
-                GetCustomerInfo(value);
-                OnPropertyChanged(null);
-                _customId = value;
+                CustomIDs.Add(customer.CustomID);
+            }
+            foreach (CustomerCategory customerCategory in customerController.GetCustomerCategories())
+            {
+                CustomerCategories.Add(customerCategory.Name);
             }
         }
-        private string _customerName;
-        public string CustomerName
+
+        private ObservableCollection<string> _customIDs;
+        public ObservableCollection<string> CustomIDs
         {
-            get { return _customerName; }
+            get { return _customIDs; }
             set
             {
                 OnPropertyChanged(null);
-                _customerName = value;
-            }
-        }
-        private string _customerCategory;
-        public string CustomerCategory
-        {
-            get { return _customerCategory; }
-            set
-            {
-                OnPropertyChanged(null);
-                _customerCategory = value;
-            }
-        }
-        private ObservableCollection<string> _customerIDs;
-        public ObservableCollection<string> CustomerIDs
-        {
-            get {  return _customerIDs; }
-            set
-            {
-                OnPropertyChanged(null);
-                _customerIDs = value;
+                _customIDs = value;
             }
         }
         private ObservableCollection<string> _customerCategories;
@@ -67,30 +53,81 @@ namespace PresentationLayer.ViewModels
                 _customerCategories = value;
             }
         }
-        public EditCustomerViewModel()
+
+        private string _customID;
+        public string CustomID
         {
-            context = new DbAccesEf.MyContext();
-            customerController = new CustomerController(context);
-
-            CustomerIDs = new ObservableCollection<string>();
-            CustomerCategories = new ObservableCollection<string>();
-
-            foreach (Customer customer in customerController.GetAllCustomers())
+            get { return _customID; }
+            set
             {
-                CustomerIDs.Add(customer.CustomID);
-            }
-            foreach (CustomerCategory customerCategory in customerController.GetCustomerCategories())
-            {
-                CustomerCategories.Add(customerCategory.Name);
+                GetCustomerInfo(value);
+                OnPropertyChanged(null);
+                _customID = value;
             }
         }
 
-        public void GetCustomerInfo(string selectedID)
+        private string _selectedCustomID;
+        public string SelectedCustomID
         {
-            Customer customer = customerController.GetByID(selectedID);
-            customer.CustomID = CustomId;
-            customer.CustomerName = CustomerName;
-            customer.Category.Name = CustomerCategory;
+            get { return _selectedCustomID; }
+            set
+            {
+                GetCustomerInfo(value);
+                OnPropertyChanged(null);
+                _selectedCustomID = value;
+            }
+        }
+
+        private string _customerName;
+        public string CustomerName
+        {
+            get { return _customerName; }
+            set
+            {
+                OnPropertyChanged(null);
+                _customerName = value;
+            }
+        }
+
+        private string _selectedCustomerName;
+        public string SelectedCustomerName
+        {
+            get { return _selectedCustomerName; }
+            set
+            {
+                OnPropertyChanged(null);
+                _selectedCustomerName = value;
+            }
+        }
+
+        private string _customerCategory;
+        public string CustomerCategory
+        {
+            get { return _customerCategory; }
+            set
+            {
+                OnPropertyChanged(null);
+                _customerCategory = value;
+            }
+        }
+
+        private string _selectedCustomerCategory;
+        public string SelectedCustomerCategory
+        {
+            get { return _selectedCustomerCategory; }
+            set
+            {
+                OnPropertyChanged(null);
+                _selectedCustomerCategory = value;
+            }
+        }
+
+        public void GetCustomerInfo(string selectedCustomID)
+        {
+            DbAccesEf.Models.Customer customer = customerController.GetByID(selectedCustomID);
+            CustomID = customer.CustomID;
+            CustomerName = customer.CustomerName;
+            CustomerCategory = customer.Category.Name;
         }
 
         private ICommand _editCustomerCommand;
@@ -104,7 +141,7 @@ namespace PresentationLayer.ViewModels
 
         public void EditCustomer()
         {
-            customerController.EditCustomer(CustomId, CustomerName, CustomerCategory);
+            customerController.EditCustomer(CustomID, CustomerName, CustomerCategory);
         }
 
     }

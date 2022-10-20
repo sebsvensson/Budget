@@ -32,14 +32,28 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="KundID:" FontSize="20" Margin="300,150,0,0" Foreground="{Binding TextColor}" />
-        <ComboBox Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="436,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200"
-                  ItemsSource="{Binding Path= CustomerIDs, UpdateSourceTrigger=PropertyChanged}"
+        <ComboBox Grid.Column="2" 
+                  HorizontalAlignment="Left" 
+                  Height="26" 
+                  Margin="436,150,0,0" 
+                  Grid.Row="1" 
+                  VerticalAlignment="Top" 
+                  Width="200"
+                  ItemsSource="{Binding Path= CustomIDs, UpdateSourceTrigger=PropertyChanged}"
                   SelectedValue="{Binding CustomID, UpdateSourceTrigger= PropertyChanged, Mode=TwoWay}"/>
+        
         <TextBlock Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Kund:" FontSize="20" Margin="300,10,0,0" Foreground="{Binding TextColor}" />
-        <TextBox Grid.Column="2" Grid.Row="2" Margin="436,10,0,0" Width="200"
+        <TextBox Grid.Column="2" 
+                 Grid.Row="2" 
+                 Margin="436,10,0,0" 
+                 Width="200"
                  Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        
         <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text="Kundkategori:" FontSize="20" Margin="300,10,0,0" Foreground="{Binding TextColor}" />
-        <ComboBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" Margin="436,10,0,0"
+        <ComboBox Grid.Column="2" 
+                  Grid.Row="3" 
+                  Grid.ColumnSpan="1" 
+                  Margin="436,10,0,0"
                   ItemsSource="{Binding Path=CustomerCategories, UpdateSourceTrigger=PropertyChanged}"
                   SelectedValue="{Binding CustomerCategory, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 

@@ -17,14 +17,14 @@ namespace BusinessLogic.Controllers
             unitOfWork = new UnitOfWork(context);
         }
 
-        public void RegisterCustomer(string customerID, string customerName, CustomerCategory category)
+        public void RegisterCustomer(string customID, string customerName, CustomerCategory category)
         {
 
             Customer customer = new Customer();
 
             unitOfWork.CustomerRepository.Add(new DbAccesEf.Models.Customer()
             {
-                CustomID = customerID,
+                CustomID = customID,
                 CustomerName = customerName,
                 Category = category
                 
@@ -54,9 +54,9 @@ namespace BusinessLogic.Controllers
             Customer customer = new Customer();
             customer.Category.Equals(category);
         }
-        public Customer GetByID(string id)
+        public Customer GetByID(string ID)
         {
-            return unitOfWork.CustomerRepository.FirstOrDefault(c => c.CustomID == id);
+            return unitOfWork.CustomerRepository.FirstOrDefault(p => p.CustomID == ID);
         }
         public void EditCustomer(string customID, string name, string category)
         {
