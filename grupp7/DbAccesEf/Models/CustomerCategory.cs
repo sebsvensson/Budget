@@ -8,6 +8,7 @@ namespace DbAccesEf.Models
 {
     public class CustomerCategory
     {
+        
         public int CustomerCategoryID { get; set; }
         public string Name { get; set; }
     }

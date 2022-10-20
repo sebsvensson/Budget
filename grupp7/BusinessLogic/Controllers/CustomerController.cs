@@ -37,6 +37,10 @@ namespace BusinessLogic.Controllers
         {
             return unitOfWork.CustomerCategoryRepository.ReturnAll();
         }
+        public IEnumerable<Customer> GetAllCustomers()
+        {
+            return unitOfWork.CustomerRepository.ReturnAll();
+        }
 
 
         public void AddCustomerCategory(string name)
@@ -49,6 +53,19 @@ namespace BusinessLogic.Controllers
         {
             Customer customer = new Customer();
             customer.Category.Equals(category);
+        }
+        public Customer GetByID(string id)
+        {
+            return unitOfWork.CustomerRepository.FirstOrDefault(c => c.CustomID == id);
+        }
+        public void EditCustomer(string customID, string name, string category)
+        {
+            Customer customer = unitOfWork.CustomerRepository.FirstOrDefault(c => c.CustomID == customID);
+            customer.CustomID = customID;
+            customer.CustomerName = name;
+            customer.Category.Name = category;
+            
+            unitOfWork.SaveChanges();
         }
 
     }

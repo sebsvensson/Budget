@@ -66,6 +66,10 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new EditProductViewModel();
             }
+            else if (parameter.ToString() == "EditActivityView")
+            {
+                mainViewModel.SelectedViewModel = new EditActivityViewModel();
+            }
             else if (parameter.ToString() == "RegisterActivityView")
             {
                 mainViewModel.SelectedViewModel = new RegisterActivityViewModel();
