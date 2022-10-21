@@ -60,7 +60,6 @@ namespace PresentationLayer.ViewModels
             get { return _customID; }
             set
             {
-                GetCustomerInfo(value);
                 OnPropertyChanged(null);
                 _customID = value;
             }
@@ -141,6 +140,7 @@ namespace PresentationLayer.ViewModels
         public void EditCustomer()
         {
             customerController.EditCustomer(CustomID, CustomerName, CustomerCategory);
+
         }
 
     }
