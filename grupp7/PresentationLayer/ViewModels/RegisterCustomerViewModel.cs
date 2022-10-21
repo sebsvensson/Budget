@@ -80,7 +80,7 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterCustomer()
         {
-            CustomerCategory customerCategory = customerController.GetCustomerCategory(SelectedCategory)
+            CustomerCategory customerCategory = customerController.GetCustomerCategory(SelectedCategory);
             customerController.RegisterCustomer(CustomID, CustomerName, customerCategory);
         }
         private ICommand _registerCustomerCommand;
