@@ -26,13 +26,17 @@ namespace BusinessLogic.Controllers
             {
                 CustomID = customID,
                 CustomerName = customerName,
-                Category = category
+                Category = category,
                 
             });
 
             unitOfWork.SaveChanges();
         }
-
+        public CustomerCategory GetCustomerCategory(string name)
+        {
+            return unitOfWork.CustomerCategoryRepository.FirstOrDefault(c => c.Name == name);
+        }
+       
         public IEnumerable<CustomerCategory> GetCustomerCategories()
         {
             return unitOfWork.CustomerCategoryRepository.ReturnAll();
@@ -48,11 +52,8 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
-        public void AttachCategory(CustomerCategory category)
-        {
-            Customer customer = new Customer();
-            customer.Category.Equals(category);
-        }
+        
+
         public Customer GetByID(string ID)
         {
             return unitOfWork.CustomerRepository.FirstOrDefault(p => p.CustomID == ID);

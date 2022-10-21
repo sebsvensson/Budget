@@ -175,7 +175,9 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterProduct()
         {
-            productController.RegisterProduct(ProductName, Xxxx, new ProductCategory(SelectedProductCategory), new ProductGroup(SelectedProductGroup));
+            ProductCategory productCategory = productController.GetProductCategory(SelectedProductCategory);
+            ProductGroup productGroup = productController.GetProductGroup(SelectedProductGroup);
+            productController.RegisterProduct(ProductName, Xxxx, productCategory, productGroup);
         }
 
         private void AddProductGroup()

@@ -124,6 +124,7 @@ namespace PresentationLayer.ViewModels
         public void GetCustomerInfo(string selectedCustomID)
         {
             DbAccesEf.Models.Customer customer = customerController.GetByID(selectedCustomID);
+            
             CustomerName = customer.CustomerName;
             CustomerCategory = customer.Category.Name;
         }
@@ -139,7 +140,7 @@ namespace PresentationLayer.ViewModels
 
         public void EditCustomer()
         {
-            customerController.EditCustomer(CustomID, CustomerName, CustomerCategory);
+            customerController.EditCustomer(SelectedCustomID, CustomerName, CustomerCategory);
 
         }
 

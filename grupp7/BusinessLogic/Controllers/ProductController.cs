@@ -34,6 +34,14 @@ namespace BusinessLogic.Controllers
 
             unitOfWork.SaveChanges();
         }
+        public ProductCategory GetProductCategory(string name)
+        {
+            return unitOfWork.ProductCategoryRepository.FirstOrDefault(c => c.Name == name);
+        }
+        public ProductGroup GetProductGroup(string name)
+        {
+            return unitOfWork.ProductGroupRepository.FirstOrDefault(c => c.Name == name);
+        }
 
         //Get all productgroups
         public IEnumerable<ProductGroup> GetAllProductGroups()
