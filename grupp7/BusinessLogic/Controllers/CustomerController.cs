@@ -10,7 +10,7 @@ namespace BusinessLogic.Controllers
 {
     public class CustomerController
     {
-        private readonly UnitOfWork unitOfWork;
+        private UnitOfWork unitOfWork;
 
         public CustomerController(MyContext context)
         {
