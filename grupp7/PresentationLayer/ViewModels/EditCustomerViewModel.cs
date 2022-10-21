@@ -139,7 +139,7 @@ namespace PresentationLayer.ViewModels
 
         public void EditCustomer()
         {
-            customerController.EditCustomer(CustomID, CustomerName, CustomerCategory);
+            customerController.EditCustomer(SelectedCustomID, CustomerName, CustomerCategory);
 
         }
 
