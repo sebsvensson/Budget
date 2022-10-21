@@ -152,6 +152,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductGroup.cs" />
+    <Compile Include="Models\RevenueBudget.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="MyContext.cs" />
