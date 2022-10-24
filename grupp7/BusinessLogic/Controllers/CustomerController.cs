@@ -58,6 +58,7 @@ namespace BusinessLogic.Controllers
         {
             return unitOfWork.CustomerRepository.FirstOrDefault(p => p.CustomID == ID);
         }
+        
         public void EditCustomer(string customID, string name, string category)
         {
             Customer customer = unitOfWork.CustomerRepository.FirstOrDefault(c => c.CustomID == customID);
