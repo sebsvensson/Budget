@@ -16,15 +16,29 @@ namespace BusinessLogic.Controllers
         {
             unitOfWork = new UnitOfWork(context);
         }
-
-        public IEnumerable<RevenueBudget> GetAllRevenueBudgets()
+        public void AddRevenueBudget(string customerID, string customerName, string productID, string productName, int agreement,
+            string gradeA, int additions, string gradeT, int budget, int hours, string comment)
         {
-            return unitOfWork.RevenueBudgetRepository.ReturnAll();
+
+            RevenueBudget revenueBudget = new RevenueBudget();
+            unitOfWork.RevenueBudgetRepository.Add(revenueBudget);
+            {
+                
+                revenueBudget.Customer.CustomID = customerID;
+                revenueBudget.Customer.CustomerName = customerName;
+                revenueBudget.Product.CustomId = productID;
+                revenueBudget.Product.ProductName = productName;
+                revenueBudget.Agreement = agreement;
+                revenueBudget.Grade_A = gradeA;
+                revenueBudget.Additions = additions;
+                revenueBudget.Grade_T = gradeT;
+                revenueBudget.Budget = budget;
+                revenueBudget.Hours = hours;
+                revenueBudget.Comment = comment;
+            }
+            unitOfWork.SaveChanges();
         }
 
-        public RevenueBudget GetByCustomerID(string ID)
-        {
-            return unitOfWork.RevenueBudgetRepository.FirstOrDefault(c => c.Customer.CustomID == ID);
-        }
+        
     }
 }

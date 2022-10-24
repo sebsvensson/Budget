@@ -52,9 +52,13 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "RevenueBudgetByCustomerView")
             {
-                mainViewModel.SelectedViewModel = new RevenueBudgetByCustomerViewModel();
+                mainViewModel.SelectedViewModel = new RevenueBudgetByCustomerViewModel(mainViewModel);
             }
-            else if (parameter.ToString() == "ExpenseBudgetMenuView")
+            else if (parameter.ToString() == "AddRevenueByCustomerView")
+            {
+                mainViewModel.SelectedViewModel = new AddRevenueBudgetByCustomerViewModel();
+            }
+            if (parameter.ToString() == "ExpenseBudgetMenuView")
             {
                 mainViewModel.SelectedViewModel = new ExpenseBudgetMenuViewModel(mainViewModel);
             }
@@ -86,6 +90,7 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new BudgetResultViewModel();
             }
+            
         }
     }
 }
