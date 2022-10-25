@@ -30,8 +30,8 @@
 
         <TextBlock Grid.Column="1" Grid.Row="1" Foreground="{Binding TextColor}" FontSize="17" Text="Aktivitet xxxx:"/>
         <TextBlock Grid.Column="1" Grid.Row="2" Foreground="{Binding TextColor}" FontSize="17" Text="Aktivitet:"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" Foreground="{Binding TextColor}" FontSize="17" Text="AktivitetID:"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" Foreground="{Binding TextColor}" FontSize="17" Text="AFFO Avdelning:"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Foreground="{Binding TextColor}" FontSize="17" Text="AFFO Avdelning:"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Foreground="{Binding TextColor}" FontSize="17" Text="AktivitetsID:"/>
 
         <TextBox Text="{Binding ActivityXxxx, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="1" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
         <TextBox Text="{Binding ActivityName, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
@@ -42,7 +42,8 @@
                   BorderBrush="Black" 
                   Margin="10,0,0,0" 
                   Width="200" 
-                  ItemsSource="{Binding AFFODepartment, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding SelectedAFFODepartment, UpdateSourceTrigger=PropertyChanged}"/>
+                  ItemsSource="{Binding AFFODepartment, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedValue="{Binding SelectedAFFODepartment, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="{Binding CustomID, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="4" Foreground="LightBlue" FontSize="17" Margin="10,0,0,0"/>
        
 

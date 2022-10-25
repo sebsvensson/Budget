@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -56,9 +56,13 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "RevenueBudgetByCustomerView")
             {
-                mainViewModel.SelectedViewModel = new RevenueBudgetByCustomerViewModel();
+                mainViewModel.SelectedViewModel = new RevenueBudgetByCustomerViewModel(mainViewModel);
             }
-            else if (parameter.ToString() == "ExpenseBudgetMenuView")
+            else if (parameter.ToString() == "AddRevenueByCustomerView")
+            {
+                mainViewModel.SelectedViewModel = new AddRevenueBudgetByCustomerViewModel();
+            }
+            if (parameter.ToString() == "ExpenseBudgetMenuView")
             {
                 mainViewModel.SelectedViewModel = new ExpenseBudgetMenuViewModel(mainViewModel);
             }
@@ -70,9 +74,17 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new EditProductViewModel();
             }
+            else if (parameter.ToString() == "EditActivityView")
+            {
+                mainViewModel.SelectedViewModel = new EditActivityViewModel();
+            }
             else if (parameter.ToString() == "RegisterActivityView")
             {
                 mainViewModel.SelectedViewModel = new RegisterActivityViewModel();
+            }
+            else if (parameter.ToString() == "EditActivityView")
+            {
+                mainViewModel.SelectedViewModel = new EditActivityViewModel();
             }
             else if (parameter.ToString() == "AdministerPermissionsView")
             {
@@ -82,6 +94,7 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new BudgetResultViewModel();
             }
+
             else if (parameter.ToString() == "SchablonExpenseView")
             {
                 mainViewModel.SelectedViewModel = new SchablonExpenseViewModel();
