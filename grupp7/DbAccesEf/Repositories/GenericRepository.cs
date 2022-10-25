@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using DbAccesEf.Models;
 
 namespace DbAccesEf.Repositories
 {
@@ -53,6 +54,15 @@ namespace DbAccesEf.Repositories
         public IEnumerable<T> ReturnAll()
         {
             return dbSet.ToList();
+        }
+        
+        public IEnumerable<RevenueBudget> ReturnCustomerBudgets(string customer)
+        {
+            return context.Set<RevenueBudget>()
+                .Include(c => c.Customer)
+                .Include(p => p.Product)
+                .Where(r => r.Customer.CustomID == customer)
+                .ToList();
         }
     }
 }

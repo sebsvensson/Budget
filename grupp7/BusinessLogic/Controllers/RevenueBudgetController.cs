@@ -38,9 +38,10 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
-        public IEnumerable<RevenueBudget> GetCustomerBudgets(string customerID)
+        public IEnumerable<RevenueBudget> GetCustomerBudgets(string customer)
         {
-            return unitOfWork.RevenueBudgetRepository.Find(c => c.Customer.CustomID == customerID);
+            return unitOfWork.RevenueBudgetRepository.ReturnCustomerBudgets(customer);
+
         }
         
     }
