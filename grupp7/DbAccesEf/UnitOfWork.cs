@@ -34,13 +34,10 @@ namespace DbAccesEf
             CustomerCategoryRepository = new GenericRepository<CustomerCategory>(context);
             ActivityRepository = new GenericRepository<Activity>(context);
             UserRepository = new GenericRepository<User>(context);
-<<<<<<< grupp7/DbAccesEf/UnitOfWork.cs
             RevenueBudgetRepository = new GenericRepository<RevenueBudget>(context);
-=======
             PersonellRepository = new GenericRepository<Personell>(context);
             AccountRepository = new GenericRepository<Account>(context);
             ProductAllocationRepository = new GenericRepository<ProductAllocation>(context);
->>>>>>> grupp7/DbAccesEf/UnitOfWork.cs
         }
 
         public void SaveChanges()
