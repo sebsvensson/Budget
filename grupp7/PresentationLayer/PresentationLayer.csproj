@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -161,6 +161,7 @@
     <Compile Include="Colors.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\UpdateViewCommand.cs" />
+    <Compile Include="ViewModels\AddRevenueBudgetByCustomerViewModel.cs" />
     <Compile Include="Utilities\ViewQueueHandler.cs" />
     <Compile Include="ViewModels\AdministerAccountsViewModel.cs" />
     <Compile Include="ViewModels\AdministerPermissionsViewModel.cs" />
@@ -183,6 +184,9 @@
     <Compile Include="ViewModels\RevenueBudgetMenuViewModel.cs" />
     <Compile Include="ViewModels\SchablonExpenseViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
+    <Compile Include="Views\AddRevenueByCustomerView.xaml.cs">
+      <DependentUpon>AddRevenueByCustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdministerAccountsView.xaml.cs">
       <DependentUpon>AdministerAccountsView.xaml</DependentUpon>
     </Compile>
@@ -248,6 +252,10 @@
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
     <Page Include="Theme\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddRevenueByCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

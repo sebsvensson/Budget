@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PresentationLayer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#2C303D">
+    <Grid Background="{Binding PageColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
@@ -28,19 +28,44 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="17" Text="AktivitetID:"/>
-        <TextBlock Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="17" Text="Aktivitet xxxx:"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" Foreground="White" FontSize="17" Text="Aktivitet:"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" Foreground="White" FontSize="17" Text="AFFO Avdelning:"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="{Binding TextColor}" FontSize="17" Text="AktivitetID:"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Foreground="{Binding TextColor}" FontSize="17" Text="Aktivitet xxxx:"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Foreground="{Binding TextColor}" FontSize="17" Text="Aktivitet:"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Foreground="{Binding TextColor}" FontSize="17" Text="AFFO Avdelning:"/>
 
-        <ComboBox Text="{Binding}" Grid.Column="2" Grid.Row="1" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
+        <ComboBox Text="" 
+                  Grid.Column="2" 
+                  Grid.Row="1" 
+                  BorderBrush="Black" 
+                  Margin="10,0,0,0" 
+                  Width="200"
+                  ItemsSource="{Binding Path=CustomIDs, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedValue="{Binding SelectedCustomID, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBox Text="{Binding ActivityXxxx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                 Grid.Column="2" 
+                 Grid.Row="2" 
+                 BorderBrush="Black" 
+                 Margin="10,0,0,0" 
+                 Width="200"/>
+
+        <TextBox Text="{Binding ActivityName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                 Grid.Column="2" 
+                 Grid.Row="3" 
+                 BorderBrush="Black" 
+                 Margin="10,0,0,0" 
+                 Width="200"/>
         
-        <!--Nedan: info visaas baserat på val av aktivitetID, som man sedan ändrar-->
-        <TextBox Text="{Binding}" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-        <TextBox Text="{Binding}" Grid.Column="2" Grid.Row="3" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
-        <ComboBox Text="{Binding}" Grid.Column="2" Grid.Row="4" BorderBrush="Black" Margin="10,0,0,0" Width="200"/>
+        <ComboBox Text="" 
+                  Grid.Column="2" 
+                  Grid.Row="4" 
+                  BorderBrush="Black" 
+                  Margin="10,0,0,0" 
+                  Width="200"
+                  ItemsSource="{Binding Path=AFFODepartments, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                  SelectedValue="{Binding AFFODepartment, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Content="Spara" Grid.Column="2" Grid.Row="5" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Button Content="Spara" Command="{Binding EditActivityCommand}" Grid.Column="2" Grid.Row="5" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <TextBlock Text="Binda till senast redigerad date" Grid.Column="2" Grid.Row="6" Foreground="White" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
 
     </Grid>

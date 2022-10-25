@@ -1,5 +1,4 @@
 ﻿using BusinessLogic.Controllers;
-using DbAccesEf;
 using DbAccesEf.Models;
 using PresentationLayer.Commands;
 using System;
@@ -12,20 +11,32 @@ using System.Windows.Input;
 
 namespace PresentationLayer.ViewModels
 {
-    public class RevenueBudgetByCustomerViewModel : BaseViewModel
+    public class AddRevenueBudgetByCustomerViewModel : BaseViewModel
     {
-        private MyContext context;
+        private DbAccesEf.MyContext context;
         private ProductController productController;
         private CustomerController customerController;
-
-        private MainViewModel mainViewModel;
+        private RevenueBudgetController revenueBudgetController;
         public ICommand UpdateViewCommand { get; set; }
-        public RevenueBudgetByCustomerViewModel(MainViewModel mainViewModel)
+        public AddRevenueBudgetByCustomerViewModel()
         {
-           
-            this.mainViewModel = mainViewModel;
-            UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
+            context = new DbAccesEf.MyContext();
+            productController = new ProductController(context);
+            customerController = new CustomerController(context);
+            revenueBudgetController = new RevenueBudgetController(context);
 
+            CustomerIDs = new ObservableCollection<string>();
+            ProductIDs = new ObservableCollection<string>();
+
+            foreach (Customer customer in customerController.GetAllCustomers())
+            {
+                CustomerIDs.Add(customer.CustomID);
+            }
+
+            foreach (DbAccesEf.Models.Product product in productController.GetAllProducts())
+            {
+                ProductIDs.Add(product.CustomId);
+            }
 
 
         }
@@ -43,7 +54,50 @@ namespace PresentationLayer.ViewModels
 
 
         }
-        
+        private ICommand _addRevenueBudgetCommand;
+        public ICommand AddRevenueBudgetCommand
+        {
+            get
+            {
+                
+                return _addRevenueBudgetCommand ?? (_addRevenueBudgetCommand = new CommandHandler(() => AddRevenueBudget()));
+            }
+        }
+
+        private void AddRevenueBudget()
+        {
+            
+            string gradeA;
+            string gradeT;
+            if ((SafeA || UnsafeA) && (SafeT || UnsafeT))
+            {
+                if (SafeA)
+                {
+                    gradeA = "Säker";
+                }
+                else
+                {
+                    gradeA = "Osäker";
+                }
+                if (SafeT)
+                {
+                    gradeT = "Säker";
+                }
+                else
+                {
+                    gradeT = "Osäker";
+                }
+
+
+                
+                Customer customer = customerController.GetByID(SelectedCustomerID);
+                DbAccesEf.Models.Product product = productController.GetByID(SelectedProductID);
+                revenueBudgetController.AddRevenueBudget(customer, product,
+                    Agreement, gradeA, Additions, gradeT, Budget, Hours, Comment);
+            }
+            
+
+        }
 
         private string _selectedCustomerID;
         public string SelectedCustomerID
@@ -53,16 +107,6 @@ namespace PresentationLayer.ViewModels
             {
                 GetCustomerInfo(value);
                 _selectedCustomerID = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _customerID;
-        public string CustomerID
-        {
-            get { return _customerID; }
-            set
-            {
-                _customerID = value;
                 OnPropertyChanged();
             }
         }
@@ -127,12 +171,57 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+        private bool _safeA;
+        public bool SafeA
+        {
+            get { return _safeA; }
+            set
+            {
+                
+                _safeA = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _unsafeA;
+        public bool UnsafeA
+        {
+            get { return _unsafeA; }
+            set
+            {
+               
+                _unsafeA = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _safeT;
+        public bool SafeT
+        {
+            get { return _safeT; }
+            set
+            {
+
+                _safeT = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _unsafeT;
+        public bool UnsafeT
+        {
+            get { return _unsafeT; }
+            set
+            {
+
+                _unsafeT = value;
+                OnPropertyChanged();
+            }
+        }
         private string _gradeA;
         public string GradeA
         {
             get { return _gradeA; }
             set
             {
+
                 _gradeA = value;
                 OnPropertyChanged();
             }
@@ -143,6 +232,7 @@ namespace PresentationLayer.ViewModels
             get { return _gradeT; }
             set
             {
+
                 _gradeT = value;
                 OnPropertyChanged();
             }
@@ -187,9 +277,6 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        
-
 
 
 
