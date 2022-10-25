@@ -88,7 +88,7 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "ResourceAllocationView")
             {
-                mainViewModel.SelectedViewModel = new ResourceAllocationViewModel();
+                mainViewModel.SelectedViewModel = new ResourceAllocation2ViewModel();
             }
         }
     }

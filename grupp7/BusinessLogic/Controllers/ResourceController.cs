@@ -166,9 +166,6 @@ namespace BusinessLogic.Controllers
             //Creates list of Accounts
             List<Account> newAccounts = new List<Account>();
 
-            System.Diagnostics.Debug.WriteLine(excelData.Rows[0][0].GetType());
-            System.Diagnostics.Debug.WriteLine(excelData.Rows[0][1].GetType());
-
             for (int i = 0; i < excelData.Rows.Count; i++)
             {
                 newAccounts.Add(new Account()
@@ -186,6 +183,33 @@ namespace BusinessLogic.Controllers
                     unitOfWork.AccountRepository.Add(a);
                 }
 
+            }
+
+            unitOfWork.SaveChanges();
+        }
+
+        public void ReadExcelCustomer(string fileName)
+        {
+            DataTable excelData = generateData.ExcelToDataTable(fileName);
+            List<Customer> newCustomers = new List<Customer>();
+
+            for(int i = 0; i < excelData.Rows.Count; i++)
+            {
+                newCustomers.Add(new Customer()
+                {
+                    CustomID = excelData.Rows[i].Field<string>(0),
+                    CustomerName = excelData.Rows[i].Field<string>(1),
+                    Category = new CustomerCategory() { Name = excelData.Rows[i].Field<string>(2) }
+
+                });
+            }
+
+            if (unitOfWork.CustomerRepository.IsEmpty())
+            {
+                foreach(Customer c in newCustomers)
+                {
+                    unitOfWork.CustomerRepository.Add(c);
+                }
             }
 
             unitOfWork.SaveChanges();

@@ -17,12 +17,8 @@
                 <LineBreak/>
                 Kopiera "TestView.xaml" när man ska börja jobba på en view
             </TextBlock>  -->
-        <DataGrid
-            Margin="100,100,100,100"
-            ItemsSource="{Binding TestTable, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="457,669,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                 Text="{Binding ColumnName}"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="598,669,0,0" VerticalAlignment="Top" Width="75"
-                Command="{Binding AddColumnCommand}"/>
+        <TextBlock Text="{Binding Test}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

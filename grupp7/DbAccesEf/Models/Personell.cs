@@ -20,6 +20,12 @@ namespace DbAccesEf.Models
         public double UtvForv { get; set; }
         public double Drift { get; set; }      
         public List<ProductAllocation> ProductAllocations { get; set; }
+        //public ProductAllocation SelectedAllocation { get; set; }
+        //public double AllocationInput { get; set; }
 
+        public Personell()
+        {
+            ProductAllocations = new List<ProductAllocation>();
+        }
     }
 }

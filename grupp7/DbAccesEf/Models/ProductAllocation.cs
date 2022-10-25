@@ -10,6 +10,7 @@ namespace DbAccesEf.Models
     public class ProductAllocation
     {
         public int ProductAllocationID { get; set; }
+        public int PersonellID { get; set; }
         public double Allocation { get; set; }
         public Product Product { get; set; }
     }

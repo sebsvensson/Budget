@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using DbAccesEf.Models;
 using BusinessLogic.Controllers;
 using DbAccesEf;
+using System.Windows.Input;
+using PresentationLayer.Commands;
 
 namespace PresentationLayer.ViewModels
 {
     public class ResourceAllocationViewModel : BaseViewModel
     {
         private PersonellController personellController;
+        private ProductController productController;
 
         private List<Personell> _personells;
         public List<Personell> Personells
@@ -24,9 +27,26 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private ICommand _testCommand;
+        public ICommand TestCommand
+        {
+            get
+            {
+                return _testCommand ?? (_testCommand = new CommandHandler(() => Test()));
+            }
+        }
+
+        public void Test()
+        {
+            //System.Diagnostics.Debug.WriteLine(Personells.ElementAt(0).AllocationInput);
+        }
+
         public ResourceAllocationViewModel()
         {
-            personellController = new PersonellController(new MyContext());
+            MyContext context = new MyContext();
+            personellController = new PersonellController(context);
+            productController = new ProductController(context);
+
             Personells = personellController.GetAll().ToList();
         }
     }

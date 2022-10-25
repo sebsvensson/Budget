@@ -18,7 +18,12 @@ namespace BusinessLogic.Controllers
 
         public IEnumerable<Personell> GetAll()
         {
-            return unitOfWork.PersonellRepository.ReturnAll();
+            return unitOfWork.PersonellRepository.ReturnAllPersonell();
+        }
+
+        public IEnumerable<ProductAllocation> GetProductAllocations(int personellID)
+        {
+            return unitOfWork.ProductAllocationRepository.Find(p => p.PersonellID == personellID);
         }
     }
 }
