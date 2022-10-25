@@ -27,6 +27,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -45,36 +47,34 @@
         <TextBox Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,149,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,192,0,0" Grid.Row="9" Text="Avtal:" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Avtal, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,185,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Agreement, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,185,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,256,0,0" Grid.Row="9" Text="Grad A:" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="407,228,0,0" Grid.Row="9" Text="Säker" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="468,228,0,0" Grid.Row="9" Text="Osäker" VerticalAlignment="Top" Foreground='White'/>
-        
-        <RadioButton IsChecked="{Binding Safe, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="414,258,0,0" Grid.Row="9" VerticalAlignment="Top"/>
-        <RadioButton IsChecked="{Binding Unsafe, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="479,258,0,0" Grid.Row="9" VerticalAlignment="Top"/>
-        
+        <StackPanel Width="120" HorizontalAlignment="Left" Grid.Column="6" Grid.Row="9" VerticalAlignment="Top" Margin="396,258,0,0" Height="23" Orientation="Horizontal">
+        <RadioButton IsChecked="{Binding SafeA, Mode=TwoWay}"  Margin="18,0,0,0" VerticalAlignment="Top"/>
+        <RadioButton IsChecked="{Binding UnsafeA, Mode=TwoWay}" Margin="50,0,0,0" VerticalAlignment="Top" />
+        </StackPanel>
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,305,0,0" Grid.Row="9" Text="Tillägg:" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Tillägg, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,298,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Additions, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,298,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,362,0,0" Grid.Row="9" Text="Grad T:" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="407,340,0,0" Grid.Row="9" Text="Säker" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="468,340,0,0" Grid.Row="9" Text="Osäker" VerticalAlignment="Top" Foreground="White"/>
-        <StackPanel>
-        <RadioButton IsChecked="{Binding Säker, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="414,364,0,0" Grid.Row="9" VerticalAlignment="Top"/>
-        <RadioButton IsChecked="{Binding Osäker, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="479,364,0,0" Grid.Row="9" VerticalAlignment="Top"/>
-        </StackPanel>
-        
+        <RadioButton IsChecked="{Binding SafeT, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="414,364,0,0" Grid.Row="9" VerticalAlignment="Top"/>
+        <RadioButton IsChecked="{Binding UnsafeT, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="479,364,0,0" Grid.Row="9" VerticalAlignment="Top"/>
+
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,410,0,0" Grid.Row="9" Text="Budget:" VerticalAlignment="Top" Foreground="White"/>
         <TextBox Text="{Binding Budget, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,403,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,446,0,0" Grid.Row="9" Text="Tim:" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Tim, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,439,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,439,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,483,0,0" Grid.Row="9" TextWrapping="Wrap" Text="Kommentar:" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Kommentar, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,476,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,476,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
-        <Button Command="{Binding Spara}" Content="Spara" Grid.Column="6" HorizontalAlignment="Left" Margin="781,677,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding AddRevenueBudgetCommand}" Content="Spara" Grid.Column="6" HorizontalAlignment="Left" Margin="781,600,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 

@@ -2,6 +2,7 @@
 using DbAccesEf.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,18 +17,16 @@ namespace BusinessLogic.Controllers
         {
             unitOfWork = new UnitOfWork(context);
         }
-        public void AddRevenueBudget(string customerID, string customerName, string productID, string productName, int agreement,
+        public void AddRevenueBudget(Customer customer, Product product, int agreement,
             string gradeA, int additions, string gradeT, int budget, int hours, string comment)
         {
-
+            
             RevenueBudget revenueBudget = new RevenueBudget();
             unitOfWork.RevenueBudgetRepository.Add(revenueBudget);
             {
-                
-                revenueBudget.Customer.CustomID = customerID;
-                revenueBudget.Customer.CustomerName = customerName;
-                revenueBudget.Product.CustomId = productID;
-                revenueBudget.Product.ProductName = productName;
+
+                revenueBudget.Customer = customer;
+                revenueBudget.Product = product;
                 revenueBudget.Agreement = agreement;
                 revenueBudget.Grade_A = gradeA;
                 revenueBudget.Additions = additions;
@@ -39,6 +38,10 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
+        public IEnumerable<RevenueBudget> GetCustomerBudgets(string customerID)
+        {
+            return unitOfWork.RevenueBudgetRepository.Find(c => c.Customer.CustomID == customerID);
+        }
         
     }
 }

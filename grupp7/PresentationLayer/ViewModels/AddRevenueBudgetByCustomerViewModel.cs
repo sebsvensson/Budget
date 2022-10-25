@@ -66,11 +66,12 @@ namespace PresentationLayer.ViewModels
 
         private void AddRevenueBudget()
         {
+            
             string gradeA;
             string gradeT;
-            if (Safe || Unsafe)
+            if ((SafeA || UnsafeA) && (SafeT || UnsafeT))
             {
-                if (Safe)
+                if (SafeA)
                 {
                     gradeA = "Säker";
                 }
@@ -78,7 +79,7 @@ namespace PresentationLayer.ViewModels
                 {
                     gradeA = "Osäker";
                 }
-                if (Safe)
+                if (SafeT)
                 {
                     gradeT = "Säker";
                 }
@@ -87,9 +88,11 @@ namespace PresentationLayer.ViewModels
                     gradeT = "Osäker";
                 }
 
+
+                
                 Customer customer = customerController.GetByID(SelectedCustomerID);
                 DbAccesEf.Models.Product product = productController.GetByID(SelectedProductID);
-                revenueBudgetController.AddRevenueBudget(customer.CustomID, customer.CustomerName, product.CustomId, product.ProductName,
+                revenueBudgetController.AddRevenueBudget(customer, product,
                     Agreement, gradeA, Additions, gradeT, Budget, Hours, Comment);
             }
             
@@ -104,16 +107,6 @@ namespace PresentationLayer.ViewModels
             {
                 GetCustomerInfo(value);
                 _selectedCustomerID = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _customerID;
-        public string CustomerID
-        {
-            get { return _customerID; }
-            set
-            {
-                _customerID = value;
                 OnPropertyChanged();
             }
         }
@@ -178,25 +171,47 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
-        private bool _safe;
-        public bool Safe
+        private bool _safeA;
+        public bool SafeA
         {
-            get { return _safe; }
+            get { return _safeA; }
             set
             {
                 
-                _safe = value;
+                _safeA = value;
                 OnPropertyChanged();
             }
         }
-        private bool _unsafe;
-        public bool Unsafe
+        private bool _unsafeA;
+        public bool UnsafeA
         {
-            get { return _unsafe; }
+            get { return _unsafeA; }
             set
             {
                
-                _unsafe = value;
+                _unsafeA = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _safeT;
+        public bool SafeT
+        {
+            get { return _safeT; }
+            set
+            {
+
+                _safeT = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _unsafeT;
+        public bool UnsafeT
+        {
+            get { return _unsafeT; }
+            set
+            {
+
+                _unsafeT = value;
                 OnPropertyChanged();
             }
         }
