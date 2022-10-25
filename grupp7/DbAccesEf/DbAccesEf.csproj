@@ -146,10 +146,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenerateData.cs" />
+    <Compile Include="Migrations\20221025111509_test1.cs" />
+    <Compile Include="Migrations\20221025111509_test1.designer.cs">
+      <DependentUpon>20221025111509_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MyContextModelSnapshot.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCategory.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\Personell.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductAllocation.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductGroup.cs" />
     <Compile Include="Models\RevenueBudget.cs" />
@@ -164,6 +172,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Resources\Kontoplan.xlsx" />
+    <None Include="Resources\Kunder.xlsx" />
+    <None Include="Resources\Personallista.xlsx" />
     <None Include="Resources\Produkter.xlsx" />
   </ItemGroup>
   <ItemGroup />

@@ -62,12 +62,13 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
+        //Read products in fills database
         public void ReadExcelProduct(string fileName)
         {
             DataTable excelData = generateData.ExcelToDataTable(fileName);
 
+            //Creates lists of products
             List<Product> newProducts = new List<Product>();
-
             for (int i = 0; i < excelData.Rows.Count; i++)
             {
                 newProducts.Add(new Product()
@@ -76,15 +77,138 @@ namespace BusinessLogic.Controllers
                     Xxxx = excelData.Rows[i].Field<string>(0).Substring(0, 5),
                     ProductName = excelData.Rows[i].Field<string>(1),
                     ProductCategory = new ProductCategory(excelData.Rows[i].Field<string>(3)),
-                    ProductGroup = new ProductGroup(excelData.Rows[i].Field<string>(2))
+                    ProductGroup = new ProductGroup(excelData.Rows[i].Field<string>(2)),
+                    Department = excelData.Rows[i].Field<string>(4)
                 });
             }
 
+            //Puts products list in database
             if (unitOfWork.ProductRepository.IsEmpty())
             {
                 foreach(Product p in newProducts)
                 {
                     unitOfWork.ProductRepository.Add(p);
+                }
+            }
+
+            unitOfWork.SaveChanges();
+        }
+
+        public void ReadExcelPersonell(string fileName)
+        {
+            DataTable excelData = generateData.ExcelToDataTable(fileName);
+
+            //Creates list of Personell
+            List<Personell> newPersonell = new List<Personell>();
+            for (int i = 0; i < excelData.Rows.Count; i++)
+            {
+                newPersonell.Add(new Personell()
+                {
+                    Pnr = excelData.Rows[i].Field<string>(0),
+                    Name = excelData.Rows[i].Field<string>(1),
+                    MonthlySalary = CheckDBNull(excelData.Rows[i][2]),
+                    EmploymentRate = CheckDBNull(excelData.Rows[i][3]),
+                    VacancyDeduction = CheckDBNull(excelData.Rows[i][4]),
+                    AnnualWorkRate = CheckDBNull(excelData.Rows[i][5]),
+                    Adm = CheckDBNull(excelData.Rows[i][6]),
+                    ForsMark = CheckDBNull(excelData.Rows[i][7]),
+                    UtvForv = CheckDBNull(excelData.Rows[i][8]),
+                    Drift = CheckDBNull(excelData.Rows[i][9]),
+                    ProductAllocations = GenerateProductAllocationZeroes()
+                });
+            }
+
+            if (unitOfWork.PersonellRepository.IsEmpty())
+            {
+                foreach (Personell p in newPersonell)
+                {
+                    unitOfWork.PersonellRepository.Add(p);
+                }
+            }
+
+            unitOfWork.SaveChanges();
+        }
+
+        //Generate ProductAllocation zeroes on personell
+        private List<ProductAllocation> GenerateProductAllocationZeroes()
+        {
+            List<ProductAllocation> result = new List<ProductAllocation>();
+
+            foreach(Product p in unitOfWork.ProductRepository.ReturnAll())
+            {
+                result.Add(new ProductAllocation()
+                {
+                    Allocation = 0,
+                    Product = p
+                });
+            }
+
+            return result;
+        }
+
+        //Checks if DataTable cell is null, if yes: returns 0
+        private double CheckDBNull(object input)
+        {
+            if (input == DBNull.Value)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToDouble(input);
+            }
+        }
+
+        public void ReadExcelAccount(string fileName)
+        {
+            DataTable excelData = generateData.ExcelToDataTable(fileName);
+
+            //Creates list of Accounts
+            List<Account> newAccounts = new List<Account>();
+
+            for (int i = 0; i < excelData.Rows.Count; i++)
+            {
+                newAccounts.Add(new Account()
+                {
+                    AccountNumber = Convert.ToInt32(excelData.Rows[i].Field<string>(0)),
+                    Name = excelData.Rows[i].Field<string>(1),
+                    SchablonExpense = 0
+                });
+            }
+
+            if (unitOfWork.AccountRepository.IsEmpty())
+            {
+                foreach (Account a in newAccounts)
+                {
+                    unitOfWork.AccountRepository.Add(a);
+                }
+
+            }
+
+            unitOfWork.SaveChanges();
+        }
+
+        public void ReadExcelCustomer(string fileName)
+        {
+            DataTable excelData = generateData.ExcelToDataTable(fileName);
+            List<Customer> newCustomers = new List<Customer>();
+
+            for(int i = 0; i < excelData.Rows.Count; i++)
+            {
+                newCustomers.Add(new Customer()
+                {
+                    CustomID = excelData.Rows[i].Field<string>(0),
+                    CustomerName = excelData.Rows[i].Field<string>(1),
+                    Category = new CustomerCategory() { Name = excelData.Rows[i].Field<string>(2) }
+
+                });
+            }
+
+            if (unitOfWork.CustomerRepository.IsEmpty())
+            {
+                foreach(Customer c in newCustomers)
+                {
+                    unitOfWork.CustomerRepository.Add(c);
                 }
             }
 

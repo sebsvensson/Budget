@@ -13,5 +13,6 @@ namespace DbAccesEf.Models
         public string ProductName { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public ProductGroup ProductGroup { get; set; }
+        public string Department { get; set; }
     }
 }

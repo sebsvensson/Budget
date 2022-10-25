@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -57,6 +58,9 @@
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.3.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
@@ -158,6 +162,7 @@
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="ViewModels\AddRevenueBudgetByCustomerViewModel.cs" />
+    <Compile Include="Utilities\ViewQueueHandler.cs" />
     <Compile Include="ViewModels\AdministerAccountsViewModel.cs" />
     <Compile Include="ViewModels\AdministerPermissionsViewModel.cs" />
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
@@ -173,8 +178,11 @@
     <Compile Include="ViewModels\RegisterActivityViewModel.cs" />
     <Compile Include="ViewModels\RegisterCustomerViewModel.cs" />
     <Compile Include="ViewModels\RegisterProductViewModel.cs" />
+    <Compile Include="ViewModels\ResourceAllocation2ViewModel.cs" />
+    <Compile Include="ViewModels\ResourceAllocationViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetByCustomerViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetMenuViewModel.cs" />
+    <Compile Include="ViewModels\SchablonExpenseViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="Views\AddRevenueByCustomerView.xaml.cs">
       <DependentUpon>AddRevenueByCustomerView.xaml</DependentUpon>
@@ -209,6 +217,12 @@
     <Compile Include="Views\RegisterActivityView.xaml.cs">
       <DependentUpon>RegisterActivityView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResourceAllocation2View.xaml.cs">
+      <DependentUpon>ResourceAllocation2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResourceAllocationView.xaml.cs">
+      <DependentUpon>ResourceAllocationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RevenueBudgetMenuView.xaml.cs">
       <DependentUpon>RevenueBudgetMenuView.xaml</DependentUpon>
     </Compile>
@@ -230,6 +244,9 @@
     </Compile>
     <Compile Include="Views\RegisterProductView.xaml.cs">
       <DependentUpon>RegisterProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchablonExpenseView.xaml.cs">
+      <DependentUpon>SchablonExpenseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
@@ -282,6 +299,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ResourceAllocation2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResourceAllocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RevenueBudgetMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -303,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SchablonExpenseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -348,6 +377,18 @@
       <Name>DbAccesEf</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_image2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_image3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -355,5 +396,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
   </Target>
 </Project>

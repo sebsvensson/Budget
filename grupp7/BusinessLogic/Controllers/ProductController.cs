@@ -60,6 +60,11 @@ namespace BusinessLogic.Controllers
             return unitOfWork.ProductCategoryRepository.ReturnAll();
         }
 
+        public IEnumerable<Product> GetAll()
+        {
+            return unitOfWork.ProductRepository.ReturnAll();
+        }
+
         //Add new productgroup
         public void AddProductGroup(string name)
         {

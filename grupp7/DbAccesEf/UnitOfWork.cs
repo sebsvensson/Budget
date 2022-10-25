@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DbAccesEf.Repositories;
@@ -19,6 +19,9 @@ namespace DbAccesEf
         public GenericRepository<Activity> ActivityRepository { get; set; }
         public GenericRepository<User> UserRepository { get; set; }
         public GenericRepository<RevenueBudget> RevenueBudgetRepository { get; set; }
+        public GenericRepository<Personell> PersonellRepository { get; set; }
+        public GenericRepository<Account> AccountRepository { get; set; }
+        public GenericRepository<ProductAllocation> ProductAllocationRepository { get; set; }
 
         public UnitOfWork(MyContext context)
         {
@@ -31,7 +34,13 @@ namespace DbAccesEf
             CustomerCategoryRepository = new GenericRepository<CustomerCategory>(context);
             ActivityRepository = new GenericRepository<Activity>(context);
             UserRepository = new GenericRepository<User>(context);
+<<<<<<< grupp7/DbAccesEf/UnitOfWork.cs
             RevenueBudgetRepository = new GenericRepository<RevenueBudget>(context);
+=======
+            PersonellRepository = new GenericRepository<Personell>(context);
+            AccountRepository = new GenericRepository<Account>(context);
+            ProductAllocationRepository = new GenericRepository<ProductAllocation>(context);
+>>>>>>> grupp7/DbAccesEf/UnitOfWork.cs
         }
 
         public void SaveChanges()
