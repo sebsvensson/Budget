@@ -1,4 +1,4 @@
-﻿using BusinessLogic.Controllers;
+using BusinessLogic.Controllers;
 using DbAccesEf;
 using DbAccesEf.Models;
 using PresentationLayer.Commands;
@@ -18,6 +18,9 @@ namespace PresentationLayer.ViewModels
         private ProductController productController;
         private CustomerController customerController;
         private RevenueBudgetController revenueBudgetController;
+        private MyContext context;
+        private ProductController productController;
+        private CustomerController customerController;
 
         private MainViewModel mainViewModel;
         public ICommand UpdateViewCommand { get; set; }
@@ -36,7 +39,9 @@ namespace PresentationLayer.ViewModels
             {
                 CustomerIDs.Add(customer.CustomID);
             }
-
+           
+            this.mainViewModel = mainViewModel;
+            UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
 
         }
         private void GetProductInfo(string selectedProductID)
@@ -69,6 +74,14 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private void GetCustomerInfo(string selectedCustomerID)
+        {
+            Customer customer = customerController.GetByID(selectedCustomerID);
+            CustomerName = customer.CustomerName;
+
+
+        }
+
         private string _selectedCustomerID;
         public string SelectedCustomerID
         {
@@ -76,6 +89,7 @@ namespace PresentationLayer.ViewModels
             set
             {
                 ShowBudgets(value);
+                GetCustomerInfo(value);
                 _selectedCustomerID = value;
                 OnPropertyChanged();
             }
@@ -100,6 +114,7 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private ObservableCollection<RevenueBudget> _revenueBudgets;
         public ObservableCollection<RevenueBudget> RevenueBudgets
         {
@@ -110,6 +125,7 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private ObservableCollection<string> _productIDs;
         public ObservableCollection<string> ProductIDs
         {
@@ -141,6 +157,7 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private string _productID;
         public string ProductID
         {
@@ -152,6 +169,7 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private string _productName;
         public string ProductName
         {
