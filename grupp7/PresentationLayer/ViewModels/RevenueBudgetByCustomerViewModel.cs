@@ -52,17 +52,56 @@ namespace PresentationLayer.ViewModels
 
             foreach (RevenueBudget revenueBudget in revenueBudgets)
             {
-                CustomerName = revenueBudget.Customer.CustomerName;
-                ProductID = revenueBudget.Product.CustomId;
-                Agreement = revenueBudget.Agreement;
-                GradeA = revenueBudget.Grade_A;
-                Additions = revenueBudget.Additions;
-                GradeT = revenueBudget.Grade_T;
-                Budget = revenueBudget.Budget;
-                Hours = revenueBudget.Hours;
-                Comment = revenueBudget.Comment;
-
                 RevenueBudgets.Add(revenueBudget);
+                AgreementSum += revenueBudget.Agreement;
+                BudgetSum += revenueBudget.Budget;
+                HoursSum += revenueBudget.Hours;
+                AdditionsSum += revenueBudget.Additions;
+            }
+
+        }
+
+        private double _agreementSum = 0;
+        public double AgreementSum
+        {
+            get { return _agreementSum; }
+            set
+            {
+                _agreementSum = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _budgetSum = 0;
+        public double BudgetSum
+        {
+            get { return _budgetSum; }
+            set
+            {
+                _budgetSum = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _hoursSum = 0;
+        public double HoursSum
+        {
+            get { return _hoursSum; }
+            set
+            {
+                _hoursSum = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _additionsSum = 0;
+        public double AdditionsSum
+        {
+            get { return _additionsSum; }
+            set
+            {
+                _additionsSum = value;
+                OnPropertyChanged();
             }
         }
 

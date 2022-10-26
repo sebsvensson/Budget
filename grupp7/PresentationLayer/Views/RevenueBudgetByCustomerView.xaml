@@ -42,13 +42,13 @@
 
         <TextBlock Text="Totalt:" Grid.Column="1" Grid.Row="2" Foreground="{Binding TextColor}" FontSize="17" Margin="40,50,0,0"/>
 
-        <TextBox Text="" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="140,50,0,0" Width="70"/>
+        <TextBox Text="{Binding AgreementSum, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" BorderBrush="Black" Margin="140,50,0,0" Width="70"/>
         <!-- Ska bindas mot "Avtal" för att visa totalsumma-->
-        <TextBox Text="" Grid.Column="3" Grid.Row="2" BorderBrush="Black" Margin="65,50,0,0" Width="80"/>
+        <TextBox Text="{Binding AdditionsSum, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="2" BorderBrush="Black" Margin="65,50,0,0" Width="80"/>
         <!-- Ska bindas mot "Tillägg" för att visa totalsumma-->
-        <TextBox Text="" Grid.Column="4" Grid.Row="2" BorderBrush="Black" Margin="20,50,0,0" Width="80"/>
+        <TextBox Text="{Binding BudgetSum, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Grid.Row="2" BorderBrush="Black" Margin="20,50,0,0" Width="80"/>
         <!-- Ska bindas mot "Budget" för att visa totalsumma-->
-        <TextBox Text="" Grid.Column="5" Grid.Row="2" BorderBrush="Black" Margin="-50,50,0,0" Width="50"/>
+        <TextBox Text="{Binding HoursSum, UpdateSourceTrigger=PropertyChanged}" Grid.Column="5" Grid.Row="2" BorderBrush="Black" Margin="-50,50,0,0" Width="50"/>
         <!-- Ska bindas mot "Tim" för att visa totalsumma-->
 
 
@@ -66,12 +66,12 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ProduktID" Binding="{Binding ProductID}" Width="70" IsReadOnly="True" />
-                <DataGridTextColumn Header="Produkt" Binding="{Binding ProductName}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="ProduktID" Binding="{Binding Product.CustomId}" Width="70" IsReadOnly="True" />
+                <DataGridTextColumn Header="Produkt" Binding="{Binding Product.ProductName}" Width="150" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Avtal" Binding="{Binding Agreement}" Width="70" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Grad A" Binding="{Binding GradeA}" Width="70" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Grad A" Binding="{Binding Grade_A}" Width="70" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Tillägg" Binding="{Binding Additions}" Width="80"  IsReadOnly="True"/>
-                <DataGridTextColumn Header="Grad T" Binding="{Binding GradeT}" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Grad T" Binding="{Binding Grade_T}" Width="80" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Budget" Binding="{Binding Budget}" Width="80" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Tim" Binding="{Binding Hours}" Width="60" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Kommentar" Binding="{Binding Comment}" Width="*" IsReadOnly="True"/>
@@ -82,8 +82,7 @@
                 CommandParameter="AddRevenueByCustomerView"
                 Content="Lägg till" Grid.Column="1" HorizontalAlignment="Left" Margin="40,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
         <Button Content="Ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="10.5,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Exportera" Grid.Column="4" HorizontalAlignment="Left" Margin="40,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Skriv ut" Grid.Column="4" HorizontalAlignment="Left" Margin="139,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3"/>
+        <Button Content="Exportera" Grid.Column="4" HorizontalAlignment="Left" Margin="139,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3"/>
         <Button Content="Redigera" Grid.Column="6" HorizontalAlignment="Left" Margin="26,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
         <Button Content="Spara" Grid.Column="6" HorizontalAlignment="Left" Margin="120,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
 
