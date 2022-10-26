@@ -54,7 +54,7 @@
 
 
         <DataGrid x:Name="IntäktsbudgetDataGrid" Grid.ColumnSpan="6" Grid.Column="1" HorizontalAlignment="Left" Height="314" Margin="40,20.5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="850" Grid.RowSpan="3"
-                 ItemsSource="{Binding RevenueBudgets, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" >
+                 ItemsSource="{Binding RevenueBudgets, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedRevenueBudget, Mode=TwoWay}" AutoGenerateColumns="False" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="SemiBold"/>
@@ -81,7 +81,8 @@
         <Button Command="{Binding UpdateViewCommand}"
                 CommandParameter="AddRevenueByCustomerView"
                 Content="Lägg till" Grid.Column="1" HorizontalAlignment="Left" Margin="40,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="10.5,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
+        <Button Command="{Binding RemoveRevenueBudgetCommand}" 
+            Content="Ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="10.5,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
         <Button Content="Exportera" Grid.Column="4" HorizontalAlignment="Left" Margin="139,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3"/>
         <Button Content="Redigera" Grid.Column="6" HorizontalAlignment="Left" Margin="26,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
         <Button Content="Spara" Grid.Column="6" HorizontalAlignment="Left" Margin="120,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>

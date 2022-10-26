@@ -41,5 +41,15 @@ namespace BusinessLogic.Controllers
         {
             return unitOfWork.RevenueBudgetRepository.ReturnCustomerBudgets(customer);
         }
+
+        public void RemoveRevenueBudget(RevenueBudget revenueBudget)
+        {
+            unitOfWork.RevenueBudgetRepository.Remove(revenueBudget);
+        }
+
+        public RevenueBudget GetRevenueBudget(int id)
+        {
+            return unitOfWork.RevenueBudgetRepository.FirstOrDefault(r => r.RevenueBudgetID == id);
+        }
     }
 }

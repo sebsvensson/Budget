@@ -32,10 +32,13 @@ namespace PresentationLayer.ViewModels
 
             CustomerIDs = new ObservableCollection<string>();
 
+
             foreach (Customer customer in customerController.GetAllCustomers())
             {
                 CustomerIDs.Add(customer.CustomID);
             }
+
+           
 
         }
         private void GetProductInfo(string selectedProductID)
@@ -52,6 +55,7 @@ namespace PresentationLayer.ViewModels
 
             foreach (RevenueBudget revenueBudget in revenueBudgets)
             {
+                CustomerName = revenueBudget.Customer.CustomerName;
                 RevenueBudgets.Add(revenueBudget);
                 AgreementSum += revenueBudget.Agreement;
                 BudgetSum += revenueBudget.Budget;
@@ -59,6 +63,30 @@ namespace PresentationLayer.ViewModels
                 AdditionsSum += revenueBudget.Additions;
             }
 
+        }
+        private ICommand _removeRevenueBudgetCommand;
+        public ICommand RemoveRevenueBudgetCommand
+        {
+            get
+            {
+                return _removeRevenueBudgetCommand ?? (_removeRevenueBudgetCommand = new CommandHandler(() => RemoveBudget(SelectedRevenueBudget)));
+            }
+        }
+        public void RemoveBudget(RevenueBudget revenueBudget)
+        {
+            
+                revenueBudgetController.RemoveRevenueBudget(revenueBudget);
+        }
+
+        private RevenueBudget _selectedRevenueBudget;
+        public RevenueBudget SelectedRevenueBudget
+        {
+            get { return _selectedRevenueBudget; }
+            set
+            {
+                _selectedRevenueBudget = value;
+                OnPropertyChanged();
+            }
         }
 
         private double _agreementSum = 0;
