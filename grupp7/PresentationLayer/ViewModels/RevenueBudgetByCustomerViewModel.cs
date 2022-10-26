@@ -1,4 +1,4 @@
-﻿using BusinessLogic.Controllers;
+using BusinessLogic.Controllers;
 using DbAccesEf;
 using DbAccesEf.Models;
 using PresentationLayer.Commands;
@@ -14,6 +14,10 @@ namespace PresentationLayer.ViewModels
 {
     public class RevenueBudgetByCustomerViewModel : BaseViewModel
     {
+        private DbAccesEf.MyContext context;
+        private ProductController productController;
+        private CustomerController customerController;
+        private RevenueBudgetController revenueBudgetController;
         private MyContext context;
         private ProductController productController;
         private CustomerController customerController;
@@ -22,11 +26,22 @@ namespace PresentationLayer.ViewModels
         public ICommand UpdateViewCommand { get; set; }
         public RevenueBudgetByCustomerViewModel(MainViewModel mainViewModel)
         {
-           
+            context = new DbAccesEf.MyContext();
+            revenueBudgetController = new RevenueBudgetController(context);
+            productController = new ProductController(context);
+            customerController = new CustomerController(context);
             this.mainViewModel = mainViewModel;
             UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
 
+            CustomerIDs = new ObservableCollection<string>();
 
+            foreach (Customer customer in customerController.GetAllCustomers())
+            {
+                CustomerIDs.Add(customer.CustomID);
+            }
+           
+            this.mainViewModel = mainViewModel;
+            UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
 
         }
         private void GetProductInfo(string selectedProductID)
@@ -36,6 +51,29 @@ namespace PresentationLayer.ViewModels
 
 
         }
+
+        public void ShowBudgets(string selectedCustomerID)
+        {
+            IEnumerable<RevenueBudget> revenueBudgets = revenueBudgetController.GetCustomerBudgets(selectedCustomerID);
+
+            RevenueBudgets = new ObservableCollection<RevenueBudget>();
+
+            foreach (RevenueBudget revenueBudget in revenueBudgets)
+            {
+                CustomerName = revenueBudget.Customer.CustomerName;
+                ProductID = revenueBudget.Product.CustomId;
+                Agreement = revenueBudget.Agreement;
+                GradeA = revenueBudget.Grade_A;
+                Additions = revenueBudget.Additions;
+                GradeT = revenueBudget.Grade_T;
+                Budget = revenueBudget.Budget;
+                Hours = revenueBudget.Hours;
+                Comment = revenueBudget.Comment;
+
+                RevenueBudgets.Add(revenueBudget);
+            }
+        }
+
         private void GetCustomerInfo(string selectedCustomerID)
         {
             Customer customer = customerController.GetByID(selectedCustomerID);
@@ -43,7 +81,6 @@ namespace PresentationLayer.ViewModels
 
 
         }
-        
 
         private string _selectedCustomerID;
         public string SelectedCustomerID
@@ -51,6 +88,7 @@ namespace PresentationLayer.ViewModels
             get { return _selectedCustomerID; }
             set
             {
+                ShowBudgets(value);
                 GetCustomerInfo(value);
                 _selectedCustomerID = value;
                 OnPropertyChanged();
@@ -76,6 +114,18 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private ObservableCollection<RevenueBudget> _revenueBudgets;
+        public ObservableCollection<RevenueBudget> RevenueBudgets
+        {
+            get { return _revenueBudgets; }
+            set
+            {
+                _revenueBudgets = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<string> _productIDs;
         public ObservableCollection<string> ProductIDs
         {
@@ -107,6 +157,19 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private string _productID;
+        public string ProductID
+        {
+            get { return _productID; }
+            set
+            {
+               
+                _productID = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _productName;
         public string ProductName
         {

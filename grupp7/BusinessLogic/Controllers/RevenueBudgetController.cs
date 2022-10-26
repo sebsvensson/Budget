@@ -1,4 +1,4 @@
-﻿using DbAccesEf;
+using DbAccesEf;
 using DbAccesEf.Models;
 using System;
 using System.Collections.Generic;
@@ -36,6 +36,11 @@ namespace BusinessLogic.Controllers
                 revenueBudget.Comment = comment;
             }
             unitOfWork.SaveChanges();
+        }
+
+        public IEnumerable<RevenueBudget> GetCustomerBudgets(string customer)
+        {
+            return unitOfWork.RevenueBudgetRepository.ReturnCustomerBudgets(customer);
         }
 
         public IEnumerable<RevenueBudget> GetCustomerBudgets(string customerID)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,12 +57,13 @@ namespace BusinessLogic.Controllers
         //Get all productcategories
         public IEnumerable<ProductCategory> GetAllProductCategories()
         {
-            return unitOfWork.ProductCategoryRepository.ReturnAll();
+            return unitOfWork.ProductRepository.ReturnAll();
         }
 
-        public IEnumerable<Product> GetAll()
+        //Get all productcategories
+        public IEnumerable<ProductCategory> GetAllProductCategories()
         {
-            return unitOfWork.ProductRepository.ReturnAll();
+            return unitOfWork.ProductCategoryRepository.ReturnAll();
         }
 
         //Add new productgroup
