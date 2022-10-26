@@ -57,12 +57,6 @@ namespace BusinessLogic.Controllers
         //Get all productcategories
         public IEnumerable<ProductCategory> GetAllProductCategories()
         {
-            return unitOfWork.ProductRepository.ReturnAll();
-        }
-
-        //Get all productcategories
-        public IEnumerable<ProductCategory> GetAllProductCategories()
-        {
             return unitOfWork.ProductCategoryRepository.ReturnAll();
         }
 

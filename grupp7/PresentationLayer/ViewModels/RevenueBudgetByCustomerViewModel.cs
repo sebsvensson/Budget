@@ -18,9 +18,6 @@ namespace PresentationLayer.ViewModels
         private ProductController productController;
         private CustomerController customerController;
         private RevenueBudgetController revenueBudgetController;
-        private MyContext context;
-        private ProductController productController;
-        private CustomerController customerController;
 
         private MainViewModel mainViewModel;
         public ICommand UpdateViewCommand { get; set; }

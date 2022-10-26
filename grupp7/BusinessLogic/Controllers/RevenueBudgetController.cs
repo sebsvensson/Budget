@@ -42,11 +42,5 @@ namespace BusinessLogic.Controllers
         {
             return unitOfWork.RevenueBudgetRepository.ReturnCustomerBudgets(customer);
         }
-
-        public IEnumerable<RevenueBudget> GetCustomerBudgets(string customerID)
-        {
-            return unitOfWork.RevenueBudgetRepository.Find(c => c.Customer.CustomID == customerID);
-        }
-        
     }
 }
