@@ -1,4 +1,4 @@
-﻿using DbAccesEf;
+using DbAccesEf;
 using DbAccesEf.Models;
 using System;
 using System.Collections.Generic;
@@ -41,7 +41,11 @@ namespace BusinessLogic.Controllers
         public IEnumerable<RevenueBudget> GetCustomerBudgets(string customer)
         {
             return unitOfWork.RevenueBudgetRepository.ReturnCustomerBudgets(customer);
+        }
 
+        public IEnumerable<RevenueBudget> GetCustomerBudgets(string customerID)
+        {
+            return unitOfWork.RevenueBudgetRepository.Find(c => c.Customer.CustomID == customerID);
         }
         
     }
