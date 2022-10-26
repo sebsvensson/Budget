@@ -59,8 +59,8 @@ namespace DbAccesEf.Repositories
         public IEnumerable<RevenueBudget> ReturnCustomerBudgets(string customer)
         {
             return context.Set<RevenueBudget>()
-                .Include(c => c.Customer)
-                .Include(p => p.Product)
+                .Include(r => r.Customer)
+                .Include(r => r.Product)
                 .Where(r => r.Customer.CustomID == customer)
                 .ToList();
         }
