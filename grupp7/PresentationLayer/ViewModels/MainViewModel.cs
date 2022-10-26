@@ -7,12 +7,14 @@ using System.Windows.Input;
 using PresentationLayer.Commands;
 using PresentationLayer.ViewModels;
 using DbAccesEf.Models;
+using PresentationLayer.Utilities;
 
 namespace PresentationLayer.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
         public User loggedInUser;
+        public ViewQueueHandler viewQueueHandler;
         //Displays selected view next to menu
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
@@ -278,12 +280,30 @@ namespace PresentationLayer.ViewModels
 
         }
 
+        private ICommand _lastViewCommand;
+        public ICommand LastViewCommand
+        {
+            get
+            {
+                return _lastViewCommand ?? (_lastViewCommand = new CommandHandler(() => LastView()));
+            }
+        }
+
+        private void LastView()
+        {
+            if (!viewQueueHandler.IsEmpty())
+            {
+                SelectedViewModel = viewQueueHandler.GoBack();
+            }
+        }
+
         public MainViewModel()
         {
             //Set SelectedViewModel to startup UserControl here (Login view probably)
             //SelectedViewModel = new TestViewModel();
             SelectedViewModel = new LoginViewModel(this);
             UpdateViewCommand = new UpdateViewCommand(this);
+            viewQueueHandler = new ViewQueueHandler();
         }
     }
 }

@@ -14,15 +14,12 @@ namespace DbAccesEf
     {      
         public DataTable ExcelToDataTable(string fileName)
         {
-            //temporary testing
-            /*fileName = Path.GetDirectoryName(Environment.CurrentDirectory);
-            fileName = fileName.Remove(fileName.Length - 21);
-            fileName += @"\DbAccesEf\Resources\Produkter.xlsx";*/
-
+            //Generate filepath
             string filePath = Path.GetDirectoryName(Environment.CurrentDirectory);
             filePath = filePath.Remove(filePath.Length - 21);
             filePath += @"\DbAccesEf\Resources\" + fileName;
 
+            //Read file and store in DataTable object
             using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
             {
                 using (var reader = ExcelReaderFactory.CreateReader(stream))

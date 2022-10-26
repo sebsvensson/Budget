@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using PresentationLayer.ViewModels;
+using PresentationLayer.Utilities;
 
 namespace PresentationLayer.Commands
 {
@@ -26,6 +27,9 @@ namespace PresentationLayer.Commands
         //Sets SelectedViewModel based on CommandParameter from xaml view
         public void Execute(object parameter)
         {
+            //Stores last view before changing view
+            mainViewModel.viewQueueHandler.NewView(mainViewModel.SelectedViewModel);
+
             if (parameter.ToString() == "HomeView")
             {
                 mainViewModel.SelectedViewModel = new TestViewModel();
@@ -90,7 +94,15 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new BudgetResultViewModel();
             }
-            
+
+            else if (parameter.ToString() == "SchablonExpenseView")
+            {
+                mainViewModel.SelectedViewModel = new SchablonExpenseViewModel();
+            }
+            else if (parameter.ToString() == "ResourceAllocationView")
+            {
+                mainViewModel.SelectedViewModel = new ResourceAllocation2ViewModel();
+            }
         }
     }
 }

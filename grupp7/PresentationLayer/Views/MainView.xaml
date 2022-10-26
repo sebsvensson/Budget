@@ -7,8 +7,8 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="MainView" Height="750" Width="1125"
-        WindowStyle="SingleBorderWindow"
-        ResizeMode="NoResize"
+        WindowStyle="ThreeDBorderWindow"
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent"
         AllowsTransparency="False">
 
@@ -247,7 +247,18 @@
                     VerticalAlignment="Bottom"
                     Margin="10,0,0,10"
                     Command="{Binding LogOutCommand}"/>
-            
+
+            <Button Content="Back"
+                    FontSize="10"
+                    Width="45"
+                    Height="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="0,0,0,40"
+                    Command="{Binding LastViewCommand}"
+                    Grid.Column="1"
+                    Panel.ZIndex="1"/>
+
 
             <!--
             Binding to a ViewModel that is displayed next to main menu, changes based on selection in the main menu
@@ -255,7 +266,8 @@
             <ContentControl Grid.Row="{Binding GridRow}" 
                             Grid.Column="{Binding GridColumn}" 
                             Grid.ColumnSpan="{Binding ColumnSpan}" 
-                            Content="{Binding SelectedViewModel}"/>
+                            Content="{Binding SelectedViewModel}"
+                            Panel.ZIndex="0"/>
         </Grid>
     </Border>
 </Window>

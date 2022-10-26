@@ -64,5 +64,13 @@ namespace DbAccesEf.Repositories
                 .Where(r => r.Customer.CustomID == customer)
                 .ToList();
         }
+
+        public List<Personell> ReturnAllPersonell()
+        {
+            return context.Personells
+                .Include(p => p.ProductAllocations)
+                .ThenInclude(p => p.Product)
+                .ToList();
+        }
     }
 }
