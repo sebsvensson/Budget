@@ -57,6 +57,7 @@ namespace PresentationLayer.ViewModels
             {
                 CustomerName = revenueBudget.Customer.CustomerName;
                 ProductID = revenueBudget.Product.CustomId;
+                ProductName = revenueBudget.Product.ProductName;
                 Agreement = revenueBudget.Agreement;
                 GradeA = revenueBudget.Grade_A;
                 Additions = revenueBudget.Additions;
@@ -136,7 +137,7 @@ namespace PresentationLayer.ViewModels
             get { return _selectedproductID; }
             set
             {
-                GetProductInfo(value);
+                
                 _selectedproductID = value;
                 OnPropertyChanged();
             }
@@ -147,7 +148,6 @@ namespace PresentationLayer.ViewModels
             get { return _productID; }
             set
             {
-               
                 _productID = value;
                 OnPropertyChanged();
             }
