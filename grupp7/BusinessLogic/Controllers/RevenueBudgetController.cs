@@ -24,7 +24,6 @@ namespace BusinessLogic.Controllers
             RevenueBudget revenueBudget = new RevenueBudget();
             unitOfWork.RevenueBudgetRepository.Add(revenueBudget);
             {
-
                 revenueBudget.Customer = customer;
                 revenueBudget.Product = product;
                 revenueBudget.Agreement = agreement;

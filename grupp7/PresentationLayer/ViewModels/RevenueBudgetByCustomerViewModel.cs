@@ -36,17 +36,12 @@ namespace PresentationLayer.ViewModels
             {
                 CustomerIDs.Add(customer.CustomID);
             }
-           
-            this.mainViewModel = mainViewModel;
-            UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
 
         }
         private void GetProductInfo(string selectedProductID)
         {
             DbAccesEf.Models.Product product = productController.GetByID(selectedProductID);
             ProductName = product.ProductName;
-
-
         }
 
         public void ShowBudgets(string selectedCustomerID)
@@ -75,8 +70,6 @@ namespace PresentationLayer.ViewModels
         {
             Customer customer = customerController.GetByID(selectedCustomerID);
             CustomerName = customer.CustomerName;
-
-
         }
 
         private string _selectedCustomerID;
@@ -86,7 +79,6 @@ namespace PresentationLayer.ViewModels
             set
             {
                 ShowBudgets(value);
-                GetCustomerInfo(value);
                 _selectedCustomerID = value;
                 OnPropertyChanged();
             }
@@ -247,11 +239,5 @@ namespace PresentationLayer.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        
-
-
-
-
     }
 }
