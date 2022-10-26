@@ -55,6 +55,15 @@ namespace DbAccesEf.Repositories
         {
             return dbSet.ToList();
         }
+        
+        public IEnumerable<RevenueBudget> ReturnCustomerBudgets(string customer)
+        {
+            return context.Set<RevenueBudget>()
+                .Include(r => r.Customer)
+                .Include(r => r.Product)
+                .Where(r => r.Customer.CustomID == customer)
+                .ToList();
+        }
 
         public List<Personell> ReturnAllPersonell()
         {

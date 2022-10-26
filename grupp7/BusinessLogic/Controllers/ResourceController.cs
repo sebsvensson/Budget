@@ -69,6 +69,7 @@ namespace BusinessLogic.Controllers
 
             //Creates lists of products
             List<Product> newProducts = new List<Product>();
+
             for (int i = 0; i < excelData.Rows.Count; i++)
             {
                 newProducts.Add(new Product()
