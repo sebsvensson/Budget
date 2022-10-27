@@ -45,6 +45,7 @@ namespace BusinessLogic.Controllers
         public void RemoveRevenueBudget(RevenueBudget revenueBudget)
         {
             unitOfWork.RevenueBudgetRepository.Remove(revenueBudget);
+            unitOfWork.SaveChanges();
         }
 
         public RevenueBudget GetRevenueBudget(int id)

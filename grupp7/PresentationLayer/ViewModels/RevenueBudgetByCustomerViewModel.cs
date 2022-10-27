@@ -69,13 +69,15 @@ namespace PresentationLayer.ViewModels
         {
             get
             {
-                return _removeRevenueBudgetCommand ?? (_removeRevenueBudgetCommand = new CommandHandler(() => RemoveBudget(SelectedRevenueBudget)));
+                return _removeRevenueBudgetCommand ?? (_removeRevenueBudgetCommand = new CommandHandler(() => RemoveBudget(SelectedRevenueBudget, SelectedCustomerID)));
             }
         }
-        public void RemoveBudget(RevenueBudget revenueBudget)
+        public void RemoveBudget(RevenueBudget revenueBudget, string selectedCustomerID)
         {
             
-                revenueBudgetController.RemoveRevenueBudget(revenueBudget);
+            revenueBudgetController.RemoveRevenueBudget(revenueBudget);
+            ShowBudgets(selectedCustomerID);
+
         }
 
         private RevenueBudget _selectedRevenueBudget;
