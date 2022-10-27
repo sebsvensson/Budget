@@ -167,6 +167,7 @@ namespace PresentationLayer.ViewModels
             get { return _agreement; }
             set
             {
+                Budget = Additions + value;
                 _agreement = value;
                 OnPropertyChanged();
             }
@@ -243,6 +244,7 @@ namespace PresentationLayer.ViewModels
             get { return _additions; }
             set
             {
+                Budget = Agreement + value;
                 _additions = value;
                 OnPropertyChanged();
             }

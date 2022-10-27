@@ -66,7 +66,7 @@
         <RadioButton IsChecked="{Binding UnsafeT, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Left" Margin="479,364,0,0" Grid.Row="9" VerticalAlignment="Top"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,410,0,0" Grid.Row="9" Text="Budget:" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Budget, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,403,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Budget, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,403,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock Grid.Column="6" HorizontalAlignment="Left" Margin="325,446,0,0" Grid.Row="9" Text="Tim:" VerticalAlignment="Top" Foreground="White"/>
         <TextBox Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="396,439,0,0" Grid.Row="9" VerticalAlignment="Top" Width="120"/>
