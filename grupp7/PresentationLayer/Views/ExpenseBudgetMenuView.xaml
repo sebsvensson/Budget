@@ -18,7 +18,18 @@
                 <Button x:Name="btnREgistreraAktivitet" Canvas.Left="588" Canvas.Top="33" Width="150" Height="50" Content="Registrera aktivitet" Command="{Binding UpdateViewCommand}" CommandParameter="RegisterActivityView" />
                 <Button x:Name="btnDirektKostnadAktFörsäljMarkAvd" Canvas.Left="588" Canvas.Top="103" Width="150" Height="50" Content="Direkt kostnad/ aktivitet &#x0a;administrativ avd"/>
 
-
+                <TextBlock Text="Avkastningskrav:"
+                           Canvas.Left="212"
+                           Canvas.Top="300"/>
+                <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                         Canvas.Left="310"
+                         Canvas.Top="300"
+                         Width="150" />
+                <Button Content="Spara"
+                        Command="{Binding UpdateYieldCommand}"
+                        Canvas.Left="460"
+                        Canvas.Top="299"
+                        Width="50"/>
 
             </Canvas>
 

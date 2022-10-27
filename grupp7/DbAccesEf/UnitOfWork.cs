@@ -22,6 +22,7 @@ namespace DbAccesEf
         public GenericRepository<Personell> PersonellRepository { get; set; }
         public GenericRepository<Account> AccountRepository { get; set; }
         public GenericRepository<ProductAllocation> ProductAllocationRepository { get; set; }
+        public GenericRepository<Yield> YieldRepository { get; set; }
 
         public UnitOfWork(MyContext context)
         {
@@ -38,6 +39,7 @@ namespace DbAccesEf
             PersonellRepository = new GenericRepository<Personell>(context);
             AccountRepository = new GenericRepository<Account>(context);
             ProductAllocationRepository = new GenericRepository<ProductAllocation>(context);
+            YieldRepository = new GenericRepository<Yield>(context);
         }
 
         public void SaveChanges()

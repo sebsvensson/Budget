@@ -81,5 +81,11 @@ namespace DbAccesEf.Repositories
                 .ThenInclude(p => p.Product)
                 .ToList();
         }
+
+        //Update
+        public void Update(T entity)
+        {
+            dbSet.Update(entity);
+        }
     }
 }
