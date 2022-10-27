@@ -33,12 +33,9 @@ namespace PresentationLayer.ViewModels
             Amount = yield.Amount;
         }
 
-        public void UpdateYield(Yield yield, double amount)
+        public void UpdateYield()
         {
-            Yield.Amount = amount;
-            System.Diagnostics.Debug.WriteLine(yield);
-            yieldController.UpdateYield(yield);
-            ShowYield();
+            yieldController.EditYield(Amount);
         }
 
         private double _amount;
@@ -68,7 +65,7 @@ namespace PresentationLayer.ViewModels
         {
             get
             {
-                return _updateYieldCommand ?? (_updateYieldCommand = new CommandHandler(() => UpdateYield(Yield, Amount)));
+                return _updateYieldCommand ?? (_updateYieldCommand = new CommandHandler(() => UpdateYield()));
             }
         }
     }

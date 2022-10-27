@@ -28,5 +28,12 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
+        public void EditYield(double amount)
+        {
+            Yield yield = GetYield();
+            yield.Amount = amount;
+            UpdateYield(yield);
+        }
+
     }
 }
