@@ -107,6 +107,10 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new RevenueBudgetByProductViewModel(mainViewModel);
             }
+            else if (parameter.ToString() == "AddRevenueByProductView")
+            {
+                mainViewModel.SelectedViewModel = new AddRevenueByProductViewModel();
+            }
         }
     }
 }
