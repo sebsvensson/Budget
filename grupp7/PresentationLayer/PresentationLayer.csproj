@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -181,6 +181,7 @@
     <Compile Include="ViewModels\ResourceAllocation2ViewModel.cs" />
     <Compile Include="ViewModels\ResourceAllocationViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetByCustomerViewModel.cs" />
+    <Compile Include="ViewModels\RevenueBudgetByProductViewModel.cs" />
     <Compile Include="ViewModels\RevenueBudgetMenuViewModel.cs" />
     <Compile Include="ViewModels\SchablonExpenseViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
@@ -222,6 +223,9 @@
     </Compile>
     <Compile Include="Views\ResourceAllocationView.xaml.cs">
       <DependentUpon>ResourceAllocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RevenueBudgetByProductView.xaml.cs">
+      <DependentUpon>RevenueBudgetByProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RevenueBudgetMenuView.xaml.cs">
       <DependentUpon>RevenueBudgetMenuView.xaml</DependentUpon>
@@ -304,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ResourceAllocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RevenueBudgetByProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -50,7 +50,9 @@
                 Grid.Row="9" 
                 VerticalAlignment="Top" 
                 Width="202" 
-                Height="65"/>
+                Height="65"
+                Command="{Binding UpdateViewCommand}"
+                CommandParameter="RevenueBudgetByProductView"/>
         <Button Content="Lås budget" 
                 Grid.Column="1" 
                 HorizontalAlignment="Left" 
