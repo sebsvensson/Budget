@@ -54,7 +54,8 @@
 
 
         <DataGrid x:Name="IntäktsbudgetDataGrid" Grid.ColumnSpan="6" Grid.Column="1" HorizontalAlignment="Left" Height="314" Margin="40,20.5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="850" Grid.RowSpan="3"
-                 ItemsSource="{Binding RevenueBudgets, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedRevenueBudget, Mode=TwoWay}" AutoGenerateColumns="False" >
+                 ItemsSource="{Binding RevenueBudgets, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding SelectedRevenueBudget, Mode=TwoWay}" AutoGenerateColumns="False" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="SemiBold"/>

@@ -56,6 +56,32 @@ namespace PresentationLayer.ViewModels
 
         }
 
+        public void RemoveBudget(RevenueBudget revenueBudget, string selectedProductID)
+        {
+            revenueBudgetController.RemoveRevenueBudget(revenueBudget);
+            ShowBudgets(selectedProductID);
+        }
+
+        private ICommand _removeRevenueBudgetCommand;
+        public ICommand RemoveRevenueBudgetCommand
+        {
+            get
+            {
+                return _removeRevenueBudgetCommand ?? (_removeRevenueBudgetCommand = new CommandHandler(() => RemoveBudget(SelectedRevenueBudget, SelectedProductID)));
+            }
+        }
+
+        private RevenueBudget _selectedRevenueBudget;
+        public RevenueBudget SelectedRevenueBudget
+        {
+            get { return _selectedRevenueBudget; }
+            set
+            {
+                _selectedRevenueBudget = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _productName;
         public string ProductName
         {

@@ -44,7 +44,7 @@ namespace BusinessLogic.Controllers
 
         public IEnumerable<RevenueBudget> GetProductBudgets(string produkt)
         {
-            return unitOfWork.RevenueBudgetRepository.ReturnCustomerBudgets(produkt);
+            return unitOfWork.RevenueBudgetRepository.ReturnProductBudgets(produkt);
         }
 
         public void RemoveRevenueBudget(RevenueBudget revenueBudget)
