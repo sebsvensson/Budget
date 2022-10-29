@@ -146,19 +146,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenerateData.cs" />
+    <Compile Include="Migrations\20221026104222_dirketkostnad.cs" />
+    <Compile Include="Migrations\20221026104222_dirketkostnad.designer.cs">
+      <DependentUpon>20221026104222_dirketkostnad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MyContextModelSnapshot.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCategory.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\DirectCostActivity.cs" />
+    <Compile Include="Models\DirectCostProduct.cs" />
     <Compile Include="Models\Personell.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAllocation.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductGroup.cs" />
-    <Compile Include="Models\RevenueBudget.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Yield.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />

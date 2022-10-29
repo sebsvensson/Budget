@@ -11,10 +11,12 @@ namespace BusinessLogic.Controllers
     public class ProductController
     {
         private UnitOfWork unitOfWork;
+        private AccountController accountController;
 
         public ProductController(MyContext context) 
         {
             unitOfWork = new UnitOfWork(context);
+            accountController = new AccountController(context);
         }
 
         //Register product
@@ -33,6 +35,13 @@ namespace BusinessLogic.Controllers
             });
 
             unitOfWork.SaveChanges();
+
+            accountController.GenerateProductDirectCostZeroes(GetByProductName(productName));
+        }
+
+        public Product GetByProductName(string productName)
+        {
+            return unitOfWork.ProductRepository.FirstOrDefault(p => p.ProductName == productName);
         }
         public ProductCategory GetProductCategory(string name)
         {
@@ -58,6 +67,22 @@ namespace BusinessLogic.Controllers
         public IEnumerable<ProductCategory> GetAllProductCategories()
         {
             return unitOfWork.ProductCategoryRepository.ReturnAll();
+        }
+
+        public IEnumerable<Product> GetByDepartment(string department)
+        {
+            if(department == "Drift")
+            {
+                return unitOfWork.ProductRepository.Find(p => p.Department == "Drift");
+            }
+            else if (department == "Utv/Förv")
+            {
+                return unitOfWork.ProductRepository.Find(p => p.Department == "Utv/Förv");
+            }
+            else
+            {
+                return null;
+            }
         }
 
         //Add new productgroup

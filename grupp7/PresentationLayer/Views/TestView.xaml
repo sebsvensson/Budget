@@ -20,5 +20,11 @@
         <TextBlock Text="{Binding Test}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
+        <TextBlock Text="Välkommen!"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="100"
+                   FontFamily="Comic Sans MS"
+                   Foreground="HotPink"/>
     </Grid>
 </UserControl>

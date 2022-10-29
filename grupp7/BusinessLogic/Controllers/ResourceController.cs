@@ -135,7 +135,7 @@ namespace BusinessLogic.Controllers
         {
             List<ProductAllocation> result = new List<ProductAllocation>();
 
-            foreach(Product p in unitOfWork.ProductRepository.ReturnAll())
+            foreach (Product p in unitOfWork.ProductRepository.ReturnAll())
             {
                 result.Add(new ProductAllocation()
                 {
@@ -143,7 +143,6 @@ namespace BusinessLogic.Controllers
                     Product = p
                 });
             }
-
             return result;
         }
 
@@ -173,7 +172,9 @@ namespace BusinessLogic.Controllers
                 {
                     AccountNumber = Convert.ToInt32(excelData.Rows[i].Field<string>(0)),
                     Name = excelData.Rows[i].Field<string>(1),
-                    SchablonExpense = 0
+                    SchablonExpense = 0,
+                    DirectCostProducts = GenerateDirectCostProductZeroes(),
+                    DirectCostActivities = null
                 });
             }
 
@@ -183,10 +184,40 @@ namespace BusinessLogic.Controllers
                 {
                     unitOfWork.AccountRepository.Add(a);
                 }
+            }
+            unitOfWork.SaveChanges();
+        }
 
+        private List<DirectCostProduct> GenerateDirectCostProductZeroes()
+        {
+            List<DirectCostProduct> result = new List<DirectCostProduct>();
+
+            foreach(Product p in unitOfWork.ProductRepository.ReturnAll())
+            {
+                result.Add(new DirectCostProduct()
+                {
+                    Cost = 0,
+                    Product = p
+                });
             }
 
-            unitOfWork.SaveChanges();
+            return result;
+        }
+
+        private List<DirectCostActivity> GenerateDirectCostActivityZeroes()
+        {
+            List<DirectCostActivity> result = new List<DirectCostActivity>();
+
+            foreach (Activity a in unitOfWork.ActivityRepository.ReturnAll())
+            {
+                result.Add(new DirectCostActivity()
+                {
+                    Cost = 0,
+                    Activity = a
+                });
+            }
+
+            return result;
         }
 
         public void ReadExcelCustomer(string fileName)

@@ -11,10 +11,12 @@ namespace BusinessLogic.Controllers
     public class ActivityController
     {
         private UnitOfWork unitOfWork;
+        private AccountController accountController;
 
         public ActivityController(MyContext context)
         {
             unitOfWork = new UnitOfWork(context);
+            accountController = new AccountController(context);
         }
 
         public IEnumerable<Activity> GetAllActivities()
@@ -39,6 +41,28 @@ namespace BusinessLogic.Controllers
             });
 
             unitOfWork.SaveChanges();
+            accountController.GenerateActivityDirectCostZeroes(GetByCustomID(customID));
+        }
+
+        public Activity GetByCustomID(string customID)
+        {
+            return unitOfWork.ActivityRepository.FirstOrDefault(a => a.CustomID == customID);
+        }
+
+        public IEnumerable<Activity> GetByDepartment(string department)
+        {
+            if (department == "AO")
+            {
+                return unitOfWork.ActivityRepository.Find(a => a.AFFODepartment == "AO");
+            }
+            else if (department == "FO")
+            {
+                return unitOfWork.ActivityRepository.Find(a => a.AFFODepartment == "FO");
+            }
+            else
+            {
+                return null;
+            }
         }
 
         //Edit Activity

@@ -11,14 +11,15 @@
         
         <DataGrid ItemsSource="{Binding Table}"
                   AutoGenerateColumns="True"
-                  FontSize="10">
+                  FontSize="12"
+                  Margin="0,0,0,50">
 
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="ContentTemplate">
                         <Setter.Value>
                             <DataTemplate>
-                                <Grid MaxWidth="100">
+                                <Grid MaxWidth="150">
                                     <Grid.LayoutTransform>
                                         <RotateTransform Angle="270" />
                                     </Grid.LayoutTransform>
@@ -31,7 +32,13 @@
                     </Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
-        </DataGrid> 
-        
+        </DataGrid>
+        <Button Content="Save" 
+                HorizontalAlignment="Left" 
+                Margin="50,0,0,15" 
+                VerticalAlignment="Bottom" 
+                Width="75"
+                Command="{Binding SaveCommand}"/>
+
     </Grid>
 </UserControl>

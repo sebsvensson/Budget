@@ -30,16 +30,20 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Produkt</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Produktgrupp</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Avdelning</RadioButton>
-            <RadioButton GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Kontoret</RadioButton>
+            <RadioButton IsChecked="{Binding ProductBool, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Produkt</RadioButton>
+            <RadioButton IsChecked="{Binding ProductGroupBool, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Produktgrupp</RadioButton>
+            <RadioButton IsChecked="{Binding DepartmentBool, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Avdelning</RadioButton>
+            <RadioButton IsChecked="{Binding OfficeBool, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" GroupName="" VerticalContentAlignment="Center" Foreground="{Binding TextColor}" FontSize="17" >Kontoret</RadioButton>
         </StackPanel>
 
         <!-- Lägg in bindings för itemsource osv i listboxen-->
-        <ListBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,20">
-            Lista med tex produkter, baserat på val ovan
-        </ListBox>
+        <ComboBox ItemsSource="{Binding ComboboxSource, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  SelectedItem="{Binding ComboboxSelected, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.Column="1" 
+                  Grid.Row="2" 
+                  Grid.ColumnSpan="2" 
+                  Margin="0,20,0,20">
+        </ComboBox>
 
         <!-- Lägg in bindings för textblock 1 baserat på val i listan ovan-->
         <TextBlock Text="(Visa val i listan)" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="3" />
@@ -49,12 +53,21 @@
         <TextBlock Text="Resultat" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="7"/>
 
         <!-- Lägg in bindings för intäkter, kostnader och resultat-->
-        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="4"/>
-        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="5"/>
-        <TextBlock Text="(Binda)" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="7"/>
+        <TextBlock Text="{Binding Revenue, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="4"/>
+        <TextBlock Text="{Binding Expense, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="5"/>
+        <TextBlock Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="7"/>
 
         <Button Content="Skriv ut" Grid.Column="1" Grid.Row="8" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Button Content="Exportera" Grid.Column="2" Grid.Row="8" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Button Content="Läs in"
+                Width="80"
+                Grid.Row=" 8"
+                Grid.Column="3"
+                VerticalAlignment="Bottom"
+                FontSize="17"
+                Margin="40,20,0,0"
+                HorizontalAlignment="Right"
+                Command="{Binding ReadCommand}"/>
 
     </Grid>
 

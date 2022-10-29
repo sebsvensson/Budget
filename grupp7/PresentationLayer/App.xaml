@@ -70,12 +70,6 @@
         <DataTemplate DataType="{x:Type viewmodels:ResourceAllocation2ViewModel}">
             <views:ResourceAllocation2View/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:RevenueBudgetByProductViewModel}">
-            <views:RevenueBudgetByProductView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:AddRevenueByProductViewModel}">
-            <views:AddRevenueByProductView/>
-        </DataTemplate>
 
         <!-- Menu button theme -->
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}"

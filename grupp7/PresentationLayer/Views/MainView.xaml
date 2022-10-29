@@ -221,7 +221,7 @@
 
             <Button Content=""
                     FontSize="5"
-                    Width="10"
+                    Width="18"
                     Height="25"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"

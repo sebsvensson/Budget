@@ -103,14 +103,6 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new ResourceAllocation2ViewModel();
             }
-            else if (parameter.ToString() == "RevenueBudgetByProductView")
-            {
-                mainViewModel.SelectedViewModel = new RevenueBudgetByProductViewModel(mainViewModel);
-            }
-            else if (parameter.ToString() == "AddRevenueByProductView")
-            {
-                mainViewModel.SelectedViewModel = new AddRevenueByProductViewModel();
-            }
         }
     }
 }

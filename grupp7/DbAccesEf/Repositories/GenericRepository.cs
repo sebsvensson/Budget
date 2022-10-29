@@ -79,6 +79,24 @@ namespace DbAccesEf.Repositories
             return context.Personells
                 .Include(p => p.ProductAllocations)
                 .ThenInclude(p => p.Product)
+                .ThenInclude(p => p.ProductGroup)
+                .ToList();
+        }
+
+        public List<Account> ReturnAllAccount()
+        {
+            return context.Accounts
+                .Include(a => a.DirectCostActivities)
+                .ThenInclude(d => d.Activity)
+                .Include(a => a.DirectCostProducts)
+                .ThenInclude(d => d.Product)
+                .ToList();
+        }
+
+        public List<DirectCostProduct> ReturnAllDirectCostProduct()
+        {
+            return context.DirectCostProducts
+                .Include(dp => dp.Product)
                 .ToList();
         }
 

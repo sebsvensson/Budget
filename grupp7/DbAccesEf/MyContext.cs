@@ -19,8 +19,6 @@ namespace DbAccesEf
         public DbSet<RevenueBudget> RevenueBudgets { get; set; }
         public DbSet<Personell> Personells { get; set; }
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<Yield> Yield { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);

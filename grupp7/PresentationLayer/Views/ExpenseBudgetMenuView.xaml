@@ -10,13 +10,13 @@
         <Border Background="{Binding PageColor}">
             <Canvas>
                 <Button x:Name="btnSchablonkostnader" Canvas.Left="212" Canvas.Top="33" Width="150" Height="50" Content="Schablonkostnader" Command="{Binding UpdateViewCommand}" CommandParameter="SchablonExpenseView"/>
-                <Button x:Name="btnDirektKostnadDriftAvd" Canvas.Left="212" Canvas.Top="103" Width="150" Height="50" Content="Direkt kostnad/ produkt &#x0a;driftavd"/>
+                <Button x:Name="btnDirektKostnadDriftAvd" Canvas.Left="212" Canvas.Top="103" Width="150" Height="50" Content="Direkt kostnad/ produkt &#x0a;driftavd" Command="{Binding UpdateViewCommand}" CommandParameter="DirectCostProductView"/>
                 <Button x:Name="btnDirektKostnadAktAdAvd" Canvas.Left="212" Canvas.Top="173" Width="150" Height="50" Content="Direkt kostnad/ aktivitet &#x0a;administrativ avd"/>
                 <Button x:Name="btnResursallokering" Canvas.Left="400" Canvas.Top="33" Width="150" Height="50" Content="Resursallokering" Command="{Binding UpdateViewCommand}" CommandParameter="ResourceAllocationView"/>
                 <Button x:Name="btnDirektKostnadProduktUtvFörvAvd" Canvas.Left="400" Canvas.Top="103" Width="150" Height="50" Content="Direkt kostnad/ produkt &#x0a;utv/förv avd"/>
                 <Button x:Name="btnRedigeraAktivitet" Canvas.Left="400" Canvas.Top="173" Width="150" Height="50" Content="Redigera aktivitet" Command="{Binding UpdateViewCommand}" CommandParameter="EditActivityView"/>
                 <Button x:Name="btnREgistreraAktivitet" Canvas.Left="588" Canvas.Top="33" Width="150" Height="50" Content="Registrera aktivitet" Command="{Binding UpdateViewCommand}" CommandParameter="RegisterActivityView" />
-                <Button x:Name="btnDirektKostnadAktFörsäljMarkAvd" Canvas.Left="588" Canvas.Top="103" Width="150" Height="50" Content="Direkt kostnad/ aktivitet &#x0a;administrativ avd"/>
+                <Button x:Name="btnDirektKostnadAktFörsäljMarkAvd" Canvas.Left="588" Canvas.Top="103" Width="150" Height="50" Content="Direkt kostnad/ aktivitet &#x0a;administrativ avd" Command="{Binding UpdateViewCommand}" CommandParameter="DirectCostActivityView"/>
 
                 <TextBlock Text="Avkastningskrav:"
                            Canvas.Left="212"
