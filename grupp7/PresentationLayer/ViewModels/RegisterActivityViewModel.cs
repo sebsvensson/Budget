@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLogic.Controllers;
 using System.Windows.Input;
 using PresentationLayer.Commands;
+using System.Windows;
 
 namespace PresentationLayer.ViewModels
 {
@@ -94,7 +95,23 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterActivity()
         {
-            activityController.RegisterActivity(ActivityName, ActivityXxxx, SelectedAFFODepartment, CustomID);
+            if (ActivityXxxx.Length == 3 && ActivityName != null && SelectedAFFODepartment != null && CustomID != null)
+            {
+                try
+                {
+                    activityController.RegisterActivity(ActivityName, ActivityXxxx, SelectedAFFODepartment, CustomID);
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fyll i alla uppgifter");
+            }
+
         }
     }
 }
