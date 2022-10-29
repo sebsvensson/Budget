@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PresentationLayer.ViewModels
@@ -165,10 +166,26 @@ namespace PresentationLayer.ViewModels
         }
         private void EditProduct()
         {
-            productController.EditProduct(SelectedCustomID, ProductName, Xxxx, ProductGroup, ProductCategory);
+            if (Xxxx.Length == 3 && SelectedCustomID != null && ProductName != null && ProductCategory != null && ProductGroup != null)
+            
+            {
+                try
+                {
+                    productController.EditProduct(SelectedCustomID, ProductName, Xxxx, ProductGroup, ProductCategory);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Fyll i i alla uppgifter");
+            }
         }
 
-        private void GetProductInfo(string selectedCustomID)
+         private void GetProductInfo(string selectedCustomID)
         {
             
             DbAccesEf.Models.Product product = productController.GetByID(selectedCustomID);

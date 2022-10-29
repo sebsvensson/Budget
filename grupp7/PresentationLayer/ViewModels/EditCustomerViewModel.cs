@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PresentationLayer.ViewModels
@@ -140,7 +141,14 @@ namespace PresentationLayer.ViewModels
 
         public void EditCustomer()
         {
-            customerController.EditCustomer(SelectedCustomID, CustomerName, CustomerCategory);
+            if (SelectedCustomID != null && CustomerName != null && CustomerCategory != null)
+            {
+                customerController.EditCustomer(SelectedCustomID, CustomerName, CustomerCategory);
+            }
+            else
+            {
+                MessageBox.Show("Fyll i alla uppgifter");
+            }
 
         }
 

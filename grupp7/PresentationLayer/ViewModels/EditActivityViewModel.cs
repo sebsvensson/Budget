@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PresentationLayer.ViewModels
@@ -161,9 +162,17 @@ namespace PresentationLayer.ViewModels
         }
         private void EditActivity()
         {
-            activityController.EditActivity(SelectedCustomID, ActivityName, ActivityXxxx, AFFODepartment);
+            if (SelectedCustomID != null && ActivityName != null && ActivityXxxx.Length == 3 && AFFODepartment != null)
+            {
+
+                activityController.EditActivity(SelectedCustomID, ActivityName, ActivityXxxx, AFFODepartment);
+            }
+            else
+            {
+                MessageBox.Show("Fyll i alla uppgifter");
+            }
+
+
         }
-
-
     }
 }
