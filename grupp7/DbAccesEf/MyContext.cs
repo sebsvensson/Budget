@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DbAccesEf.Models;
@@ -16,12 +16,9 @@ namespace DbAccesEf
         public DbSet<CustomerCategory> CustomerCategories {get; set;}
         public DbSet<Activity> Activities { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<RevenueBudget> RevenueBudgets { get; set; }
         public DbSet<Personell> Personells { get; set; }
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<ProductAllocation> ProductAllocations { get; set; }
-        public DbSet<DirectCostProduct> DirectCostProducts { get; set; }
-        public DbSet<DirectCostActivity> DirectCostActivities { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);

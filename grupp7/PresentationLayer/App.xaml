@@ -34,6 +34,9 @@
         <DataTemplate DataType="{x:Type viewmodels:RevenueBudgetByCustomerViewModel}">
             <views:RevenueBudgetByCustomerView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AddRevenueBudgetByCustomerViewModel}">
+            <views:AddRevenueByCustomerView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:ExpenseBudgetMenuViewModel}">
             <views:ExpenseBudgetMenuView/>
         </DataTemplate>
@@ -66,18 +69,6 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:ResourceAllocation2ViewModel}">
             <views:ResourceAllocation2View/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:DirectCostProductViewModel}">
-            <views:DirectCostProductView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:DirectCostDataGridViewModel}">
-            <views:DirectCostDataGridView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:DirectCostActivityViewModel}">
-            <views:DirectCostActivityView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:DirectCostActivityDataGridViewModel}">
-            <views:DirectCostActivityDataGridView/>
         </DataTemplate>
 
         <!-- Menu button theme -->

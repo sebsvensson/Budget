@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +43,14 @@ namespace BusinessLogic.Controllers
         {
             return unitOfWork.ProductRepository.FirstOrDefault(p => p.ProductName == productName);
         }
+        public ProductCategory GetProductCategory(string name)
+        {
+            return unitOfWork.ProductCategoryRepository.FirstOrDefault(c => c.Name == name);
+        }
+        public ProductGroup GetProductGroup(string name)
+        {
+            return unitOfWork.ProductGroupRepository.FirstOrDefault(c => c.Name == name);
+        }
 
         //Get all productgroups
         public IEnumerable<ProductGroup> GetAllProductGroups()
@@ -50,15 +58,15 @@ namespace BusinessLogic.Controllers
             return unitOfWork.ProductGroupRepository.ReturnAll();
         }
 
+        public IEnumerable<Product> GetAllProducts()
+        {
+            return unitOfWork.ProductRepository.ReturnAll();
+        }
+
         //Get all productcategories
         public IEnumerable<ProductCategory> GetAllProductCategories()
         {
             return unitOfWork.ProductCategoryRepository.ReturnAll();
-        }
-
-        public IEnumerable<Product> GetAll()
-        {
-            return unitOfWork.ProductRepository.ReturnAll();
         }
 
         public IEnumerable<Product> GetByDepartment(string department)
@@ -88,6 +96,24 @@ namespace BusinessLogic.Controllers
         {
             
             unitOfWork.ProductCategoryRepository.Add(new ProductCategory(name));
+            unitOfWork.SaveChanges();
+        }
+
+        public Product GetByID(string ID)
+        {
+            return unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == ID);
+        }
+
+        public void EditProduct(string customID, string name, string xxxx, string productGroup, string productCategory)
+        {
+            Product product = unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == customID);
+            customID = xxxx + productGroup.Substring(0, 2);
+            product.CustomId = customID;
+            product.ProductName = name;
+            product.Xxxx = xxxx;
+            product.ProductCategory.Name = productCategory;
+            product.ProductGroup.Name = productGroup;
+
             unitOfWork.SaveChanges();
         }
     }

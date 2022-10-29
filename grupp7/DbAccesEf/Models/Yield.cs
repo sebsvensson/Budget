@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DbAccesEf.Models
 {
-    public class CustomerCategory
+    public class Yield
     {
-        
-        public int CustomerCategoryID { get; set; }
-        public string Name { get; set; }
+        public int YieldID { get; set; }
+        public double Amount { get; set; }
     }
 }

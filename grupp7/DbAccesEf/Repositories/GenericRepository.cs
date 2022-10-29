@@ -55,6 +55,24 @@ namespace DbAccesEf.Repositories
         {
             return dbSet.ToList();
         }
+        
+        public IEnumerable<RevenueBudget> ReturnCustomerBudgets(string customer)
+        {
+            return context.Set<RevenueBudget>()
+                .Include(r => r.Customer)
+                .Include(r => r.Product)
+                .Where(r => r.Customer.CustomID == customer)
+                .ToList();
+        }
+
+        public IEnumerable<RevenueBudget> ReturnProductBudgets(string product)
+        {
+            return context.Set<RevenueBudget>()
+                .Include(r => r.Product)
+                .Include(r => r.Customer)
+                .Where(r => r.Product.CustomId == product)
+                .ToList();
+        }
 
         public List<Personell> ReturnAllPersonell()
         {
@@ -80,6 +98,12 @@ namespace DbAccesEf.Repositories
             return context.DirectCostProducts
                 .Include(dp => dp.Product)
                 .ToList();
+        }
+
+        //Update
+        public void Update(T entity)
+        {
+            dbSet.Update(entity);
         }
     }
 }

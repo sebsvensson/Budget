@@ -1,4 +1,4 @@
-<UserControl x:Class="PresentationLayer.Views.RevenueBudgetByCustomerView"
+﻿<UserControl x:Class="PresentationLayer.Views.RevenueBudgetByProductView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -31,14 +31,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="{Binding TextColor}" FontSize="17" Text="KundID:" Margin="40,30,0,0"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="{Binding TextColor}" FontSize="17" Text="ProduktID:" Margin="40,30,0,0"/>
 
-        <ComboBox  ItemsSource="{Binding Path= CustomerIDs, UpdateSourceTrigger=PropertyChanged}" 
-                   SelectedValue="{Binding SelectedCustomerID, UpdateSourceTrigger=PropertyChanged}" 
+        <ComboBox  ItemsSource="{Binding Path= ProductIDs, UpdateSourceTrigger=PropertyChanged}" 
+                   SelectedValue="{Binding SelectedProductID, UpdateSourceTrigger=PropertyChanged}" 
                    Grid.Column="2" Grid.Row="1" BorderBrush="Black" Margin="10,30,0,0" Width="200"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="1" Foreground="{Binding TextColor}" FontSize="17" Text="Kundnamn:" Margin="50,30,0,0"/>
-        <TextBox Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Grid.Row="1" BorderBrush="Black" Margin="10,30,0,0" Width="200"/>
+        <TextBlock Grid.Column="3" Grid.Row="1" Foreground="{Binding TextColor}" FontSize="17" Text="Produktnamn:" Margin="50,30,0,0"/>
+        <TextBox Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Grid.Row="1" BorderBrush="Black" Margin="10,30,0,0" Width="200"/>
 
         <TextBlock Text="Totalt:" Grid.Column="1" Grid.Row="2" Foreground="{Binding TextColor}" FontSize="17" Margin="40,50,0,0"/>
 
@@ -54,7 +54,8 @@
 
 
         <DataGrid x:Name="IntäktsbudgetDataGrid" Grid.ColumnSpan="6" Grid.Column="1" HorizontalAlignment="Left" Height="314" Margin="40,20.5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="850" Grid.RowSpan="3"
-                 ItemsSource="{Binding RevenueBudgets, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedRevenueBudget, Mode=TwoWay}" AutoGenerateColumns="False" >
+                 ItemsSource="{Binding RevenueBudgets, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding SelectedRevenueBudget, Mode=TwoWay}" AutoGenerateColumns="False" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="SemiBold"/>
@@ -66,8 +67,8 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ProduktID" Binding="{Binding Product.CustomId}" Width="70" IsReadOnly="True" />
-                <DataGridTextColumn Header="Produkt" Binding="{Binding Product.ProductName}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="KundID" Binding="{Binding Customer.CustomID}" Width="70" IsReadOnly="True" />
+                <DataGridTextColumn Header="Kund" Binding="{Binding Customer.CustomerName}" Width="150" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Avtal" Binding="{Binding Agreement}" Width="70" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Grad A" Binding="{Binding Grade_A}" Width="70" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Tillägg" Binding="{Binding Additions}" Width="80"  IsReadOnly="True"/>
@@ -79,20 +80,12 @@
 
         </DataGrid>
         <Button Command="{Binding UpdateViewCommand}"
-                CommandParameter="AddRevenueByCustomerView"
+                CommandParameter="AddRevenueByProductView"
                 Content="Lägg till" Grid.Column="1" HorizontalAlignment="Left" Margin="40,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
         <Button Command="{Binding RemoveRevenueBudgetCommand}" 
             Content="Ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="10.5,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Exportera" Grid.Column="4" HorizontalAlignment="Left" Margin="139,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3"/>
-        <Button Content="Redigera" Grid.Column="6" HorizontalAlignment="Left" Margin="26,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Exportera" Grid.Column="6" HorizontalAlignment="Left" Margin="26,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
         <Button Content="Spara" Grid.Column="6" HorizontalAlignment="Left" Margin="120,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
-
-
-
-
-
-
-
 
     </Grid>
 </UserControl>

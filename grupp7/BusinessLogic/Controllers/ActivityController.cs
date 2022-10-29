@@ -19,6 +19,16 @@ namespace BusinessLogic.Controllers
             accountController = new AccountController(context);
         }
 
+        public IEnumerable<Activity> GetAllActivities()
+        {
+            return unitOfWork.ActivityRepository.ReturnAll();
+        }
+
+        public Activity GetByID(string ID)
+        {
+            return unitOfWork.ActivityRepository.FirstOrDefault(p => p.CustomID == ID);
+        }
+
         //Register Activity
         public void RegisterActivity(string activityName, string activityXxxx, string aFFODepartment, string customID)
         {
@@ -54,5 +64,19 @@ namespace BusinessLogic.Controllers
                 return null;
             }
         }
+
+        //Edit Activity
+        public void EditActivity(string customID, string activityName, string activityXxxx, string aFFODepartment)
+        {
+            Activity activity = unitOfWork.ActivityRepository.FirstOrDefault(p => p.CustomID == customID);
+            customID = activityXxxx + aFFODepartment;
+            activity.CustomID = customID;
+            activity.ActivityName = activityName;
+            activity.ActivityXxxx = activityXxxx;
+            activity.AFFODepartment = aFFODepartment;
+
+            unitOfWork.SaveChanges();
+        }
+
     }
 }
