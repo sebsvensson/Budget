@@ -69,6 +69,11 @@ namespace BusinessLogic.Controllers
             return unitOfWork.ProductCategoryRepository.ReturnAll();
         }
 
+        public IEnumerable<Product> GetAll()
+        {
+            return unitOfWork.ProductRepository.ReturnAll();
+        }
+
         public IEnumerable<Product> GetByDepartment(string department)
         {
             if(department == "Drift")

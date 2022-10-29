@@ -416,16 +416,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
-      <Project>{437ea2bd-fea6-48ff-95b0-232c51a12c23}</Project>
-      <Name>BusinessLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DbAccesEf\DbAccesEf.csproj">
-      <Project>{a3f0c9eb-3cf2-4989-8adb-3b77a0560e76}</Project>
-      <Name>DbAccesEf</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\login_image.png" />
   </ItemGroup>
   <ItemGroup>
@@ -437,7 +427,16 @@
   <ItemGroup>
     <Resource Include="Resources\login_image3.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{437ea2bd-fea6-48ff-95b0-232c51a12c23}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbAccesEf\DbAccesEf.csproj">
+      <Project>{a3f0c9eb-3cf2-4989-8adb-3b77a0560e76}</Project>
+      <Name>DbAccesEf</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
