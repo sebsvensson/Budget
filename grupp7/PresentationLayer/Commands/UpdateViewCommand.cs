@@ -103,6 +103,14 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new ResourceAllocation2ViewModel();
             }
+            else if (parameter.ToString() == "DirectCostProductView")
+            {
+                mainViewModel.SelectedViewModel = new DirectCostProductViewModel();
+            }
+            else if (parameter.ToString() == "DirectCostActivityView")
+            {
+                mainViewModel.SelectedViewModel = new DirectCostActivityViewModel();
+            }
         }
     }
 }

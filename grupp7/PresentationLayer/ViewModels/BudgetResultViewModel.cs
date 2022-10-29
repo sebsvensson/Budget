@@ -176,19 +176,26 @@ namespace PresentationLayer.ViewModels
             if (OfficeBool)
             {
                 Expense = budgetResultController.GetTotalBudget();
+                Revenue = budgetResultController.GetRevenueBudgetByOffice();
             }
             else if (DepartmentBool)
             {
                 Expense = budgetResultController.GetTotalBudgetByDepartment(ComboboxSelected);
+                Revenue = budgetResultController.GetRevenueBudgetByDepartment(ComboboxSelected);
             }
             else if (ProductBool)
             {
                 Expense = budgetResultController.GetTotalBudgetByProduct(ComboboxSelected);
+                string customID = productController.GetByProductName(ComboboxSelected).CustomId;
+                Revenue = budgetResultController.GetRevenueBudgetByProduct(customID);
             }
             else if (ProductGroupBool)
             {
                 Expense = budgetResultController.GetTotalBudgetByProductGroup(ComboboxSelected);
+                Revenue = budgetResultController.GetRevenueBudgetByProductGroup(ComboboxSelected);
             }
+
+            Result = Revenue - Expense;
         }
     }
 }

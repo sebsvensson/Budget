@@ -46,7 +46,7 @@
         </ComboBox>
 
         <!-- Lägg in bindings för textblock 1 baserat på val i listan ovan-->
-        <TextBlock Text="(Visa val i listan)" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="3" />
+        <TextBlock Text="{Binding ComboboxSelected, UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="3" />
         <TextBlock Text="Intäkter" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="4" />
         <TextBlock Text="Kostnader" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="1" Grid.Row="5" />
         <Line Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" X1="0" X2="250" Stroke="{Binding TextColor}" StrokeThickness="2"/>

@@ -75,7 +75,7 @@ namespace BusinessLogic.Controllers
                 newProducts.Add(new Product()
                 {
                     CustomId = excelData.Rows[i].Field<string>(0),
-                    Xxxx = excelData.Rows[i].Field<string>(0).Substring(0, 5),
+                    Xxxx = excelData.Rows[i].Field<string>(0).Substring(0, 4),
                     ProductName = excelData.Rows[i].Field<string>(1),
                     ProductCategory = new ProductCategory(excelData.Rows[i].Field<string>(3)),
                     ProductGroup = new ProductGroup(excelData.Rows[i].Field<string>(2)),

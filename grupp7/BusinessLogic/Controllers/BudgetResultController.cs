@@ -255,5 +255,60 @@ namespace BusinessLogic.Controllers
 
             return totalSalary + activityCost + 20000; // 20000 = yield
         }
+
+        public double GetRevenueBudgetByOffice()
+        {
+            double totalRevenueBudget = 0;
+
+            foreach(RevenueBudget rb in unitOfWork.RevenueBudgetRepository.ReturnAll())
+            {
+                totalRevenueBudget += rb.Budget;
+            }
+
+            return totalRevenueBudget;
+        }
+
+        public double GetRevenueBudgetByProduct(string customID)
+        {
+            List<RevenueBudget> revenueBudgets = unitOfWork.RevenueBudgetRepository.ReturnProductBudgets(customID).ToList();
+            double totalRevenueBudget = 0;
+            foreach(RevenueBudget rb in revenueBudgets)
+            {
+                totalRevenueBudget += rb.Budget;
+            }
+
+            return totalRevenueBudget;
+        }
+
+        public double GetRevenueBudgetByProductGroup(string productGroup)
+        {
+            List <RevenueBudget> revenueBudgets = unitOfWork.RevenueBudgetRepository.ReturnAllRevenueBudgets().ToList();
+            double totalRevenueBudget = 0;
+
+            foreach(RevenueBudget rb in revenueBudgets)
+            {
+                if(rb.Product.ProductGroup.Name == productGroup)
+                {
+                    totalRevenueBudget += rb.Budget;
+                }
+            }
+
+            return totalRevenueBudget;
+        }
+
+        public double GetRevenueBudgetByDepartment(string department)
+        {
+            List<RevenueBudget> revenueBudgets = unitOfWork.RevenueBudgetRepository.ReturnAllRevenueBudgets().ToList();
+            double totalRevenueBudget = 0;
+
+            foreach (RevenueBudget rb in revenueBudgets)
+            {
+                if (rb.Product.Department == department)
+                {
+                    totalRevenueBudget += rb.Budget;
+                }
+            }
+            return totalRevenueBudget;
+        }
     }
 }
