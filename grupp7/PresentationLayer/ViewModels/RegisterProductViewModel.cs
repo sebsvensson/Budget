@@ -8,6 +8,7 @@ using PresentationLayer.Commands;
 using BusinessLogic.Controllers;
 using System.Collections.ObjectModel;
 using DbAccesEf.Models;
+using System.Windows;
 
 namespace PresentationLayer.ViewModels
 {
@@ -41,6 +42,7 @@ namespace PresentationLayer.ViewModels
                 {
                     ProductID = value;
                 }
+
                 OnPropertyChanged(null);
                 _xxxx = value;
             }
@@ -64,7 +66,6 @@ namespace PresentationLayer.ViewModels
             get { return _selectedProductCategory; }
             set
             {
-                ProductID = Xxxx + value.Substring(0, 2);
                 _selectedProductCategory = value;
                 OnPropertyChanged(null);
             }
@@ -179,9 +180,25 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterProduct()
         {
-            ProductCategory productCategory = productController.GetProductCategory(SelectedProductCategory);
-            ProductGroup productGroup = productController.GetProductGroup(SelectedProductGroup);
-            productController.RegisterProduct(ProductName, Xxxx, productCategory, productGroup);
+            if (Xxxx.Length == 3 && SelectedProductCategory != null && SelectedProductGroup != null && ProductName != null)
+            {
+                try
+                {
+                    ProductCategory productCategory = productController.GetProductCategory(SelectedProductCategory);
+                    ProductGroup productGroup = productController.GetProductGroup(SelectedProductGroup);
+                    productController.RegisterProduct(ProductName, Xxxx, productCategory, productGroup);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fyll i alla uppgifter");
+            }
+
+
         }
 
         private void AddProductGroup()

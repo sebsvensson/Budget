@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PresentationLayer.ViewModels
@@ -80,8 +81,23 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterCustomer()
         {
-            CustomerCategory customerCategory = customerController.GetCustomerCategory(SelectedCategory);
-            customerController.RegisterCustomer(CustomID, CustomerName, customerCategory);
+            if (CustomID != null && SelectedCategory != null && CustomerName != null)
+            {
+                try
+                {
+                    CustomerCategory customerCategory = customerController.GetCustomerCategory(SelectedCategory);
+                    customerController.RegisterCustomer(CustomID, CustomerName, customerCategory);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fyll i alla uppgifter");
+            }
+
         }
         private ICommand _registerCustomerCommand;
         public ICommand RegisterCustomerCommand
