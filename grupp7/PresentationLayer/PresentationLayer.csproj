@@ -167,6 +167,10 @@
     <Compile Include="ViewModels\AdministerStaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BudgetResultViewModel.cs" />
+    <Compile Include="ViewModels\DirectCostActivityDataGridViewModel.cs" />
+    <Compile Include="ViewModels\DirectCostActivityViewModel.cs" />
+    <Compile Include="ViewModels\DirectCostDataGridViewModel.cs" />
+    <Compile Include="ViewModels\DirectCostProductViewModel.cs" />
     <Compile Include="ViewModels\EditActivityViewModel.cs" />
     <Compile Include="ViewModels\EditCustomerViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
@@ -194,6 +198,18 @@
     </Compile>
     <Compile Include="Views\BudgetResultView.xaml.cs">
       <DependentUpon>BudgetResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirectCostActivityDataGridView.xaml.cs">
+      <DependentUpon>DirectCostActivityDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirectCostActivityView.xaml.cs">
+      <DependentUpon>DirectCostActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirectCostDataGridView.xaml.cs">
+      <DependentUpon>DirectCostDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirectCostProductView.xaml.cs">
+      <DependentUpon>DirectCostProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditActivityView.xaml.cs">
       <DependentUpon>EditActivityView.xaml</DependentUpon>
@@ -264,6 +280,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BudgetResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirectCostActivityDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirectCostActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirectCostDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirectCostProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -381,6 +413,7 @@
   <ItemGroup>
     <Resource Include="Resources\login_image3.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

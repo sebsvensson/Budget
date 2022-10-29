@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbAccesEf.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221025111509_test1")]
-    partial class test1
+    [Migration("20221026104222_dirketkostnad")]
+    partial class dirketkostnad
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -102,6 +102,56 @@ namespace DbAccesEf.Migrations
                     b.HasKey("CustomerCategoryID");
 
                     b.ToTable("CustomerCategories");
+                });
+
+            modelBuilder.Entity("DbAccesEf.Models.DirectCostActivity", b =>
+                {
+                    b.Property<int>("DirectCostActivityID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ActivityID")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
+
+                    b.HasKey("DirectCostActivityID");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("ActivityID");
+
+                    b.ToTable("DirectCostActivities");
+                });
+
+            modelBuilder.Entity("DbAccesEf.Models.DirectCostProduct", b =>
+                {
+                    b.Property<int>("DirectCostProductID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("ProductID")
+                        .HasColumnType("int");
+
+                    b.HasKey("DirectCostProductID");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("DirectCostProducts");
                 });
 
             modelBuilder.Entity("DbAccesEf.Models.Personell", b =>
@@ -202,7 +252,7 @@ namespace DbAccesEf.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("ProductAllocation");
+                    b.ToTable("ProductAllocations");
                 });
 
             modelBuilder.Entity("DbAccesEf.Models.ProductCategory", b =>
@@ -261,6 +311,28 @@ namespace DbAccesEf.Migrations
                     b.HasOne("DbAccesEf.Models.CustomerCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryCustomerCategoryID");
+                });
+
+            modelBuilder.Entity("DbAccesEf.Models.DirectCostActivity", b =>
+                {
+                    b.HasOne("DbAccesEf.Models.Account", null)
+                        .WithMany("DirectCostActivities")
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("DbAccesEf.Models.Activity", "Activity")
+                        .WithMany()
+                        .HasForeignKey("ActivityID");
+                });
+
+            modelBuilder.Entity("DbAccesEf.Models.DirectCostProduct", b =>
+                {
+                    b.HasOne("DbAccesEf.Models.Account", null)
+                        .WithMany("DirectCostProducts")
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("DbAccesEf.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID");
                 });
 
             modelBuilder.Entity("DbAccesEf.Models.Product", b =>

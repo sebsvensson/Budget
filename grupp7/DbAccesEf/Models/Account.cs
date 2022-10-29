@@ -12,5 +12,13 @@ namespace DbAccesEf.Models
         public int AccountNumber { get; set; }
         public string Name { get; set; }
         public double SchablonExpense { get; set; }
+        public List<DirectCostActivity> DirectCostActivities { get; set; }
+        public List<DirectCostProduct> DirectCostProducts { get; set; }
+
+        public Account()
+        {
+            DirectCostActivities = new List<DirectCostActivity>();
+            DirectCostProducts = new List<DirectCostProduct>();
+        }
     }
 }

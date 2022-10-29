@@ -18,6 +18,10 @@ namespace DbAccesEf
         public DbSet<User> Users { get; set; }
         public DbSet<Personell> Personells { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<ProductAllocation> ProductAllocations { get; set; }
+        public DbSet<DirectCostProduct> DirectCostProducts { get; set; }
+        public DbSet<DirectCostActivity> DirectCostActivities { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);
