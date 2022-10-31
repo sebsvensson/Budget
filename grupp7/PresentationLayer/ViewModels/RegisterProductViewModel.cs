@@ -180,7 +180,7 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterProduct()
         {
-            if (Xxxx.Length == 3 && SelectedProductCategory != null && SelectedProductGroup != null && ProductName != null)
+            if (Xxxx.Length == 4 && SelectedProductCategory != null && SelectedProductGroup != null && ProductName != null)
             {
                 try
                 {
