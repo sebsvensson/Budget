@@ -179,7 +179,9 @@
     <None Include="Resources\Personallista.xlsx" />
     <None Include="Resources\Produkter.xlsx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\IntäktProduktKund.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

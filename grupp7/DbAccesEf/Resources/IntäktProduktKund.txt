@@ -1,0 +1,13 @@
+ProduktID	Produkt				KundID	Kund				Datum		Belopp
+SERVSH		Serverhotell			N113	SDN Askim			20220115	-23500
+PCPLAS		PC-plattformen			B540	Skandiahamnen AB		20220118	-12500
+DAGREÖ		Dagrapport			K740	Borås Kommum			20220210	-57300
+SERVSH		Serverhotell			N113	SDN Askim			20220215	-23500
+SERVSH		Serverhotell			N106	SDN Örgryte			20220215	-23500
+PCPLAS		PC-plattformen			B540	Skandiahamnen AB		20220218	-12500
+PJDBWE		Projektdatabas			K740	Borås Kommum			20220310	-83750
+PCPLAS		PC-plattformen			B540	Skandiahamnen AB		20220318	-22500
+TEKOTK		Teknisk konsulting		X539	Högskolan i Borås		20220425	-45000
+NYPRSH		Ny produkt			K740	Borås Kommun			20200425	-10000
+TFUKSH		TFU-kommun			K950	Örebro Kommun			20220425	-15000
+VFUKSH		VFU-kommun			K975	Lysekil Kommun			20220425	-10000

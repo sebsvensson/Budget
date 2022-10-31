@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -245,6 +246,27 @@ namespace BusinessLogic.Controllers
             }
 
             unitOfWork.SaveChanges();
+        }
+
+        public List<string> ReadRevenueProductCustomerRow()
+        {
+            //Generate filepath
+            string filePath = Path.GetDirectoryName(Environment.CurrentDirectory);
+            filePath = filePath.Remove(filePath.Length - 21);
+            filePath += @"\DbAccesEf\Resources\" + "IntäktProduktKund.txt";
+
+            StreamReader file = new StreamReader(filePath);
+
+            List<string> result = new List<string>();
+
+            string line;
+
+            while((line = file.ReadLine()) != null)
+            {
+                result.Add(line);
+            }
+
+            return result;
         }
     }
 }

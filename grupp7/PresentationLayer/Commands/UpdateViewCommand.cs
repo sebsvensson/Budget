@@ -62,6 +62,14 @@ namespace PresentationLayer.Commands
             {
                 mainViewModel.SelectedViewModel = new AddRevenueBudgetByCustomerViewModel();
             }
+            else if (parameter.ToString() == "RevenueBudgetByProductView")
+            {
+                mainViewModel.SelectedViewModel = new RevenueBudgetByProductViewModel(mainViewModel);
+            }
+            else if (parameter.ToString() == "AddRevenueByProductView")
+            {
+                mainViewModel.SelectedViewModel = new AddRevenueByProductViewModel();
+            }
             if (parameter.ToString() == "ExpenseBudgetMenuView")
             {
                 mainViewModel.SelectedViewModel = new ExpenseBudgetMenuViewModel(mainViewModel);
