@@ -25,6 +25,11 @@ namespace PresentationLayer.ViewModels
             ProductGroups = new ObservableCollection<string>();
             ProductCategories = new ObservableCollection<string>();
             CustomIDs = new ObservableCollection<string>();
+            ProductDepartments = new ObservableCollection<string>()
+            {
+                "Drift",
+                "Utv/Förv"
+            };
 
             foreach (ProductGroup productGroup in productController.GetAllProductGroups())
             {
@@ -114,6 +119,18 @@ namespace PresentationLayer.ViewModels
                 _xxxx = value;
             }
         }
+
+        private string _selectedDepartment;
+        public string SelectedDepartment
+        {
+            get { return _selectedDepartment; }
+            set
+            {
+                _selectedDepartment = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         private ObservableCollection<string> _productGroups;
         public ObservableCollection<string> ProductGroups
         {
@@ -171,7 +188,7 @@ namespace PresentationLayer.ViewModels
             {
                 try
                 {
-                    productController.EditProduct(SelectedCustomID, ProductName, Xxxx, ProductGroup, ProductCategory);
+                    productController.EditProduct(SelectedCustomID, ProductName, Xxxx, ProductGroup, ProductCategory, SelectedDepartment);
                 }
                 catch (Exception e)
                 {
@@ -193,7 +210,7 @@ namespace PresentationLayer.ViewModels
             Xxxx = product.Xxxx;
             ProductGroup = product.ProductGroup.Name;
             ProductCategory = product.ProductCategory.Name;
-
+            SelectedDepartment = product.Department;
         }
     }
 }

@@ -95,6 +95,10 @@ namespace PresentationLayer.ViewModels
                 {
                     LockAccess = true;
                 }
+                else if(mainViewModel.loggedInUser.PermissionLevel == "CE")
+                {
+                    LockAccess = true;
+                }
                 else
                 {
                     LockAccess = false;
@@ -104,6 +108,7 @@ namespace PresentationLayer.ViewModels
                 productColumns = new List<Product>();
                 GenerateDataTable();
                 SetLockText();
+                NotAllocatedText = "";
             }
         }
 
@@ -370,6 +375,19 @@ namespace PresentationLayer.ViewModels
             else if (SelectedDepartment == "Drift" && mainViewModel.loggedInUser.PermissionLevel == "CD")
             {
                 budgetLockController.SetDirectCostBudgetLock(!budgetLockController.GetBudgetLock().DirectCostDriftLocked, mainViewModel.loggedInUser.PermissionLevel);
+            }
+
+            //Lock when CE is logged in
+            else if(mainViewModel.loggedInUser.PermissionLevel == "CE")
+            {
+                if (SelectedDepartment == "Drift")
+                {
+                    budgetLockController.SetDirectCostBudgetLock(!budgetLockController.GetBudgetLock().DirectCostDriftLocked, "CD");
+                }
+                else if(SelectedDepartment == "Utv/Förv")
+                {
+                    budgetLockController.SetDirectCostBudgetLock(!budgetLockController.GetBudgetLock().DirectCostUtvLocked, "CUOF");
+                }
             }
 
             SetNotLocked();

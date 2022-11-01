@@ -20,7 +20,7 @@ namespace BusinessLogic.Controllers
         }
 
         //Register product
-        public void RegisterProduct(string productName, string xxxx, ProductCategory productCategory, ProductGroup productGroup)
+        public void RegisterProduct(string productName, string xxxx, ProductCategory productCategory, ProductGroup productGroup, string department)
         {
             //Create custom id
             string customId = xxxx + productGroup.Name.Substring(0, 2);
@@ -31,7 +31,9 @@ namespace BusinessLogic.Controllers
                 Xxxx = xxxx,
                 ProductName = productName,
                 ProductGroup = productGroup,
-                ProductCategory = productCategory
+                ProductCategory = productCategory,
+                Department = department
+                
             });
 
             unitOfWork.SaveChanges();
@@ -109,7 +111,7 @@ namespace BusinessLogic.Controllers
             return unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == ID);
         }
 
-        public void EditProduct(string customID, string name, string xxxx, string productGroup, string productCategory)
+        public void EditProduct(string customID, string name, string xxxx, string productGroup, string productCategory, string department)
         {
             Product product = unitOfWork.ProductRepository.FirstOrDefault(p => p.CustomId == customID);
             customID = xxxx + productGroup.Substring(0, 2);
@@ -118,6 +120,7 @@ namespace BusinessLogic.Controllers
             product.Xxxx = xxxx;
             product.ProductCategory.Name = productCategory;
             product.ProductGroup.Name = productGroup;
+            product.Department = department;
 
             unitOfWork.SaveChanges();
         }
