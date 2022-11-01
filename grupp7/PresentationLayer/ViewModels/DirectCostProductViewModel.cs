@@ -21,6 +21,7 @@ namespace PresentationLayer.ViewModels
         private AccountController accountController;
         private ProductController productController;
         private BudgetLockController budgetLockController;
+        private PersonellController personellController;
         private List<Account> accounts;
 
         //Used to set columns of datagrid dynamically
@@ -188,6 +189,17 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private string _notAllocatedText;
+        public string NotAllocatedText
+        {
+            get { return _notAllocatedText; }
+            set
+            {
+                _notAllocatedText = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         public DirectCostProductViewModel(MainViewModel mainViewModel)
         {
             LockAccess = false;
@@ -198,6 +210,7 @@ namespace PresentationLayer.ViewModels
             accountController = new AccountController(context);
             productController = new ProductController(context);
             budgetLockController = new BudgetLockController(context);
+            personellController = new PersonellController(context);
 
             productColumns = new List<Product>();
             accounts = accountController.GetAllIncludeRelations();
@@ -339,6 +352,15 @@ namespace PresentationLayer.ViewModels
 
         private void LockBudget()
         {
+            //Check if personell is fully allocated on selected department
+            if (!personellController.IsPersonellAllocatedOnDepartment(SelectedDepartment))
+            {
+                NotAllocatedText = "Personall ej fullt allokerad";
+                return;
+            }
+
+            NotAllocatedText = "";
+
             //Check if logged in user and chosen department match
             if(SelectedDepartment == "Utv/Förv" && mainViewModel.loggedInUser.PermissionLevel == "CUOF")
             {
