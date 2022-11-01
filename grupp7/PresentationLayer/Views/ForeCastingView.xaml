@@ -68,7 +68,6 @@
 
                 </ContentControl>
                 <Button Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" Width="80" Height="20"  Margin="0 0 20 0">Lås prognos</Button>
-                <Button Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2"  Width="80" Height="20"  >Skriv ut</Button>
                 <Button Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2"  Width="80" Height="20" Margin="0 0 50 0"  >Exportera</Button>
                 <Button Grid.Row="6" Grid.Column="9"  Width="80" Height="20" Margin="40 0 0 0">Spara</Button>
                 <Button Grid.Row="6" Grid.Column="5"  Width="80" Height="20" Margin="10 0 0 0" Command="{Binding UpdateCommand}">Uppdatera</Button>
