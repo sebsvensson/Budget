@@ -29,7 +29,7 @@ namespace BusinessLogic.Controllers
             return unitOfWork.ActivityRepository.FirstOrDefault(p => p.CustomID == ID);
         }
 
-        //Register Activity
+        //Register Activityy
         public void RegisterActivity(string activityName, string activityXxxx, string aFFODepartment, string customID)
         {
             unitOfWork.ActivityRepository.Add(new Activity()
