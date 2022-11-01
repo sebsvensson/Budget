@@ -115,11 +115,18 @@ namespace PresentationLayer.ViewModels
             result[4] = 0;
             result[5] = 0;
 
+            double totalProductAllocation = 0;
+
             //Add product allocations on the remaining columns
             for(int i = 0; i < Table.Columns.Count - 6; i++)
             {
                 result[i + 6] = personells.ElementAt(index).ProductAllocations.ElementAt(i).Allocation;
+                totalProductAllocation += personells.ElementAt(index).ProductAllocations.ElementAt(i).Allocation;
             }
+
+            //Set diff
+            result[4] = personells.ElementAt(index).AnnualWorkRate - totalProductAllocation;
+            result[5] = totalProductAllocation;
 
             return result;
         }

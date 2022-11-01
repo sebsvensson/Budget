@@ -17,6 +17,7 @@ namespace PresentationLayer.ViewModels
         private ProductController productController;
         private CustomerController customerController;
         private RevenueBudgetController revenueBudgetController;
+        private BudgetLockController budgetLockController;
 
         private MainViewModel mainViewModel;
         public ICommand UpdateViewCommand { get; set; }
@@ -27,6 +28,8 @@ namespace PresentationLayer.ViewModels
             revenueBudgetController = new RevenueBudgetController(context);
             productController = new ProductController(context);
             customerController = new CustomerController(context);
+            budgetLockController = new BudgetLockController(context);
+
             this.mainViewModel = mainViewModel;
             UpdateViewCommand = new UpdateViewCommand(this.mainViewModel);
             ProductIDs = new ObservableCollection<string>();
@@ -36,6 +39,8 @@ namespace PresentationLayer.ViewModels
                 ProductIDs.Add(product.CustomId);
             }
 
+            //Disable buttons based on budgetlock
+            RevenueBudgetLocked = budgetLockController.GetRevenueBudgetLocked();
         }
 
         public void ShowBudgets(string selectedProductID)
@@ -172,7 +177,15 @@ namespace PresentationLayer.ViewModels
             }
         }
 
-
-
+        private bool _revenueBudgetLocked;
+        public bool RevenueBudgetLocked
+        {
+            get { return _revenueBudgetLocked; }
+            set
+            {
+                _revenueBudgetLocked = value;
+                OnPropertyChanged(null);
+            }
+        }
     }
 }

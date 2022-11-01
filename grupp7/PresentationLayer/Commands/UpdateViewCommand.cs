@@ -27,8 +27,14 @@ namespace PresentationLayer.Commands
         //Sets SelectedViewModel based on CommandParameter from xaml view
         public void Execute(object parameter)
         {
+            mainViewModel.ViewAccesed = true;
+
             //Stores last view before changing view
             mainViewModel.viewQueueHandler.NewView(mainViewModel.SelectedViewModel);
+
+            //Acces bug with viewqueuehandler
+            //Fix: only change view if acces, else change current view to ViewAccesed = false AND set ViewAccesed to true in ViewQueueHandler
+
 
             if (parameter.ToString() == "HomeView")
             {
@@ -36,23 +42,52 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "ForeCastingView")
             {
-                mainViewModel.SelectedViewModel = new ForeCastingViewModel();
+                 mainViewModel.SelectedViewModel = new ForeCastingViewModel();
             }
             else if (parameter.ToString() == "RegisterProductView")
             {
-                mainViewModel.SelectedViewModel = new RegisterProductViewModel();
+
+                if(mainViewModel.loggedInUser.PermissionLevel == "MFM")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new RegisterProductViewModel();
+                }
             }
             else if(parameter.ToString() == "RegisterCustomerView")
             {
-                mainViewModel.SelectedViewModel = new RegisterCustomerViewModel();
+                if (mainViewModel.loggedInUser.PermissionLevel != "CFOM" && mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new RegisterCustomerViewModel();
+                }
             }
             else if (parameter.ToString() == "AdministerStaffView")
             {
-                mainViewModel.SelectedViewModel = new AdministerStaffViewModel();
+                if (mainViewModel.loggedInUser.PermissionLevel != "CPA" && mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new AdministerStaffViewModel();
+                }
             }
             else if (parameter.ToString() == "RevenueBudgetMenuView")
             {
-                mainViewModel.SelectedViewModel = new RevenueBudgetMenuViewModel(mainViewModel);
+                if(mainViewModel.loggedInUser.PermissionLevel != "CE" && mainViewModel.loggedInUser.PermissionLevel != "CFOM" && mainViewModel.loggedInUser.PermissionLevel != "MFM")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new RevenueBudgetMenuViewModel(mainViewModel);
+                }
             }
             else if (parameter.ToString() == "RevenueBudgetByCustomerView")
             {
@@ -76,27 +111,58 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "EditCustomerView")
             {
-                mainViewModel.SelectedViewModel = new EditCustomerViewModel();
+                if(mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new EditCustomerViewModel();
+                }
             }
             else if (parameter.ToString() == "EditProductView")
             {
-                mainViewModel.SelectedViewModel = new EditProductViewModel();
+                if (mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new EditProductViewModel();
+                }
             }
             else if (parameter.ToString() == "EditActivityView")
             {
-                mainViewModel.SelectedViewModel = new EditActivityViewModel();
+                if (mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new EditActivityViewModel();
+                }
             }
             else if (parameter.ToString() == "RegisterActivityView")
             {
-                mainViewModel.SelectedViewModel = new RegisterActivityViewModel();
-            }
-            else if (parameter.ToString() == "EditActivityView")
-            {
-                mainViewModel.SelectedViewModel = new EditActivityViewModel();
+                if(mainViewModel.loggedInUser.PermissionLevel == "MFM")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new RegisterActivityViewModel();
+                }
             }
             else if (parameter.ToString() == "AdministerPermissionsView")
             {
-                mainViewModel.SelectedViewModel = new AdministerPermissionsViewModel();
+                if(mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new AdministerPermissionsViewModel();
+                }
             }
             else if (parameter.ToString() == "BudgetResultView")
             {
@@ -105,15 +171,30 @@ namespace PresentationLayer.Commands
 
             else if (parameter.ToString() == "SchablonExpenseView")
             {
-                mainViewModel.SelectedViewModel = new SchablonExpenseViewModel();
+                if (mainViewModel.loggedInUser.PermissionLevel != "CE")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new SchablonExpenseViewModel();
+                }
             }
             else if (parameter.ToString() == "ResourceAllocationView")
             {
-                mainViewModel.SelectedViewModel = new ResourceAllocation2ViewModel();
+                if (mainViewModel.loggedInUser.PermissionLevel == "MFM")
+                {
+                    mainViewModel.ViewAccesed = false;
+                }
+                else
+                {
+                    mainViewModel.SelectedViewModel = new ResourceAllocation2ViewModel();
+                }
             }
             else if (parameter.ToString() == "DirectCostProductView")
             {
                 mainViewModel.SelectedViewModel = new DirectCostProductViewModel();
+
             }
             else if (parameter.ToString() == "DirectCostActivityView")
             {

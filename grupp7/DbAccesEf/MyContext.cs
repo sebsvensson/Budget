@@ -23,6 +23,7 @@ namespace DbAccesEf
         public DbSet<DirectCostProduct> DirectCostProducts { get; set; }
         public DbSet<ProductAllocation> ProductAllocations { get; set; }
         public DbSet<Yield> Yield { get; set; }
+        public DbSet<BudgetLock> BudgetLocks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -39,6 +39,17 @@ namespace PresentationLayer.ViewModels
             }
         }
 
+        private bool _viewAccesed = true;
+        public bool ViewAccesed
+        {
+            get { return _viewAccesed; }
+            set
+            {
+                _viewAccesed = value;
+                OnPropertyChanged(null);
+            }
+        }
+
         //Colors
         private string _menuColor = Colors.Menu;
         public string MenuColor
@@ -277,6 +288,7 @@ namespace PresentationLayer.ViewModels
             GridColumn = 0;
             GridRow = 0;
             loggedInUser = null;
+            ViewAccesed = true;
 
         }
 
@@ -295,6 +307,7 @@ namespace PresentationLayer.ViewModels
             {
                 SelectedViewModel = viewQueueHandler.GoBack();
             }
+            ViewAccesed = true;
         }
 
         public MainViewModel()

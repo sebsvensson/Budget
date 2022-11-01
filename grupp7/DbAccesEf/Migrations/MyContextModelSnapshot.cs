@@ -64,6 +64,21 @@ namespace DbAccesEf.Migrations
                     b.ToTable("Activities");
                 });
 
+            modelBuilder.Entity("DbAccesEf.Models.BudgetLock", b =>
+                {
+                    b.Property<int>("BudgetLockID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("RevenuBudgetLocked")
+                        .HasColumnType("bit");
+
+                    b.HasKey("BudgetLockID");
+
+                    b.ToTable("BudgetLocks");
+                });
+
             modelBuilder.Entity("DbAccesEf.Models.Customer", b =>
                 {
                     b.Property<int>("CustomerID")
@@ -283,6 +298,49 @@ namespace DbAccesEf.Migrations
                     b.ToTable("ProductGroups");
                 });
 
+            modelBuilder.Entity("DbAccesEf.Models.RevenueBudget", b =>
+                {
+                    b.Property<int>("RevenueBudgetID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Additions")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Agreement")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Budget")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Grade_A")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Grade_T")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Hours")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductID")
+                        .HasColumnType("int");
+
+                    b.HasKey("RevenueBudgetID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("RevenueBudgets");
+                });
+
             modelBuilder.Entity("DbAccesEf.Models.User", b =>
                 {
                     b.Property<int>("UserID")
@@ -302,6 +360,21 @@ namespace DbAccesEf.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("DbAccesEf.Models.Yield", b =>
+                {
+                    b.Property<int>("YieldID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.HasKey("YieldID");
+
+                    b.ToTable("Yield");
                 });
 
             modelBuilder.Entity("DbAccesEf.Models.Customer", b =>
@@ -351,6 +424,17 @@ namespace DbAccesEf.Migrations
                         .HasForeignKey("PersonellID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("DbAccesEf.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID");
+                });
+
+            modelBuilder.Entity("DbAccesEf.Models.RevenueBudget", b =>
+                {
+                    b.HasOne("DbAccesEf.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID");
 
                     b.HasOne("DbAccesEf.Models.Product", "Product")
                         .WithMany()

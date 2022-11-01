@@ -6,6 +6,10 @@
              xmlns:local="clr-namespace:PresentationLayer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="925">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </UserControl.Resources>
     
     <Grid Background="{Binding PageColor}">
         <Grid.ColumnDefinitions>
@@ -80,19 +84,18 @@
         </DataGrid>
         <Button Command="{Binding UpdateViewCommand}"
                 CommandParameter="AddRevenueByCustomerView"
-                Content="Lägg till" Grid.Column="1" HorizontalAlignment="Left" Margin="40,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
+                Content="Lägg till" Grid.Column="1" HorizontalAlignment="Left" Margin="40,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"
+                IsEnabled="{Binding RevenueBudgetLocked}"/>
         <Button Command="{Binding RemoveRevenueBudgetCommand}" 
-            Content="Ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="10.5,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"/>
+                Content="Ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="10.5,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"
+                IsEnabled="{Binding RevenueBudgetLocked}"/>
         <Button Content="Exportera" Grid.Column="4" HorizontalAlignment="Left" Margin="139,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3"/>
         <Button Content="Redigera" Grid.Column="6" HorizontalAlignment="Left" Margin="26,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
         <Button Content="Spara" Grid.Column="6" HorizontalAlignment="Left" Margin="120,409,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
 
-
-
-
-
-
-
-
+        <TextBlock Text="Budget är låst"
+                   Grid.Column="2" HorizontalAlignment="Left" Margin="100,353,0,0" Grid.Row="9" VerticalAlignment="Top" Width="74"
+                   Foreground="Red"
+                   Visibility="Hidden"/>
     </Grid>
 </UserControl>

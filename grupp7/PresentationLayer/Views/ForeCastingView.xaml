@@ -37,7 +37,16 @@
 
                 <TextBlock Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="1" FontSize="15" Foreground="{Binding TextColor}" Margin="0 0 0 10" >Månad:</TextBlock>
 
-                <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0 0 20 10" Width="100" ></ComboBox>
+                <ComboBox 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Grid.ColumnSpan="3" 
+                    Margin="0 0 20 10" 
+                    Width="100"
+                    ItemsSource="{Binding MonthNames, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedIndex="{Binding SelectedMonth, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    
+                </ComboBox>
 
                 <TextBox Grid.Row="2" Grid.Column="1" Width="70" >Totalt:</TextBox>
                 <TextBox Grid.Row="2" Grid.Column="2" Width="70"></TextBox>
@@ -49,20 +58,20 @@
                 <TextBox Grid.Row="2" Grid.Column="8" Width="90"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="9" Width="120"></TextBox>
 
-                <DataGrid Grid.Row="3" 
+                <ContentControl Grid.Row="3" 
                           Grid.RowSpan="3"  
                           Grid.Column="1" 
                           Grid.ColumnSpan="9"
                           Width="805" 
                           Margin="0 10 0 10" 
-                          ItemsSource="{Binding Table}"
-                          AutoGenerateColumns="True">
+                          Content="{Binding TableUserControl}">
 
-                </DataGrid>
+                </ContentControl>
                 <Button Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" Width="80" Height="20"  Margin="0 0 20 0">Lås prognos</Button>
                 <Button Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2"  Width="80" Height="20"  >Skriv ut</Button>
                 <Button Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2"  Width="80" Height="20" Margin="0 0 50 0"  >Exportera</Button>
                 <Button Grid.Row="6" Grid.Column="9"  Width="80" Height="20" Margin="40 0 0 0">Spara</Button>
+                <Button Grid.Row="6" Grid.Column="5"  Width="80" Height="20" Margin="10 0 0 0" Command="{Binding UpdateCommand}">Uppdatera</Button>
                 <TextBlock  Grid.Row="8" Grid.Column="9" Foreground="White" HorizontalAlignment="Right" >Senast redigerad</TextBlock>
             </Grid>
 

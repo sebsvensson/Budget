@@ -18,12 +18,16 @@
                   Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Användarnamn" Binding="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Width="2*"
+                                    IsReadOnly="True"
+                                    FontSize="12"/>
+                <DataGridTextColumn Header="Inlogg kod" Binding="{Binding PermissionLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Width="*"
                                     IsReadOnly="True"
-                                    FontSize="16"/>
+                                    FontSize="12"/>
                 <DataGridTextColumn Header="Lösenord" Binding="{Binding PassWord, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Width="*"
-                                    FontSize="16"/>
+                                    FontSize="12"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Spara"

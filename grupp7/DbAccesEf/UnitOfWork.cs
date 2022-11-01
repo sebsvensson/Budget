@@ -24,7 +24,7 @@ namespace DbAccesEf
         public GenericRepository<ProductAllocation> ProductAllocationRepository { get; set; }
         public GenericRepository<Yield> YieldRepository { get; set; }
         public GenericRepository<DirectCostProduct> DirectCostProductRepository { get; set; }
-
+        public GenericRepository<BudgetLock> BudgetLockRepository { get; set; }
 
         public UnitOfWork(MyContext context)
         {
@@ -43,7 +43,7 @@ namespace DbAccesEf
             ProductAllocationRepository = new GenericRepository<ProductAllocation>(context);
             YieldRepository = new GenericRepository<Yield>(context);
             DirectCostProductRepository = new GenericRepository<DirectCostProduct>(context);
-
+            BudgetLockRepository = new GenericRepository<BudgetLock>(context);
         }
 
         public void SaveChanges()

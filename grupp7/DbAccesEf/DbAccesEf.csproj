@@ -146,12 +146,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenerateData.cs" />
-    <Compile Include="Migrations\20221026104222_dirketkostnad.cs" />
-    <Compile Include="Migrations\20221026104222_dirketkostnad.designer.cs">
-      <DependentUpon>20221026104222_dirketkostnad.cs</DependentUpon>
+    <Compile Include="Migrations\20221101143130_budgetlock.cs" />
+    <Compile Include="Migrations\20221101143130_budgetlock.designer.cs">
+      <DependentUpon>20221101143130_budgetlock.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MyContextModelSnapshot.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\BudgetLock.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCategory.cs" />
     <Compile Include="Models\Activity.cs" />

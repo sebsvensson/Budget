@@ -35,9 +35,9 @@ namespace BusinessLogic.Controllers
             unitOfWork.SaveChanges();
         }
 
-        public User LogIn(string userName, string passWord)
+        public User LogIn(string userCode, string passWord)
         {
-            User user = unitOfWork.UserRepository.FirstOrDefault(u => u.UserName == userName);
+            User user = unitOfWork.UserRepository.FirstOrDefault(u => u.PermissionLevel == userCode);
             
             if(user != null && user.PassWord == passWord)
             {

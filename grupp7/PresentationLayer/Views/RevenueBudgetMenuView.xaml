@@ -53,7 +53,7 @@
                 Height="65"
                 Command="{Binding UpdateViewCommand}"
                 CommandParameter="RevenueBudgetByProductView"/>
-        <Button Content="Lås budget" 
+        <Button Content="{Binding LockText, UpdateSourceTrigger=PropertyChanged}" 
                 Grid.Column="1" 
                 HorizontalAlignment="Left" 
                 Margin="229,174,0,0" 
@@ -61,8 +61,8 @@
                 VerticalAlignment="Top" 
                 Width="425" 
                 Grid.ColumnSpan="2" 
-                Height="30"/>
-        <ComboBox x:Name="asd" Grid.Column="1" Margin="229,222,0,0" Grid.Row="9" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="30"/>
-       
+                Height="30"
+                Command="{Binding LockBudgetCommand}"
+                IsEnabled="{Binding LockEnabled}"/>
     </Grid>
 </UserControl>
