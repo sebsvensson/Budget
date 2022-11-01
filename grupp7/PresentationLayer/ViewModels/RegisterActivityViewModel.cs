@@ -95,7 +95,7 @@ namespace PresentationLayer.ViewModels
 
         private void RegisterActivity()
         {
-            if (ActivityXxxx.Length == 3 && ActivityName != null && SelectedAFFODepartment != null && CustomID != null)
+            if (ActivityXxxx.Length == 4 && ActivityName != null && SelectedAFFODepartment != null && CustomID != null)
             {
                 try
                 {
