@@ -57,7 +57,6 @@
         <TextBlock Text="{Binding Expense, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="5"/>
         <TextBlock Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Foreground="{Binding TextColor}" FontSize="17" Grid.Column="2" Grid.Row="7"/>
 
-        <Button Content="Skriv ut" Grid.Column="1" Grid.Row="8" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Button Content="Exportera" Grid.Column="2" Grid.Row="8" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Button Content="Läs in"
                 Width="80"
