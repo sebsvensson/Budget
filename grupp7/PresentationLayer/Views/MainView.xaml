@@ -58,7 +58,7 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{Binding MenuSelectedColor}"/>
                 </Trigger>
-                
+
             </Style.Triggers>
         </Style>
 
@@ -94,7 +94,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
     </Window.Resources>
 
     <Border Background="{Binding MenuColor}" CornerRadius="0">
@@ -262,8 +262,7 @@
             -->
             <ContentControl Grid.Row="{Binding GridRow}" 
                             Grid.Column="{Binding GridColumn}" 
-                            Grid.ColumnSpan="{Binding ColumnSpan}" 
-                            Content="{Binding SelectedViewModel}"
+                            Grid.ColumnSpan="{Binding ColumnSpan}"
                             Panel.ZIndex="0"
                             Visibility="{Binding ViewAccesed, Converter={StaticResource BoolToVis}}"/>
 
@@ -285,6 +284,7 @@
             <Grid Grid.Column="2"
                   Background="{Binding PageColor}"
                   Panel.ZIndex="-3"/>
+            <Button Content="Lås budget" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Width="75"/>
         </Grid>
     </Border>
 </Window>

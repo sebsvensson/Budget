@@ -35,9 +35,30 @@ namespace BusinessLogic.Controllers
         }
 
         //Check if personell is 100% allocated on chosen department
-        public bool IsPersonellAllocatedOnDepartment()
+        public bool IsPersonellAllocatedOnDepartment(string department)
         {
-            return false;
+            List<Personell> personells = GetAll().ToList();
+
+            //Check every personell and their allocation in selected department, return false when unallocated personell is found
+            foreach(Personell p in personells)
+            {
+                double totalAllocation = 0;
+
+                foreach(ProductAllocation pa in p.ProductAllocations)
+                {
+                    if(pa.Product.Department == department)
+                    {
+                        totalAllocation += pa.Allocation;
+                    }
+                }
+
+                if(totalAllocation < p.AnnualWorkRate)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

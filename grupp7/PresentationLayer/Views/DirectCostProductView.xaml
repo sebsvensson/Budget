@@ -69,6 +69,12 @@
                 Margin="170,0,0,0"
                 Command="{Binding LockCommand}"
                 IsEnabled="{Binding LockAccess, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <TextBlock Text="{Binding NotAllocatedText}"
+                   Grid.Row="2"
+                   VerticalAlignment="Center"
+                   Margin="230,0,0,0"
+                   Foreground="Red"/>
 
     </Grid>
 </UserControl>
