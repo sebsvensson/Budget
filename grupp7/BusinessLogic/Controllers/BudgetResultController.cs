@@ -116,27 +116,6 @@ namespace BusinessLogic.Controllers
             double snittSchablon = totalSchablon / totalEmployedRate * totalEmployedRateDepartment;
             double totalCostProductResult = (totalEmployedRateProduct / totalEmployedRateDepartment) * (totalSalaryDepartment + snittSchablon) + totalCostProduct;
 
-            System.Diagnostics.Debug.WriteLine("totalEmployedRateProduct");
-            System.Diagnostics.Debug.WriteLine(totalEmployedRateProduct);
-            System.Diagnostics.Debug.WriteLine("totalEmployedRateDepartment");
-            System.Diagnostics.Debug.WriteLine(totalEmployedRateDepartment);
-            System.Diagnostics.Debug.WriteLine("totalSalaryDepartment");
-            System.Diagnostics.Debug.WriteLine(totalSalaryDepartment);
-            System.Diagnostics.Debug.WriteLine("totalSchablon");
-            System.Diagnostics.Debug.WriteLine(totalSchablon);
-            System.Diagnostics.Debug.WriteLine("totalCostProduct");
-            System.Diagnostics.Debug.WriteLine(totalCostProduct);
-            System.Diagnostics.Debug.WriteLine("totalSchablon");
-            System.Diagnostics.Debug.WriteLine(totalSchablon);
-            System.Diagnostics.Debug.WriteLine("snittSchablon");
-            System.Diagnostics.Debug.WriteLine(snittSchablon);
-            System.Diagnostics.Debug.WriteLine("totalCostProductResult");
-            System.Diagnostics.Debug.WriteLine(totalCostProductResult);
-            System.Diagnostics.Debug.WriteLine("totalEmployedRate");
-            System.Diagnostics.Debug.WriteLine(totalEmployedRate);
-
-
-
             return Math.Round(totalCostProductResult * addonPercentage, 1);
         }
 
@@ -146,12 +125,6 @@ namespace BusinessLogic.Controllers
             ProductGroup selectedProductGroup = unitOfWork.ProductGroupRepository.FirstOrDefault(pg => pg.Name == productGroup);
             List<Product> selectedProducts = unitOfWork.ProductRepository.Find(p => p.ProductGroup.Name == selectedProductGroup.Name).ToList();
 
-            foreach(Product p in selectedProducts)
-            {
-                System.Diagnostics.Debug.WriteLine(selectedProductGroup.Name);
-            }
-
-
             double result = 0;
 
             foreach(Product p in selectedProducts)
@@ -159,7 +132,6 @@ namespace BusinessLogic.Controllers
                 result += GetTotalBudgetByProduct(p.ProductName);
             }
 
-            System.Diagnostics.Debug.WriteLine(selectedProductGroup.Name);
             return result;
         }
 
@@ -192,8 +164,6 @@ namespace BusinessLogic.Controllers
                     }
                 }
             }
-            System.Diagnostics.Debug.WriteLine("totalsalary department:");
-            System.Diagnostics.Debug.WriteLine(totalSalary);
 
             double totalProductCost = 0;
             foreach (DirectCostProduct dp in unitOfWork.DirectCostProductRepository.ReturnAllDirectCostProduct().ToList())
@@ -203,9 +173,6 @@ namespace BusinessLogic.Controllers
                     totalProductCost += dp.Cost;
                 }
             }
-
-            System.Diagnostics.Debug.WriteLine("Produkkostnad avdelning:");
-            System.Diagnostics.Debug.WriteLine(totalProductCost);
 
             double totalSchablon = 0;
             //5023 - 5522
@@ -219,9 +186,6 @@ namespace BusinessLogic.Controllers
 
             double snittSchablon = totalSchablon / totalEmployedRate * totalEmployedRateDriftUtv;
             double totalTillverksningsKostnad = totalSalary + snittSchablon + totalProductCost;
-
-            System.Diagnostics.Debug.WriteLine(addonPercentage);
-            System.Diagnostics.Debug.WriteLine("-----------");
 
             //Cost for whole department
             return Math.Round(addonPercentage * totalTillverksningsKostnad, 1);
@@ -248,12 +212,8 @@ namespace BusinessLogic.Controllers
                 }
             }
 
-            System.Diagnostics.Debug.WriteLine(totalSalary);
-            System.Diagnostics.Debug.WriteLine("--------");
-            System.Diagnostics.Debug.WriteLine(activityCost);
-            System.Diagnostics.Debug.WriteLine("--------");
+            return totalSalary + activityCost + unitOfWork.YieldRepository.FirstOrDefault(y => true).Amount;
 
-            return totalSalary + activityCost + 20000; // 20000 = yield
         }
 
         public double GetRevenueBudgetByOffice()

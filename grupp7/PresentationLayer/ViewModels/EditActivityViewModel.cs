@@ -21,8 +21,8 @@ namespace PresentationLayer.ViewModels
             context = new DbAccesEf.MyContext();
             activityController = new ActivityController(context);
             CustomIDs = new ObservableCollection<string>();
-            AFFODepartments = new ObservableCollection<string>()
-            {
+            AFFODepartments = new ObservableCollection<string>() 
+            { 
                 "FO",
                 "AO"
             };

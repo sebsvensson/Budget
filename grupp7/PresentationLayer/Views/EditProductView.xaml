@@ -69,7 +69,8 @@
                   BorderBrush="Black" 
                   Margin="10,0,0,0" 
                   Width="200"
-                  />
+                  ItemsSource="{Binding Path=ProductDepartments}"
+                  SelectedValue="{Binding SelectedDepartment}"/>
 
         <Button Content="Spara" Command="{Binding EditProductCommand}" Grid.Column="2" Grid.Row="7" FontSize="17" Width="80" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Grid>
