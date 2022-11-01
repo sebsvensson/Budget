@@ -21,17 +21,15 @@ namespace PresentationLayer.ViewModels
             context = new DbAccesEf.MyContext();
             activityController = new ActivityController(context);
             CustomIDs = new ObservableCollection<string>();
-            AFFODepartments = new ObservableCollection<string>();
+            AFFODepartments = new ObservableCollection<string>()
+            {
+                "FO",
+                "AO"
+            };
 
             foreach (DbAccesEf.Models.Activity activity in activityController.GetAllActivities())
             {
                 CustomIDs.Add(activity.CustomID);
-            }
-            foreach (DbAccesEf.Models.Activity activity in activityController.GetAllActivities())
-            {
-                
-                    AFFODepartments.Add(activity.AFFODepartment);
-                    
             }
         }
 

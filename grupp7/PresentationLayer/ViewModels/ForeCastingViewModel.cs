@@ -247,7 +247,7 @@ namespace PresentationLayer.ViewModels
             //Prognos-budget
             if (prognosOld.Count > counter)
             {
-                result[8] = result.Field<double>(1) - prognosOld.ElementAt(counter);
+                result[8] = prognosOld.ElementAt(counter) - result.Field<double>(1);
             }
             else
             {
