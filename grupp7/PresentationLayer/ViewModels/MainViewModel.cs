@@ -8,6 +8,7 @@ using PresentationLayer.Commands;
 using PresentationLayer.ViewModels;
 using DbAccesEf.Models;
 using PresentationLayer.Utilities;
+using BusinessLogic.Controllers;
 
 namespace PresentationLayer.ViewModels
 {
@@ -15,6 +16,7 @@ namespace PresentationLayer.ViewModels
     {
         public User loggedInUser;
         public ViewQueueHandler viewQueueHandler;
+        public BudgetLockController budgetLockController;
         //Displays selected view next to menu
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
@@ -310,6 +312,78 @@ namespace PresentationLayer.ViewModels
             ViewAccesed = true;
         }
 
+        private ICommand _masterLockCommand;
+        public ICommand MasterLockCommand
+        {
+            get
+            {
+                return _masterLockCommand ?? (_masterLockCommand = new CommandHandler(() => SetMasterLock()));
+            }
+        }
+
+        private void SetMasterLock()
+        {
+            if (loggedInUser.PermissionLevel == "CE")
+            {
+                budgetLockController.SetMasterLock(!budgetLockController.GetBudgetLock().MasterLock);
+            }
+
+            if (budgetLockController.GetBudgetLock().MasterLock)
+            {
+                MasterLockText = "Lås upp";
+            }
+            else
+            {
+                MasterLockText = "Lås";
+            }
+        }
+
+        private string _masterLockText;
+        public string MasterLockText
+        {
+            get { return _masterLockText; }
+            set
+            {
+                _masterLockText = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private bool _masterLockAccess;
+        public bool MasterLockAccess
+        {
+            get { return _masterLockAccess; }
+            set
+            {
+                _masterLockAccess = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        //Set lock acces and text 
+        public void SetLockAccesAndText() 
+        {
+            //Set acces
+            if (loggedInUser.PermissionLevel == "CE")
+            {
+                MasterLockAccess = true;
+            }
+            else
+            {
+                MasterLockAccess = false;
+            }
+
+            //Set lock text
+            if (budgetLockController.GetBudgetLock().MasterLock)
+            {
+                MasterLockText = "Lås upp";
+            }
+            else
+            {
+                MasterLockText = "Lås";
+            }
+        }
+
         public MainViewModel()
         {
             //Set SelectedViewModel to startup UserControl here (Login view probably)
@@ -317,6 +391,9 @@ namespace PresentationLayer.ViewModels
             SelectedViewModel = new LoginViewModel(this);
             UpdateViewCommand = new UpdateViewCommand(this);
             viewQueueHandler = new ViewQueueHandler();
+            budgetLockController = new BudgetLockController(new DbAccesEf.MyContext());
+
+
         }
     }
 }

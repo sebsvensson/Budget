@@ -245,13 +245,21 @@
                     Margin="10,0,0,10"
                     Command="{Binding LogOutCommand}"/>
 
-            <Button Content="Lås budget"
+            <TextBlock Text="Lås all budget"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="10,0,0,220"/>
+
+            <Button Content="{Binding MasterLockText}"
                     FontSize="10"
                     Width="55"
                     Height="20"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Margin="10,0,0,240"/>
+                    Margin="10,0,0,200"
+                    IsEnabled="{Binding MasterLockAccess}"
+                    Command="{Binding MasterLockCommand}"/>
 
             <Button Content="Back"
                     FontSize="10"

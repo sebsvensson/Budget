@@ -79,6 +79,8 @@ namespace PresentationLayer.ViewModels
                 mainViewModel.GridRow = 2;
 
                 mainViewModel.LoggedInText = "Inloggad som: " + userController.LogIn(UserName, Password).UserName;
+
+                mainViewModel.SetLockAccesAndText();
             }
         }
 

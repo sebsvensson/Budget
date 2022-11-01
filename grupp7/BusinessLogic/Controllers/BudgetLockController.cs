@@ -29,14 +29,22 @@ namespace BusinessLogic.Controllers
 
         public void SetRevenueBudgetLock(bool setLock)
         {
-            BudgetLock budgetLock = unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
-            budgetLock.RevenuBudgetLocked = setLock;
-            unitOfWork.SaveChanges();
+            if(!unitOfWork.BudgetLockRepository.FirstOrDefault(b => true).MasterLock)
+            {
+                BudgetLock budgetLock = unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
+                budgetLock.RevenuBudgetLocked = setLock;
+                unitOfWork.SaveChanges();
+            }
         }
 
         public void SetDirectCostBudgetLock(bool setLock, string department)
         {
             BudgetLock budgetLock = unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
+
+            if (budgetLock.MasterLock)
+            {
+                return;
+            }
 
             switch (department)
             {
@@ -54,6 +62,13 @@ namespace BusinessLogic.Controllers
                     break;
             }
 
+            unitOfWork.SaveChanges();
+        }
+
+        public void SetMasterLock(bool setLock)
+        {
+            BudgetLock budgetLock = unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
+            budgetLock.MasterLock = setLock;
             unitOfWork.SaveChanges();
         }
     }

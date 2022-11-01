@@ -36,9 +36,20 @@ namespace BusinessLogic.Controllers
                 
             });
 
-            unitOfWork.SaveChanges();
 
             accountController.GenerateProductDirectCostZeroes(GetByProductName(productName));
+
+            //Generate productallocationzeroes
+            foreach(Personell p in unitOfWork.PersonellRepository.ReturnAllPersonell())
+            {
+                p.ProductAllocations.Add(new ProductAllocation()
+                {
+                    Allocation = 0,
+                    Product = unitOfWork.ProductRepository.FirstOrDefault(pr => pr.CustomId == customId)
+                });
+            }
+
+            unitOfWork.SaveChanges();
         }
 
         public Product GetByProductName(string productName)

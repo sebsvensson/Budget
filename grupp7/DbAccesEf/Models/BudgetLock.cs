@@ -14,5 +14,6 @@ namespace DbAccesEf.Models
         public bool DirectCostUtvLocked { get; set; }
         public bool DirectCostAdmLocked { get; set; }
         public bool DirectCostForsLocked { get; set; }
+        public bool MasterLock { get; set; }
     }
 }
