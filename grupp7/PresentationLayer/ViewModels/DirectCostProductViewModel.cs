@@ -17,8 +17,10 @@ namespace PresentationLayer.ViewModels
 {
     public class DirectCostProductViewModel : BaseViewModel
     {
+        private MainViewModel mainViewModel;
         private AccountController accountController;
         private ProductController productController;
+        private BudgetLockController budgetLockController;
         private List<Account> accounts;
 
         //Used to set columns of datagrid dynamically
@@ -68,6 +70,39 @@ namespace PresentationLayer.ViewModels
                 _selectedDepartment = value;
                 OnPropertyChanged(null);
                 SetProductCombobox();
+
+                //Set budgetLocked based on selected department
+                if (SelectedDepartment == "Utv/Förv" && budgetLockController.GetBudgetLock().DirectCostUtvLocked)
+                {
+                    BudgetNotLocked = false;
+                }
+                else if(SelectedDepartment == "Drift" && budgetLockController.GetBudgetLock().DirectCostDriftLocked)
+                {
+                    BudgetNotLocked = false;
+                }
+                else
+                {
+                    BudgetNotLocked = true;
+                }
+
+                //Set lock acces
+                if(SelectedDepartment == "Utv/Förv" && mainViewModel.loggedInUser.PermissionLevel == "CUOF")
+                {
+                    LockAccess = true;
+                }
+                else if (SelectedDepartment == "Drift" && mainViewModel.loggedInUser.PermissionLevel == "CD")
+                {
+                    LockAccess = true;
+                }
+                else
+                {
+                    LockAccess = false;
+                }
+
+                //Reset datatable when changing department
+                productColumns = new List<Product>();
+                GenerateDataTable();
+                SetLockText();
             }
         }
 
@@ -111,12 +146,58 @@ namespace PresentationLayer.ViewModels
             }
         }
 
-        public DirectCostProductViewModel()
+        private ICommand _lockCommand;
+        public ICommand LockCommand
         {
+            get
+            {
+                return _lockCommand ?? (_lockCommand = new CommandHandler(() => LockBudget()));
+            }
+        }
 
+        private bool _budgetNotLocked;
+        public bool BudgetNotLocked
+        {
+            get { return _budgetNotLocked; }
+            set
+            {
+                _budgetNotLocked = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private bool _lockAccess;
+        public bool LockAccess
+        {
+            get { return _lockAccess; }
+            set
+            {
+                _lockAccess = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        private string _lockText;
+        public string LockText
+        {
+            get { return _lockText; }
+            set
+            {
+                _lockText = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        public DirectCostProductViewModel(MainViewModel mainViewModel)
+        {
+            LockAccess = false;
+            BudgetNotLocked = true;
+
+            this.mainViewModel = mainViewModel;
             MyContext context = new MyContext();
             accountController = new AccountController(context);
             productController = new ProductController(context);
+            budgetLockController = new BudgetLockController(context);
 
             productColumns = new List<Product>();
             accounts = accountController.GetAllIncludeRelations();
@@ -136,6 +217,7 @@ namespace PresentationLayer.ViewModels
             //productColumns.Add(productController.GetAll().ElementAt(1));
 
             GenerateDataTable();
+            SetLockText();
         }
 
         private void SetProductCombobox()
@@ -253,6 +335,48 @@ namespace PresentationLayer.ViewModels
         public string RemoveSpecialChars(string input)
         {
             return Regex.Replace(input, @"[^0-9a-zA-Z]", " ");
+        }
+
+        private void LockBudget()
+        {
+            //Check if logged in user and chosen department match
+            if(SelectedDepartment == "Utv/Förv" && mainViewModel.loggedInUser.PermissionLevel == "CUOF")
+            {
+                budgetLockController.SetDirectCostBudgetLock(!budgetLockController.GetBudgetLock().DirectCostUtvLocked, mainViewModel.loggedInUser.PermissionLevel);
+            }
+
+            else if (SelectedDepartment == "Drift" && mainViewModel.loggedInUser.PermissionLevel == "CD")
+            {
+                budgetLockController.SetDirectCostBudgetLock(!budgetLockController.GetBudgetLock().DirectCostDriftLocked, mainViewModel.loggedInUser.PermissionLevel);
+            }
+
+            SetNotLocked();
+            SetLockText();
+        }
+
+        //Sets datagrid locked or not based on chosen department and database
+        private void SetNotLocked()
+        {
+            if(SelectedDepartment == "Drift")
+            {
+                BudgetNotLocked = !budgetLockController.GetBudgetLock().DirectCostDriftLocked;
+            }
+            else if(SelectedDepartment == "Utv/Förv")
+            {
+                BudgetNotLocked = !budgetLockController.GetBudgetLock().DirectCostUtvLocked;
+            }
+        }
+
+        private void SetLockText()
+        {
+            if (BudgetNotLocked)
+            {
+                LockText = "Lås";
+            }
+            else
+            {
+                LockText = "Lås upp";
+            }
         }
     }
 }

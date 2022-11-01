@@ -33,5 +33,11 @@ namespace BusinessLogic.Controllers
             productAllocation.Allocation = newAllocation;
             unitOfWork.SaveChanges();
         }
+
+        //Check if personell is 100% allocated on chosen department
+        public bool IsPersonellAllocatedOnDepartment()
+        {
+            return false;
+        }
     }
 }

@@ -50,7 +50,8 @@
 
         </DataGrid>-->
         <ContentControl Content="{Binding TableUserControl}"
-                        Grid.Row="1"/>
+                        Grid.Row="1"
+                        IsEnabled="{Binding BudgetNotLocked}"/>
 
         <Button Content="Spara"
                 Grid.Row="2"
@@ -59,6 +60,15 @@
                 HorizontalAlignment="Left"
                 Margin="100,0,0,0"
                 Command="{Binding SaveCommand}"/>
+
+        <Button Content="{Binding LockText, UpdateSourceTrigger=PropertyChanged}"
+                Grid.Row="2"
+                Width="50"
+                Height="20"
+                HorizontalAlignment="Left"
+                Margin="170,0,0,0"
+                Command="{Binding LockCommand}"
+                IsEnabled="{Binding LockAccess, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </UserControl>

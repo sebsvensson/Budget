@@ -193,7 +193,7 @@ namespace PresentationLayer.Commands
             }
             else if (parameter.ToString() == "DirectCostProductView")
             {
-                mainViewModel.SelectedViewModel = new DirectCostProductViewModel();
+                mainViewModel.SelectedViewModel = new DirectCostProductViewModel(mainViewModel);
 
             }
             else if (parameter.ToString() == "DirectCostActivityView")

@@ -22,10 +22,38 @@ namespace BusinessLogic.Controllers
             return unitOfWork.BudgetLockRepository.ReturnAll().ElementAt(0).RevenuBudgetLocked;
         }
 
+        public BudgetLock GetBudgetLock()
+        {
+            return unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
+        }
+
         public void SetRevenueBudgetLock(bool setLock)
         {
             BudgetLock budgetLock = unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
             budgetLock.RevenuBudgetLocked = setLock;
+            unitOfWork.SaveChanges();
+        }
+
+        public void SetDirectCostBudgetLock(bool setLock, string department)
+        {
+            BudgetLock budgetLock = unitOfWork.BudgetLockRepository.FirstOrDefault(b => true);
+
+            switch (department)
+            {
+                case "CD":
+                    budgetLock.DirectCostDriftLocked = setLock;
+                    break;
+                case "CUOF":
+                    budgetLock.DirectCostUtvLocked = setLock;
+                    break;
+                case "CA":
+                    budgetLock.DirectCostAdmLocked = setLock;
+                    break;
+                case "CFOM":
+                    budgetLock.DirectCostForsLocked = setLock;
+                    break;
+            }
+
             unitOfWork.SaveChanges();
         }
     }

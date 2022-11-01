@@ -10,6 +10,9 @@ namespace DbAccesEf.Models
     {
         public int BudgetLockID { get; set; }
         public bool RevenuBudgetLocked { get; set; }
-
+        public bool DirectCostDriftLocked { get; set; }
+        public bool DirectCostUtvLocked { get; set; }
+        public bool DirectCostAdmLocked { get; set; }
+        public bool DirectCostForsLocked { get; set; }
     }
 }
