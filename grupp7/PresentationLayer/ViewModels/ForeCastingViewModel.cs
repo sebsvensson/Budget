@@ -226,7 +226,7 @@ namespace PresentationLayer.ViewModels
             double trendResult = 0;
             if (upparbetatOld.Count > counter)
             {
-                trendResult = (costAcc + upparbetatOld.ElementAt(counter)) / (SelectedMonth * 12);
+                trendResult = (costAcc + upparbetatOld.ElementAt(counter)) / SelectedMonth * 12;
             }
 
             result[5] = trendResult;
