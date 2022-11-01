@@ -30,7 +30,12 @@ namespace PresentationLayer.ViewModels
             }
             foreach (CustomerCategory customerCategory in customerController.GetCustomerCategories())
             {
-                CustomerCategories.Add(customerCategory.Name);
+                if (!CustomerCategories.Any(c => c == customerCategory.Name))
+                {
+
+                    CustomerCategories.Add(customerCategory.Name);
+                }
+                    
             }
         }
 

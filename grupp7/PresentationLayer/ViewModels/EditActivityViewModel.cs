@@ -29,7 +29,9 @@ namespace PresentationLayer.ViewModels
             }
             foreach (DbAccesEf.Models.Activity activity in activityController.GetAllActivities())
             {
-                AFFODepartments.Add(activity.AFFODepartment);
+                
+                    AFFODepartments.Add(activity.AFFODepartment);
+                    
             }
         }
 
@@ -162,7 +164,7 @@ namespace PresentationLayer.ViewModels
         }
         private void EditActivity()
         {
-            if (SelectedCustomID != null && ActivityName != null && ActivityXxxx.Length == 3 && AFFODepartment != null)
+            if (SelectedCustomID != null && ActivityName != null && ActivityXxxx.Length == 4 && AFFODepartment != null)
             {
 
                 activityController.EditActivity(SelectedCustomID, ActivityName, ActivityXxxx, AFFODepartment);

@@ -8,5 +8,6 @@ namespace PresentationLayer.ViewModels
 {
     public class AdministerStaffViewModel : BaseViewModel
     {
+
     }
 }

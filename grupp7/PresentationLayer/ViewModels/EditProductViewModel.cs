@@ -166,7 +166,7 @@ namespace PresentationLayer.ViewModels
         }
         private void EditProduct()
         {
-            if (Xxxx.Length == 3 && SelectedCustomID != null && ProductName != null && ProductCategory != null && ProductGroup != null)
+            if (Xxxx.Length == 4 && SelectedCustomID != null && ProductName != null && ProductCategory != null && ProductGroup != null)
             
             {
                 try
